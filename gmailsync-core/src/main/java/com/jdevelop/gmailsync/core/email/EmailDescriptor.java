@@ -6,7 +6,7 @@ public class EmailDescriptor implements Serializable {
 
     protected final String messageId;
 
-    protected EmailDescriptor(String messageId) {
+    public EmailDescriptor(String messageId) {
         this.messageId = messageId;
     }
 
@@ -14,6 +14,7 @@ public class EmailDescriptor implements Serializable {
         return messageId;
     }
 
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
@@ -22,6 +23,7 @@ public class EmailDescriptor implements Serializable {
         return result;
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;

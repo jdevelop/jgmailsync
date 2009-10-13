@@ -8,7 +8,8 @@ public interface DescriptorStorageInterface {
     boolean checkIfDescriptorExists(EmailDescriptor descriptor)
             throws StorageException;
 
-    void addDescriptor(EmailDescriptor descriptor)
-            throws StorageException;
+    void addDescriptor(EmailDescriptor descriptor) throws StorageException;
+
+    void removeDescriptor(EmailDescriptor descriptor) throws StorageException;
 
 }
