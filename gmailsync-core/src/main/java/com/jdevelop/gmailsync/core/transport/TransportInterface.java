@@ -1,6 +1,7 @@
 package com.jdevelop.gmailsync.core.transport;
 
 import com.jdevelop.gmailsync.core.email.EmailMessage;
+import com.jdevelop.gmailsync.core.transport.exception.TransportException;
 
 /**
  * Declares methods to be used for uploading an Email message
@@ -8,6 +9,6 @@ import com.jdevelop.gmailsync.core.email.EmailMessage;
  */
 public interface TransportInterface {
 
-    void uploadMessage(EmailMessage message);
+    void uploadMessage(EmailMessage message) throws TransportException;
 
 }
