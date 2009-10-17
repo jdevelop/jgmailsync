@@ -18,7 +18,8 @@ public class TestImapsUploading {
 
     @Test
     public void testUploadingOfAEmail() throws Exception {
-        TransportInterface transport = new GmailMessageUploader("ibatis",
+        TransportInterface transport = new GmailMessageUploader(
+                "ibatis/another folder2",
                 new Credentials("jdeveloptest", "gfhjkmyf["));
         Properties sessionProperties = new Properties();
         Session session = Session.getInstance(sessionProperties);
