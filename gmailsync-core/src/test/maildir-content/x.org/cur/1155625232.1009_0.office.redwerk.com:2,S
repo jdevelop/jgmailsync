@@ -1,0 +1,82 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCsud-0000F4-Th
+	for bofh@localhost; Tue, 15 Aug 2006 10:00:32 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Tue, 15 Aug 2006 10:00:31 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 13B08A9EEE
+	for <bofh@redwerk.com>; Mon, 14 Aug 2006 19:23:40 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id A00579EB65;
+	Mon, 14 Aug 2006 10:23:33 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from mail.gmx.net (mail.gmx.net [213.165.64.20])
+	by gabe.freedesktop.org (Postfix) with SMTP id C23A49E808
+	for <xorg@lists.freedesktop.org>; Mon, 14 Aug 2006 10:23:30 -0700 (PDT)
+Received: (qmail invoked by alias); 14 Aug 2006 17:23:29 -0000
+Received: from 6-062.vpn.RWTH-Aachen.DE (EHLO localhost) [134.130.246.62]
+	by mail.gmx.net (mp028) with SMTP; 14 Aug 2006 19:23:29 +0200
+X-Authenticated: #24128601
+Date: Mon, 14 Aug 2006 19:22:50 +0200
+From: Sebastian Kemper <sebastian_ml@gmx.net>
+To: "X.org Mailing List" <xorg@lists.freedesktop.org>
+Message-ID: <20060814172250.GA26765@section_eight.mops.rwth-aachen.de>
+References: <20060812204649.GA11635@section_eight.mops.rwth-aachen.de>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20060812204649.GA11635@section_eight.mops.rwth-aachen.de>
+X-PGP-Key: http://www-users.rwth-aachen.de/sebastian.kemper/sebastian_ml_pubkey.asc
+X-message-flag: Please send plain text messages only. Thank you.
+User-Agent: Mutt/1.5.11
+X-Y-GMX-Trusted: 0
+Subject: Re: X.org 7.{0,1}: Can't start mplayer on X :1 from X :0
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+X-UID: 13932
+Content-Length: 696
+X-Keywords:                                                                                                    
+
+Hi all,
+
+I found a nice workaround. Well, it's not really a workaround, but I
+found a way to call the script that, odd enough, always works. I just
+added a servicemenu entry to konqueror. It's a workaround in the sense
+that the script now always works. But it's also much nicer than having
+to call the script from a terminal myself. 
+
+~/.kde/share/apps/konqueror/servicemenus/PlayOnTv.desktop:
+
+[Desktop Entry]
+ServiceTypes=video/*
+Actions=PlayOnTv
+
+[Desktop Action PlayOnTv]
+Name=Auf TV ausgeben
+Icon=tv
+Exec=/bin/sh -c "tv-out %F"
+
+Regards
+Sebastian
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+

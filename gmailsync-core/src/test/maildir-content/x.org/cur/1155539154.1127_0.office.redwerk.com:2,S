@@ -1,0 +1,98 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCWWH-0000Fh-I0
+	for bofh@localhost; Mon, 14 Aug 2006 10:05:54 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Mon, 14 Aug 2006 10:05:53 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 3F085A9EEE
+	for <bofh@redwerk.com>; Sun, 13 Aug 2006 16:34:36 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 73C059EAF3;
+	Sun, 13 Aug 2006 07:10:57 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from qb-out-0506.google.com (qb-out-0506.google.com [72.14.204.237])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 52BAE9E752
+	for <xorg@lists.freedesktop.org>; Sun, 13 Aug 2006 07:10:54 -0700 (PDT)
+Received: by qb-out-0506.google.com with SMTP id q12so713100qbq
+	for <xorg@lists.freedesktop.org>; Sun, 13 Aug 2006 07:10:53 -0700 (PDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=beta; d=gmail.com;
+	h=received:from:to:subject:user-agent:references:in-reply-to:disposition-notification-to:mime-version:content-disposition:date:content-type:content-transfer-encoding:message-id;
+	b=DdsJSPDzRO/NpwPEc5wMlifeOxxpIJtEn8dd10+xNt/PPR5RBh9r11fbwHgUSPQNUofspQSBxjPqgAxZpavIHFaDBtbP4Fc73iIwPMZUwQQDGL/IprI/8mUFnBfXRH1LxCGdweVzkbH6Aw0HdbJoakuZZh01CYgjGHBqtczgkBQ=
+Received: by 10.48.210.20 with SMTP id i20mr201230nfg;
+	Sun, 13 Aug 2006 07:10:53 -0700 (PDT)
+Received: from ?192.168.2.80? ( [85.220.132.38])
+	by mx.gmail.com with ESMTP id p72sm10577689nfc.2006.08.13.07.10.52;
+	Sun, 13 Aug 2006 07:10:52 -0700 (PDT)
+From: Hannes Hauswedell <hannes.hauswedell@gmail.com>
+To: xorg@lists.freedesktop.org
+User-Agent: KMail/1.9.1
+References: <200608091710.51650.hannes.hauswedell@gmail.com>
+	<200608121806.36358.hannes.hauswedell@gmail.com>
+	<c1fa8edf0608121805g19c29818r715f34db97e1ae6f@mail.gmail.com>
+In-Reply-To: <c1fa8edf0608121805g19c29818r715f34db97e1ae6f@mail.gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+Date: Sun, 13 Aug 2006 14:34:06 +0000
+Content-Type: text/plain;
+  charset="iso-8859-15"
+Content-Transfer-Encoding: 7bit
+Message-Id: <200608131434.06813.hannes.hauswedell@gmail.com>
+Subject: Re: help building xorg-modular
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+Content-Length: 1578
+Lines: 33
+X-UID: 13749
+X-Keywords:                                                                                                    
+
+> This may or may not be a useful suggestion, but have you tried running
+>
+> PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/x11r7/lib/pkgconfig" ./build-
+> > from-tarballs.sh -m /home/hannes/Mesa-1.5/ -e /usr/x11r7/ >logfile
+
+PKG_CONFIG_PATH wasnt set before, so it shouldnt matter. (and it doesnt i 
+tried ;) )
+
+> If you reeeaaally really want to get the new xorg running, and don't have
+> any other special requirements, you might try a distribution that supports
+> building it for you automatically, like Gentoo.  You can do all of the
+> building from within a terminal while running Kubuntu by using chroot to
+> build it within the Gentoo partition.  I have a similar setup to this, and
+> have scripts on either distribution to mount the other distro's partition,
+> bind /dev, /sys, /tmp, and then chroot in for me.  Usually I'll do this
+> from within Ubuntu if I'm making drastic changes on the Gentoo side and
+> don't want to be running the system while I make the changes.
+>
+
+well i have the requirement that the target platform be nethence gnu/linux ;)
+i also dont mind doing stuff from inside nethence ( i got most things set up 
+to the point where i only need x to get going) and i dont want to install a 
+complete portgage or another packaging system.
+i tried around and i am absolutely sure that the hardcoded order in which 
+dependencies are built is just wrong or that the script has a bug.
+
+what do you recomend doing?
+
+thanks
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+

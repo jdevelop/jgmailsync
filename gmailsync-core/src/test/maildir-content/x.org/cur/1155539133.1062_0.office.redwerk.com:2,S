@@ -1,0 +1,113 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCWVx-0000Fh-1g
+	for bofh@localhost; Mon, 14 Aug 2006 10:05:33 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Mon, 14 Aug 2006 10:05:33 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id E4424A9EEE
+	for <bofh@redwerk.com>; Sun, 13 Aug 2006 03:05:50 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id D02FD9EAFD;
+	Sat, 12 Aug 2006 18:05:40 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from py-out-1112.google.com (py-out-1112.google.com [64.233.166.178])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 5F3FC9EA65
+	for <xorg@lists.freedesktop.org>; Sat, 12 Aug 2006 18:05:38 -0700 (PDT)
+Received: by py-out-1112.google.com with SMTP id e30so438331pya
+	for <xorg@lists.freedesktop.org>; Sat, 12 Aug 2006 18:05:37 -0700 (PDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=beta; d=gmail.com;
+	h=received:message-id:date:from:to:subject:cc:in-reply-to:mime-version:content-type:references;
+	b=am4chvXxDUfYY7WzmFa9FwRvE2+vdcq/ST9MTgMZWzuDRWWVeIb6pQhy5BiGkVx7xXVmpCXSWTsCg7YI1Q78SiA7tRs7akeJ6J0Jx5oprRIE0Jf9e1YKCrkDvsFdLvFB2Wlw4UhmJuLcbxmHN3pQXCBsXfXdtFqDf51Dgm79GK4=
+Received: by 10.35.51.19 with SMTP id d19mr9633729pyk;
+	Sat, 12 Aug 2006 18:05:37 -0700 (PDT)
+Received: by 10.35.121.10 with HTTP; Sat, 12 Aug 2006 18:05:37 -0700 (PDT)
+Message-ID: <c1fa8edf0608121805g19c29818r715f34db97e1ae6f@mail.gmail.com>
+Date: Sat, 12 Aug 2006 21:05:37 -0400
+From: Simon <simon80@gmail.com>
+To: "Hannes Hauswedell" <hannes.hauswedell@gmail.com>
+In-Reply-To: <200608121806.36358.hannes.hauswedell@gmail.com>
+MIME-Version: 1.0
+References: <200608091710.51650.hannes.hauswedell@gmail.com>
+	<20060809170742.GA5419@fooishbar.org>
+	<200608092214.17502.hannes.hauswedell@gmail.com>
+	<200608121806.36358.hannes.hauswedell@gmail.com>
+Cc: xorg@lists.freedesktop.org
+Subject: Re: help building xorg-modular
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Content-Type: multipart/mixed; boundary="===============0237709475=="
+Mime-version: 1.0
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+Content-Length: 2757
+Lines: 51
+X-UID: 13736
+X-Keywords:                                                                                                    
+
+--===============0237709475==
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_146598_8751729.1155431137662"
+
+------=_Part_146598_8751729.1155431137662
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+This may or may not be a useful suggestion, but have you tried running
+
+PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/x11r7/lib/pkgconfig" ./build-
+> from-tarballs.sh -m /home/hannes/Mesa-1.5/ -e /usr/x11r7/ >logfile
+>
+2>&1
+
+If you reeeaaally really want to get the new xorg running, and don't have
+any other special requirements, you might try a distribution that supports
+building it for you automatically, like Gentoo.  You can do all of the
+building from within a terminal while running Kubuntu by using chroot to
+build it within the Gentoo partition.  I have a similar setup to this, and
+have scripts on either distribution to mount the other distro's partition,
+bind /dev, /sys, /tmp, and then chroot in for me.  Usually I'll do this from
+within Ubuntu if I'm making drastic changes on the Gentoo side and don't
+want to be running the system while I make the changes.
+
+
+Simon
+
+------=_Part_146598_8751729.1155431137662
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+This may or may not be a useful suggestion, but have you tried running <br><br><blockquote style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;" class="gmail_quote">PKG_CONFIG_PATH=&quot;$PKG_CONFIG_PATH:/usr/x11r7/lib/pkgconfig&quot; ./build-
+from-tarballs.sh -m /home/hannes/Mesa-1.5/ -e /usr/x11r7/ &gt;logfile<br></blockquote>2&gt;&amp;1<br><br>If you reeeaaally really want to get the new xorg running, and don't have any other special requirements, you might try a distribution that supports building it for you automatically, like Gentoo.&nbsp; You can do all of the building from within a terminal while running Kubuntu by using chroot to build it within the Gentoo partition.&nbsp; I have a similar setup to this, and have scripts on either distribution to mount the other distro's partition, bind /dev, /sys, /tmp, and then chroot in for me.&nbsp; Usually I'll do this from within Ubuntu if I'm making drastic changes on the Gentoo side and don't want to be running the system while I make the changes.
+<br><br><br>Simon
+
+------=_Part_146598_8751729.1155431137662--
+
+--===============0237709475==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+--===============0237709475==--
+

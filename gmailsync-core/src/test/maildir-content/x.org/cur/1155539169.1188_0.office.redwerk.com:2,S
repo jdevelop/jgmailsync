@@ -1,0 +1,101 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCWWW-0000Fh-Nz
+	for bofh@localhost; Mon, 14 Aug 2006 10:06:09 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Mon, 14 Aug 2006 10:06:08 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 3A3E5A9EEE
+	for <bofh@redwerk.com>; Sun, 13 Aug 2006 19:31:58 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 57C899EB13;
+	Sun, 13 Aug 2006 10:31:52 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from py-out-1112.google.com (py-out-1112.google.com [64.233.166.177])
+	by gabe.freedesktop.org (Postfix) with ESMTP id D15569E730
+	for <xorg@lists.freedesktop.org>; Sun, 13 Aug 2006 10:31:49 -0700 (PDT)
+Received: by py-out-1112.google.com with SMTP id e30so664482pya
+	for <xorg@lists.freedesktop.org>; Sun, 13 Aug 2006 10:31:49 -0700 (PDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=beta; d=gmail.com;
+	h=received:message-id:date:from:to:subject:cc:in-reply-to:mime-version:content-type:references;
+	b=Wdddm2wUp3MB1Og7HDEN767B584DL78ICdGt37j+2ysIE3lMpTMI8RmQ5nY1Nn9BraybikVDujX74LZWKudoZrZtOUKNtlZalZ3P5qpA82QgRIAAZWGxZ0iAZhCEyI4x0xl3xe1bvoZLZfLoZtyCbUyMda3VhiyBakaWd/n+SKA=
+Received: by 10.35.38.17 with SMTP id q17mr11313111pyj;
+	Sun, 13 Aug 2006 10:31:49 -0700 (PDT)
+Received: by 10.35.121.10 with HTTP; Sun, 13 Aug 2006 10:31:48 -0700 (PDT)
+Message-ID: <c1fa8edf0608131031i699aadf8gf91c4892f484a8cf@mail.gmail.com>
+Date: Sun, 13 Aug 2006 13:31:48 -0400
+From: Simon <simon80@gmail.com>
+To: "Hannes Hauswedell" <hannes.hauswedell@gmail.com>
+In-Reply-To: <200608131434.06813.hannes.hauswedell@gmail.com>
+MIME-Version: 1.0
+References: <200608091710.51650.hannes.hauswedell@gmail.com>
+	<200608121806.36358.hannes.hauswedell@gmail.com>
+	<c1fa8edf0608121805g19c29818r715f34db97e1ae6f@mail.gmail.com>
+	<200608131434.06813.hannes.hauswedell@gmail.com>
+Cc: xorg@lists.freedesktop.org
+Subject: Re: help building xorg-modular
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Content-Type: multipart/mixed; boundary="===============1178625107=="
+Mime-version: 1.0
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+Content-Length: 1388
+Lines: 39
+X-UID: 13761
+X-Keywords:                                                                                                    
+
+--===============1178625107==
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_151648_32812464.1155490308881"
+
+------=_Part_151648_32812464.1155490308881
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+> PKG_CONFIG_PATH wasnt set before, so it shouldnt matter. (and it doesnt i
+> tried ;) )
+
+
+My point wasn't to preserve the variable, just to add /usr/x11r7/lib/pkgconfig
+to it.
+
+Simon
+
+------=_Part_151648_32812464.1155490308881
+Content-Type: text/html; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+<br><div><blockquote class="gmail_quote" style="border-left: 1px solid rgb(204, 204, 204); margin: 0pt 0pt 0pt 0.8ex; padding-left: 1ex;">PKG_CONFIG_PATH wasnt set before, so it shouldnt matter. (and it doesnt i<br>tried ;) )
+</blockquote><div>&nbsp;<br>My point wasn't to preserve the variable, just to add <span class="q">/usr/x11r7/lib/pkgconfig to it.<br><br>Simon<br></span></div></div>
+
+------=_Part_151648_32812464.1155490308881--
+
+--===============1178625107==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+--===============1178625107==--
+

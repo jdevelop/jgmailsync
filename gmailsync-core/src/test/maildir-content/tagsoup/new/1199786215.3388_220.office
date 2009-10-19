@@ -1,0 +1,529 @@
+Received: from [127.0.0.1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.68 (FreeBSD))
+	(envelope-from <sentto-11878069-977-1199553315-bofh=redwerk.com@returns.groups.yahoo.com>)
+	id 1JCB2S-0002MQ-Ou
+	for bofh@localhost; Tue, 08 Jan 2008 11:46:42 +0200
+Received: from mail.redwerk.com [89.105.196.9]
+	by office.redwerk.com with IMAP (fetchmail-6.3.8)
+	for <bofh@localhost> (single-drop); Tue, 08 Jan 2008 11:46:28 +0200 (EET)
+Received: from n36c.bullet.mail.sp1.yahoo.com ([66.163.168.170])
+	by redwerk.com with smtp (Exim 4.60)
+	(envelope-from <sentto-11878069-977-1199553315-bofh=redwerk.com@returns.groups.yahoo.com>)
+	id 1JBCc9-00011W-Ry
+	for bofh@redwerk.com; Sat, 05 Jan 2008 18:15:18 +0100
+Comment: DomainKeys? See http://antispam.yahoo.com/domainkeys
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=lima; d=yahoogroups.com;
+	b=UgLAK5xfNmuVqKBivbj3wDqcrS4EfjA0V/KVW6R4oHLbZEnrco+70OFBvQL2YU1Htly8gVKzEFqqehFvx/XyD7ZUVeeU7LjNUT6v+HdrW5PmtvBmrW7uo3P3krJUTvN9;
+Received: from [216.252.122.217] by n36.bullet.mail.sp1.yahoo.com with NNFMP; 05 Jan 2008 17:15:16 -0000
+Received: from [209.73.164.86] by t2.bullet.sp1.yahoo.com with NNFMP; 05 Jan 2008 17:15:16 -0000
+Received: from [66.218.66.97] by t8.bullet.scd.yahoo.com with NNFMP; 05 Jan 2008 17:15:16 -0000
+X-Yahoo-Newman-Id: 11878069-m977
+X-Sender: cowan@ccil.org
+X-Apparently-To: tagsoup-friends@yahoogroups.com
+X-Received: (qmail 70743 invoked from network); 5 Jan 2008 17:15:13 -0000
+X-Received: from unknown (66.218.67.97)
+  by m57.grp.scd.yahoo.com with QMQP; 5 Jan 2008 17:15:13 -0000
+X-Received: from unknown (HELO earth.ccil.org) (192.190.237.11)
+  by mta18.grp.scd.yahoo.com with SMTP; 5 Jan 2008 17:15:13 -0000
+X-Received: from cowan by earth.ccil.org with local (Exim 4.63)
+	(envelope-from <cowan@ccil.org>)
+	id 1JBCc4-0001xL-PJ
+	for tagsoup-friends@yahoogroups.com; Sat, 05 Jan 2008 12:15:12 -0500
+To: tagsoup-friends@yahoogroups.com
+Message-ID: <20080105171512.GA1522@mercury.ccil.org>
+User-Agent: Mutt/1.5.13 (2006-08-11)
+X-Originating-IP: 192.190.237.11
+X-eGroups-Msg-Info: 1:12:0:0:0
+From: John Cowan <cowan@ccil.org>
+X-Yahoo-Profile: johnwcowan
+MIME-Version: 1.0
+Mailing-List: list tagsoup-friends@yahoogroups.com; contact tagsoup-friends-owner@yahoogroups.com
+Delivered-To: mailing list tagsoup-friends@yahoogroups.com
+List-Id: <tagsoup-friends.yahoogroups.com>
+Precedence: bulk
+List-Unsubscribe: <mailto:tagsoup-friends-unsubscribe@yahoogroups.com>
+Date: Sat, 5 Jan 2008 12:15:12 -0500
+Subject: [tagsoup-friends] [ANNOUNCE] TagSoup 1.2 released at long last!
+Reply-To: tagsoup-friends@yahoogroups.com
+X-Yahoo-Newman-Property: groups-email-ff-u
+Content-Type: multipart/alternative;
+ boundary="oKBFXC0QvKIrxUDKffvngcLshq6L6DAbSCURp92"
+Content-Length: 18805
+
+--oKBFXC0QvKIrxUDKffvngcLshq6L6DAbSCURp92
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+There are a great many changes, most of them fixes for long-standing bugs,
+in this release. Only the most important are listed here; for the rest,
+see the CHANGES file in the source distribution. Very special thanks to
+Jojo Dijamco, whose intensive efforts at debugging made this release a
+usable upgrade rather than a useless mass of undetected bugs.
+
+  * As noted above, I have changed the license to Apache 2.0.
+
+  * The default content model for bogons (unknown elements) is now
+    ANY rather than EMPTY. This is a breaking change, which I have done
+    only because there was so much demand for it. It can be undone on
+    the command line with the --emptybogons switch, or programmatically
+    with "parser.setFeature(Parser.emptyBogonsFeature, true)".
+
+  * The processing of entity references in attribute values has
+    finally been fixed to do what browsers do. That is, a reference
+    is only recognized if it is properly terminated by a semicolon;
+    otherwise it is treated as plain text. This means that URIs like
+    "foo?cdown=32&cup=42" are no longer seen as containing an instance of
+    the cup character.
+
+  * Several new switches have been added:
+
+        o --doctype-system and --doctype-public force a DOCTYPE
+          declaration to be output and allow setting the system and
+          public identifiers.
+
+        o --standalone and --version allow control of the XML
+          declaration that is output. (Note that TagSoup's XML output
+          is always version 1.0, even if you use --version=1.1.)
+
+        o --norootbogons causes unknown elements not to be allowed as
+          the document root element. Instead, they are made children of
+          the default root element (the html element for HTML).
+
+  * The TagSoup core now supports character entities with values above
+    U+FFFF. As a consequence, the HTML schema now supports all 2,210
+    standard character entities from the 2007-12-14 draft of XML Entity
+    Definitions for Characters, except the 94 which require more than
+    one Unicode character to represent.
+
+  * The SAX events startPrefixMapping and endPrefixMapping are now
+    being reported for all cases of foreign elements and attributes.
+
+  * All bugs around newline processing on Windows should now be gone.
+
+  * A number of content models have been loosened to allow elements
+    to appear in new and non-standard (but commonly found) places. In
+    particular, tables are now allowed inside paragraphs, against the
+    letter of the W3C specification.
+
+  * Since the span element is intended for fine control of appearance
+    using CSS, it should never have been a restartable element. This
+    very long-standing bug has now been fixed.
+
+  * The following non-standard elements are now at least partly
+    supported: bgsound, blink, canvas, comment, listing, marquee, nobr,
+    rbc, rb, rp, rtc, rt, ruby, wbr, xmp.
+
+  * In HTML output mode, boolean attributes like checked are now output
+    as such, rather than in XML style as checked="checked".
+
+  * Runs of < characters such as << and <<< are now handled correctly
+    in text rather than being transformed into extremely bogus start-tags.
+
+-- 
+May the hair on your toes never fall out!       John Cowan
+        --Thorin Oakenshield (to Bilbo)         cowan@ccil.org
+
+--oKBFXC0QvKIrxUDKffvngcLshq6L6DAbSCURp92
+Content-Type: text/html; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+</head>
+
+
+
+
+<body style="background-color: #ffffff;">
+
+<!--~-|**|PrettyHtmlStartT|**|-~-->
+<div id="ygrp-mlmsg" style="width:655px; position:relative;">
+  <div id="ygrp-msg" style="width: 490px; padding: 0 15px 0 0; float:left;  z-index:1;">
+<!--~-|**|PrettyHtmlEndT|**|-~-->
+
+    <div id="ygrp-text">
+            <p>There are a great many changes, most of them fixes for long-standing bugs,<br>
+in this release. Only the most important are listed here; for the rest,<br>
+see the CHANGES file in the source distribution. Very special thanks to<br>
+Jojo Dijamco, whose intensive efforts at debugging made this release a<br>
+usable upgrade rather than a useless mass of undetected bugs.<br>
+<br>
+* As noted above, I have changed the license to Apache 2.0.<br>
+<br>
+* The default content model for bogons (unknown elements) is now<br>
+    ANY rather than EMPTY. This is a breaking change, which I have done<br>
+    only because there was so much demand for it. It can be undone on<br>
+    the command line with the --emptybogons switch, or programmatically<br>
+    with &quot;parser.setFeature(<wbr>Parser.emptyBogo<wbr>nsFeature, true)&quot;.<br>
+<br>
+* The processing of entity references in attribute values has<br>
+    finally been fixed to do what browsers do. That is, a reference<br>
+    is only recognized if it is properly terminated by a semicolon;<br>
+    otherwise it is treated as plain text. This means that URIs like<br>
+    &quot;foo?cdown=32&amp;<wbr>cup=42&quot; are no longer seen as containing an instance of<br>
+    the cup character.<br>
+<br>
+* Several new switches have been added:<br>
+<br>
+o --doctype-system and --doctype-public force a DOCTYPE<br>
+          declaration to be output and allow setting the system and<br>
+          public identifiers.<br>
+<br>
+o --standalone and --version allow control of the XML<br>
+          declaration that is output. (Note that TagSoup's XML output<br>
+          is always version 1.0, even if you use --version=1.<wbr>1.)<br>
+<br>
+o --norootbogons causes unknown elements not to be allowed as<br>
+          the document root element. Instead, they are made children of<br>
+          the default root element (the html element for HTML).<br>
+<br>
+* The TagSoup core now supports character entities with values above<br>
+    U&#43;FFFF. As a consequence, the HTML schema now supports all 2,210<br>
+    standard character entities from the 2007-12-14 draft of XML Entity<br>
+    Definitions for Characters, except the 94 which require more than<br>
+    one Unicode character to represent.<br>
+<br>
+* The SAX events startPrefixMapping and endPrefixMapping are now<br>
+    being reported for all cases of foreign elements and attributes.<br>
+<br>
+* All bugs around newline processing on Windows should now be gone.<br>
+<br>
+* A number of content models have been loosened to allow elements<br>
+    to appear in new and non-standard (but commonly found) places. In<br>
+    particular, tables are now allowed inside paragraphs, against the<br>
+    letter of the W3C specification.<br>
+<br>
+* Since the span element is intended for fine control of appearance<br>
+    using CSS, it should never have been a restartable element. This<br>
+    very long-standing bug has now been fixed.<br>
+<br>
+* The following non-standard elements are now at least partly<br>
+    supported: bgsound, blink, canvas, comment, listing, marquee, nobr,<br>
+    rbc, rb, rp, rtc, rt, ruby, wbr, xmp.<br>
+<br>
+* In HTML output mode, boolean attributes like checked are now output<br>
+    as such, rather than in XML style as checked=&quot;checked&quot;<wbr>.<br>
+<br>
+* Runs of &lt; characters such as &lt;&lt; and &lt;&lt;&lt; are now handled correctly<br>
+    in text rather than being transformed into extremely bogus start-tags.<br>
+<br>
+-- <br>
+May the hair on your toes never fall out!       John Cowan<br>
+        --Thorin Oakenshield (to Bilbo)         <a href="mailto:cowan%40ccil.org">cowan@ccil.org</a><br>
+</p>
+    </div>  
+
+    <!--~-|**|PrettyHtmlStart|**|-~-->
+    <span width="1" style="color: white;">__._,_.___</span>
+    <!-- Start the section with Message In topic -->
+    <div id="ygrp-actbar">
+              <span class="left">
+          <a href="http://groups.yahoo.com/group/tagsoup-friends/message/977;_ylc=X3oDMTMzNHY5a2k4BF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARtc2dJZAM5NzcEc2VjA2Z0cgRzbGsDdnRwYwRzdGltZQMxMTk5NTUzMzE2BHRwY0lkAzk3Nw--">
+            Messages in this topic          </a> (<span class="bld">1</span>)
+        </span>
+        <a href="http://groups.yahoo.com/group/tagsoup-friends/post;_ylc=X3oDMTJwcW5nN2FrBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARtc2dJZAM5NzcEc2VjA2Z0cgRzbGsDcnBseQRzdGltZQMxMTk5NTUzMzE2?act=reply&messageNum=977">
+          <span class="bld">
+            Reply          </span> (via web post)
+        </a>  | 
+        <a href="http://groups.yahoo.com/group/tagsoup-friends/post;_ylc=X3oDMTJmYWE4cDZuBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNudHBjBHN0aW1lAzExOTk1NTMzMTY-" class="bld">
+          Start a new topic        </a>
+          </div> 
+    <!-------     Start Nav Bar  ------>
+    <!-- |**|begin egp html banner|**| -->
+    <div id="ygrp-vitnav">
+                <a href="http://groups.yahoo.com/group/tagsoup-friends/messages;_ylc=X3oDMTJmNzlocmJtBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNtc2dzBHN0aW1lAzExOTk1NTMzMTY-">Messages</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/files;_ylc=X3oDMTJnNDhzdmhjBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNmaWxlcwRzdGltZQMxMTk5NTUzMzE2">Files</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/photos;_ylc=X3oDMTJmamc3OWZ2BF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNwaG90BHN0aW1lAzExOTk1NTMzMTY-">Photos</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/links;_ylc=X3oDMTJnYjFldTRrBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNsaW5rcwRzdGltZQMxMTk5NTUzMzE2">Links</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/database;_ylc=X3oDMTJkbTZka2JyBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNkYgRzdGltZQMxMTk5NTUzMzE2">Database</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/polls;_ylc=X3oDMTJnb2p1MWtvBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNwb2xscwRzdGltZQMxMTk5NTUzMzE2">Polls</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/members;_ylc=X3oDMTJma2F2ZWpsBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNtYnJzBHN0aW1lAzExOTk1NTMzMTY-">Members</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/calendar;_ylc=X3oDMTJlZGw5amFnBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNjYWwEc3RpbWUDMTE5OTU1MzMxNg--">Calendar</a>  
+    </div>  
+    <!-- |**|end egp html banner|**| -->
+
+                        <div id="ygrp-grft">
+          
+<!-- |**|begin egp html banner|**| -->
+
+          To unsubscribe, send a blank email to tagsoup-friends-unsubscribe@yahoogroups.com          
+<!-- |**|end egp html banner|**| -->
+
+        </div>
+      
+                  <div id="ygrp-mkp">
+      <div id="hd">MARKETPLACE</div>
+      <div id="ads">
+                  <div class="ad">
+            <hr size=1 noshade><a href="http://us.ard.yahoo.com/SIG=12m82f32n/M=571476.12066680.12490312.11509771/D=groups/S=1706030390:MKP1/Y=YAHOO/EXP=1199560516/A=5086951/R=0/SIG=12k8pu1n3/*http://college-finder.net/index.cfm?key=yahoo_colfngrouptxt_12066680&c=CA152932587">Earn your degree in as few as 2 years - Advance your career with an AS, BS, MS degree</a> - College-Finder.net.          </div>
+                              </div>
+    </div>
+      
+    <!-- yahoo logo -->
+    <!-- |**|begin egp html banner|**| -->
+    <div id="ygrp-ft">
+      <a href="http://groups.yahoo.com/;_ylc=X3oDMTJlbjNjMnVrBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNnZnAEc3RpbWUDMTE5OTU1MzMxNg--">
+      <img src="http://us.i1.yimg.com/us.yimg.com/i/yg/img/logo/ma_grp_160.gif" height="15" width="106" border="0" alt="Yahoo! Groups"></a> <br>
+      <a href="http://groups.yahoo.com/group/tagsoup-friends/join;_ylc=X3oDMTJnMjFsZWNsBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNzdG5ncwRzdGltZQMxMTk5NTUzMzE2">Change settings via the Web</a> (Yahoo! ID required) <br>
+      Change settings via email: <a href="mailto:tagsoup-friends-digest@yahoogroups.com?subject=Email Delivery: Digest">Switch delivery to Daily Digest</a> | <a href = "mailto:tagsoup-friends-traditional@yahoogroups.com?subject=Change Delivery Format: Traditional">Switch format to Traditional</a> <br>
+
+      <a href="http://groups.yahoo.com/group/tagsoup-friends;_ylc=X3oDMTJlMDFqM2FlBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNocGYEc3RpbWUDMTE5OTU1MzMxNg--">
+        Visit Your Group 
+      </a> |
+      <a href="http://docs.yahoo.com/info/terms/">
+        Yahoo! Groups Terms of Use      </a> |
+      <a href="mailto:tagsoup-friends-unsubscribe@yahoogroups.com?subject=">
+        Unsubscribe      </a> 
+    </div>     <!-- |**|end egp html banner|**| -->
+  </div> <!-- ygrp-msg -->
+
+  
+  <!-- Sponsor -->
+  <!-- |**|begin egp html banner|**| -->
+  <div id="ygrp-sponsor" style="width:140px;float: left; clear: none; margin-left: 5px; background:white; margin-bottom:25px ;position:absolute; top:0; right: 0;">
+    <!-- Network content -->
+    
+    <!-- Start vitality -->
+    <div id="ygrp-vital">
+            <a href="http://groups.yahoo.com/group/tagsoup-friends;_ylc=X3oDMTJmOWQ0M3FiBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDdnRsBHNsawN2Z2hwBHN0aW1lAzExOTk1NTMzMTY-">
+        Visit Your Group      </a>
+    </div> 
+              
+    <!-- Network content -->
+              <div id="nc">
+              <div class="ad">
+                      <div id="hd1">Yahoo! Finance</div> 
+<p><a href="http://us.ard.yahoo.com/SIG=12jpscgfm/M=493064.12016257.12445664.8674578/D=groups/S=1706030390:NC/Y=YAHOO/EXP=1199560516/A=4507179/R=0/SIG=12de4rskk/*http://us.rd.yahoo.com/evt=50284/*http://finance.yahoo.com/personal-finance">It's Now Personal</a></p> 
+<p>Guides, news,</p> 
+<p>advice & more.</p>                   </div>
+                    <div class="ad">
+                      <div id="hd1">New web site?</div> 
+<p><a href="http://us.ard.yahoo.com/SIG=12jsgeu7p/M=493064.12016308.12445700.8674578/D=groups/S=1706030390:NC/Y=YAHOO/EXP=1199560516/A=3848642/R=0/SIG=131eshi2t/*http://searchmarketing.yahoo.com/arp/srchv2.php?o=US2004&cmp=Yahoo&ctv=Groups3&s=Y&s2=&s3=&b=50">Drive traffic now.</a></p> 
+<p>Get your business</p> 
+<p>on Yahoo! search.</p>                  </div>
+                    <div class="ad">
+                      <div id="hd1">Endurance Zone</div> 
+<p><a href="http://us.ard.yahoo.com/SIG=12jqf4ij6/M=493064.12016277.12445681.8674578/D=groups/S=1706030390:NC/Y=YAHOO/EXP=1199560516/A=4776371/R=0/SIG=11k023rmb/*http://advision.webevents.yahoo.com/endurancezone/">on Yahoo! Groups</a></p> 
+<p>Groups about</p> 
+<p>better endurance.</p>                  </div>
+          </div>
+    
+  </div>   <!-- |**|end egp html banner|**| -->
+  <div style="clear:both; color: #FFF; font-size:1px;">.</div>
+</div>   <img src="http://geo.yahoo.com/serv?s=97359714/grpId=11878069/grpspId=1706030390/msgId=977/stime=1199553316/nc1=4507179/nc2=3848642/nc3=4776371" width="1" height="1"> <br>
+
+<span  style="color: white;">__,_._,___</span>
+<!--~-|**|PrettyHtmlEnd|**|-~-->
+</body>
+<!--~-|**|PrettyHtmlStart|**|-~-->
+<head>
+<style type="text/css">
+<!--
+#ygrp-mkp{
+  border: 1px solid #d8d8d8;
+  font-family: Arial;
+  margin: 14px 0px;
+  padding: 0px 14px;
+}
+#ygrp-mkp hr{
+  border: 1px solid #d8d8d8;
+}
+#ygrp-mkp #hd{
+  color: #628c2a;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 122%;
+  margin: 10px 0px;
+}
+#ygrp-mkp #ads{
+  margin-bottom: 10px;
+}
+#ygrp-mkp .ad{
+  padding: 0 0;
+}
+#ygrp-mkp .ad a{
+  color: #0000ff;
+  text-decoration: none;
+}
+-->
+</style>
+</head>
+<head>
+<style type="text/css">
+<!--
+#ygrp-sponsor #ygrp-lc{
+  font-family: Arial;
+}
+#ygrp-sponsor #ygrp-lc #hd{
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 78%;
+  line-height: 122%;
+}
+#ygrp-sponsor #ygrp-lc .ad{
+  margin-bottom: 10px;
+  padding: 0 0;
+}
+-->
+</style>
+</head>
+<head>
+<style type="text/css">
+<!--
+#ygrp-mlmsg {font-size:13px; font-family: arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}
+#ygrp-mlmsg table {font-size:inherit;font:100%;}
+#ygrp-mlmsg select, input, textarea {font:99% arial,helvetica,clean,sans-serif;}
+#ygrp-mlmsg pre, code {font:115% monospace;*font-size:100%;}
+#ygrp-mlmsg * {line-height:1.22em;}
+#ygrp-text{
+    font-family: Georgia;	
+}
+#ygrp-text p{
+    margin: 0 0 1em 0;
+}
+#ygrp-tpmsgs{
+    font-family: Arial;	
+    clear: both;
+}
+#ygrp-vitnav{
+	padding-top: 10px;
+	font-family: Verdana;
+	font-size: 77%;
+	margin: 0;
+}
+#ygrp-vitnav a{
+	padding: 0 1px;
+}
+#ygrp-actbar{
+	clear: both;
+	margin: 25px 0;
+	white-space:nowrap;
+	color: #666;
+	text-align: right;
+}
+#ygrp-actbar .left{
+	float: left;
+	white-space:nowrap;
+}
+.bld{font-weight:bold;}
+#ygrp-grft{
+	font-family: Verdana;
+	font-size: 77%;
+	padding: 15px 0;
+}
+#ygrp-ft{
+  font-family: verdana;
+  font-size: 77%;
+  border-top: 1px solid #666; 
+  padding: 5px 0; 
+}
+#ygrp-mlmsg #logo{
+  padding-bottom: 10px;
+}
+
+#ygrp-vital{
+	background-color: #e0ecee;
+	margin-bottom: 20px;
+	padding: 2px 0 8px 8px;
+}
+#ygrp-vital #vithd{
+	font-size: 77%;
+	font-family: Verdana;
+	font-weight: bold;
+	color: #333;
+	text-transform: uppercase;
+}
+#ygrp-vital ul{
+	padding: 0;
+	margin: 2px 0;
+}
+#ygrp-vital ul li{
+  list-style-type: none;
+  clear: both;
+  border: 1px solid #e0ecee;  
+}
+#ygrp-vital ul li .ct{
+  font-weight: bold;
+  color: #ff7900;
+  float: right;
+  width: 2em;
+  text-align:right;
+  padding-right: .5em;
+}
+#ygrp-vital ul li .cat{
+  font-weight: bold;
+}
+#ygrp-vital a{
+	text-decoration: none;
+}
+
+#ygrp-vital a:hover{
+  text-decoration: underline;
+}
+
+#ygrp-sponsor #hd{
+	color: #999;
+	font-size: 77%;
+}
+#ygrp-sponsor #ov{
+	padding: 6px 13px;
+	background-color: #e0ecee;
+	margin-bottom: 20px;
+}
+#ygrp-sponsor #ov ul{
+	padding: 0 0 0 8px;
+	margin: 0;
+}
+#ygrp-sponsor #ov li{
+	list-style-type: square;
+	padding: 6px 0;
+	font-size: 77%;
+}
+#ygrp-sponsor #ov li a{
+	text-decoration: none;
+	font-size: 130%;
+}
+#ygrp-sponsor #nc{
+  background-color: #eee;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+#ygrp-sponsor .ad{
+	padding: 8px 0;
+}
+#ygrp-sponsor .ad #hd1{
+	font-family: Arial;
+	font-weight: bold;
+	color: #628c2a;
+	font-size: 100%;
+	line-height: 122%;
+}
+#ygrp-sponsor .ad a{
+	text-decoration: none;
+}
+#ygrp-sponsor .ad a:hover{
+	text-decoration: underline;
+}
+#ygrp-sponsor .ad p{
+	margin: 0;
+}
+o{font-size: 0; }
+.MsoNormal{
+   margin: 0 0 0 0;
+}
+#ygrp-text tt{
+  font-size: 120%;
+}
+blockquote{margin: 0 0 0 4px;}
+.replbq{margin:4}
+-->
+</style>
+</head>
+<!--~-|**|PrettyHtmlEnd|**|-~-->
+</html><!--End group email -->
+
+
+--oKBFXC0QvKIrxUDKffvngcLshq6L6DAbSCURp92--
+

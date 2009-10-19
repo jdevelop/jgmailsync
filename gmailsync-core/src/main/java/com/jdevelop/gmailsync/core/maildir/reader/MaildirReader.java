@@ -43,16 +43,37 @@ public class MaildirReader implements Iterator<Message> {
         final File currentDir = maildirs[currentDirIdx];
         final File parentDir = currentDir.getParentFile();
         String dirName = "maildir://" + parentDir.getAbsolutePath();
+        System.out.println(dirName);
         Store store = session.getStore(new URLName(dirName));
         store.connect();
         currentFolder = store.getFolder(currentDir.getName());
+        System.out.println(currentFolder.getFullName());
+        currentFolder.open(Folder.READ_ONLY);
         numberOfMessagesInFolder = currentFolder.getMessageCount();
+        System.out.println(numberOfMessagesInFolder);
     }
 
     @Override
     public boolean hasNext() {
         return currentMessageIdx < numberOfMessagesInFolder
-                || currentDirIdx < maildirs.length;
+                || hasNextNotEmptyMaildir();
+    }
+
+    private boolean hasNextNotEmptyMaildir() {
+        boolean hasMessages = false;
+        do {
+            try {
+                initCurrentFolder();
+            } catch (MessagingException e) {
+                throw new IllegalStateException(e);
+            }
+            if (numberOfMessagesInFolder > 0) {
+                hasMessages = true;
+                break;
+            }
+            ++currentDirIdx;
+        } while (currentDirIdx < maildirs.length);
+        return hasMessages;
     }
 
     @Override
@@ -60,15 +81,9 @@ public class MaildirReader implements Iterator<Message> {
         currentMessageIdx++;
         if (currentMessageIdx >= numberOfMessagesInFolder) {
             currentMessageIdx = 0;
-            currentDirIdx++;
-            if (currentDirIdx >= maildirs.length)
-                throw new IllegalStateException(
-                        "No more messages are available");
-            try {
-                initCurrentFolder();
-            } catch (MessagingException e) {
-                throw new IllegalStateException(e);
-            }
+            final boolean hasNotEmptyMaildirs = hasNextNotEmptyMaildir();
+            if (!hasNotEmptyMaildirs)
+                throw new IllegalStateException("No messages available");
         }
         try {
             return currentFolder.getMessage(currentMessageIdx);

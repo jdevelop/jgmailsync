@@ -1,0 +1,421 @@
+Received: from [127.0.0.1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.68 (FreeBSD))
+	(envelope-from <sentto-11878069-979-1199630016-bofh=redwerk.com@returns.groups.yahoo.com>)
+	id 1JCB8j-0002Pz-Af
+	for bofh@localhost; Tue, 08 Jan 2008 11:53:09 +0200
+Received: from mail.redwerk.com [89.105.196.9]
+	by office.redwerk.com with IMAP (fetchmail-6.3.8)
+	for <bofh@localhost> (single-drop); Tue, 08 Jan 2008 11:52:57 +0200 (EET)
+Received: from n19c.bullet.sp1.yahoo.com ([69.147.64.132])
+	by redwerk.com with smtp (Exim 4.60)
+	(envelope-from <sentto-11878069-979-1199630016-bofh=redwerk.com@returns.groups.yahoo.com>)
+	id 1JBWZK-0005p5-CL
+	for bofh@redwerk.com; Sun, 06 Jan 2008 15:33:42 +0100
+Comment: DomainKeys? See http://antispam.yahoo.com/domainkeys
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=lima; d=yahoogroups.com;
+	b=BfD6CeH0F18uBem0/n6+wEgLhvTqZne/kW02fIih0ngGXhFfgmk85YRNUJ/6e8QxXI11iyrmge+uSsuiH5rtyozHL0gaM2vQrWY/qsTXox/r6YF4avqRz+XLC82acXko;
+Received: from [216.252.122.219] by n19.bullet.sp1.yahoo.com with NNFMP; 06 Jan 2008 14:33:36 -0000
+Received: from [66.218.69.1] by t4.bullet.sp1.yahoo.com with NNFMP; 06 Jan 2008 14:33:36 -0000
+Received: from [66.218.67.108] by t1.bullet.scd.yahoo.com with NNFMP; 06 Jan 2008 14:33:36 -0000
+X-Yahoo-Newman-Id: 11878069-m979
+X-Sender: cowan@ccil.org
+X-Apparently-To: tagsoup-friends@yahoogroups.com
+X-Received: (qmail 86663 invoked from network); 6 Jan 2008 14:33:35 -0000
+X-Received: from unknown (66.218.67.96)
+  by m44.grp.scd.yahoo.com with QMQP; 6 Jan 2008 14:33:35 -0000
+X-Received: from unknown (HELO earth.ccil.org) (192.190.237.11)
+  by mta17.grp.scd.yahoo.com with SMTP; 6 Jan 2008 14:33:35 -0000
+X-Received: from cowan by earth.ccil.org with local (Exim 4.63)
+	(envelope-from <cowan@ccil.org>)
+	id 1JBWZD-0001QU-1u
+	for tagsoup-friends@yahoogroups.com; Sun, 06 Jan 2008 09:33:35 -0500
+To: tagsoup-friends@yahoogroups.com
+Message-ID: <20080106143334.GD23161@mercury.ccil.org>
+References: <20080105171512.GA1522@mercury.ccil.org> <flqoil+sjij@eGroups.com>
+In-Reply-To: <flqoil+sjij@eGroups.com>
+User-Agent: Mutt/1.5.13 (2006-08-11)
+X-Originating-IP: 192.190.237.11
+X-eGroups-Msg-Info: 1:12:0:0:0
+From: John Cowan <cowan@ccil.org>
+X-Yahoo-Profile: johnwcowan
+MIME-Version: 1.0
+Mailing-List: list tagsoup-friends@yahoogroups.com; contact tagsoup-friends-owner@yahoogroups.com
+Delivered-To: mailing list tagsoup-friends@yahoogroups.com
+List-Id: <tagsoup-friends.yahoogroups.com>
+Precedence: bulk
+List-Unsubscribe: <mailto:tagsoup-friends-unsubscribe@yahoogroups.com>
+Date: Sun, 6 Jan 2008 09:33:35 -0500
+Subject: Re: [tagsoup-friends] Re: [ANNOUNCE] TagSoup 1.2 released at long last!
+Reply-To: tagsoup-friends@yahoogroups.com
+X-Yahoo-Newman-Property: groups-email-ff-u
+Content-Type: multipart/alternative;
+ boundary="b9wlnGMyn8u5AUYt8klvdVhHFCN4uNo-ucRxqQx"
+Content-Length: 12936
+
+--b9wlnGMyn8u5AUYt8klvdVhHFCN4uNo-ucRxqQx
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Stephen Duncan Jr scripsit:
+
+> I've created the upload request, so it should be available in the
+> Maven repositories in a few days:
+> http://jira.codehaus.org/browse/MAVENUPLOAD-1884
+
+Thanks.
+
+-- 
+John Cowan  cowan@ccil.org  http://ccil.org/~cowan
+Female celebrity stalker, on a hot morning in Cairo:
+"Imagine, Colonel Lawrence, ninety-two already!"
+El Auruns's reply:  "Many happy returns of the day!"
+
+--b9wlnGMyn8u5AUYt8klvdVhHFCN4uNo-ucRxqQx
+Content-Type: text/html; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+</head>
+
+
+
+
+<body style="background-color: #ffffff;">
+
+<!--~-|**|PrettyHtmlStartT|**|-~-->
+<div id="ygrp-mlmsg" style="width:655px; position:relative;">
+  <div id="ygrp-msg" style="width: 490px; padding: 0 15px 0 0; float:left;  z-index:1;">
+<!--~-|**|PrettyHtmlEndT|**|-~-->
+
+    <div id="ygrp-text">
+            <p>Stephen Duncan Jr scripsit:<br>
+<br>
+&gt; I've created the upload request, so it should be available in the<br>
+&gt; Maven repositories in a few days:<br>
+&gt; <a href="http://jira.codehaus.org/browse/MAVENUPLOAD-1884">http://jira.<wbr>codehaus.<wbr>org/browse/<wbr>MAVENUPLOAD-<wbr>1884</a><br>
+<br>
+Thanks.<br>
+<br>
+-- <br>
+John Cowan  <a href="mailto:cowan%40ccil.org">cowan@ccil.org</a>  <a href="http://ccil.org/~cowan">http://ccil.<wbr>org/~cowan</a><br>
+Female celebrity stalker, on a hot morning in Cairo:<br>
+&quot;Imagine, Colonel Lawrence, ninety-two already!&quot;<br>
+El Auruns's reply:  &quot;Many happy returns of the day!&quot;<br>
+</p>
+    </div>  
+
+    <!--~-|**|PrettyHtmlStart|**|-~-->
+    <span width="1" style="color: white;">__._,_.___</span>
+    <!-- Start the section with Message In topic -->
+    <div id="ygrp-actbar">
+              <span class="left">
+          <a href="http://groups.yahoo.com/group/tagsoup-friends/message/977;_ylc=X3oDMTMzb2ZxdDBtBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARtc2dJZAM5NzkEc2VjA2Z0cgRzbGsDdnRwYwRzdGltZQMxMTk5NjMwMDE2BHRwY0lkAzk3Nw--">
+            Messages in this topic          </a> (<span class="bld">3</span>)
+        </span>
+        <a href="http://groups.yahoo.com/group/tagsoup-friends/post;_ylc=X3oDMTJwM2pscTFjBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARtc2dJZAM5NzkEc2VjA2Z0cgRzbGsDcnBseQRzdGltZQMxMTk5NjMwMDE2?act=reply&messageNum=979">
+          <span class="bld">
+            Reply          </span> (via web post)
+        </a>  | 
+        <a href="http://groups.yahoo.com/group/tagsoup-friends/post;_ylc=X3oDMTJmcTJidm5qBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNudHBjBHN0aW1lAzExOTk2MzAwMTY-" class="bld">
+          Start a new topic        </a>
+          </div> 
+    <!-------     Start Nav Bar  ------>
+    <!-- |**|begin egp html banner|**| -->
+    <div id="ygrp-vitnav">
+                <a href="http://groups.yahoo.com/group/tagsoup-friends/messages;_ylc=X3oDMTJmZnQxZjdzBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNtc2dzBHN0aW1lAzExOTk2MzAwMTY-">Messages</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/files;_ylc=X3oDMTJnbGxsZWx2BF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNmaWxlcwRzdGltZQMxMTk5NjMwMDE2">Files</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/photos;_ylc=X3oDMTJmNXE4NTA5BF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNwaG90BHN0aW1lAzExOTk2MzAwMTY-">Photos</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/links;_ylc=X3oDMTJncjJ2bjY0BF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNsaW5rcwRzdGltZQMxMTk5NjMwMDE2">Links</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/database;_ylc=X3oDMTJkbWtsNnRnBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNkYgRzdGltZQMxMTk5NjMwMDE2">Database</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/polls;_ylc=X3oDMTJnYmk3cTc5BF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNwb2xscwRzdGltZQMxMTk5NjMwMDE2">Polls</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/members;_ylc=X3oDMTJmbnQzcWptBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNtYnJzBHN0aW1lAzExOTk2MzAwMTY-">Members</a>  
+            |    <a href="http://groups.yahoo.com/group/tagsoup-friends/calendar;_ylc=X3oDMTJlb3BjbDgwBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNjYWwEc3RpbWUDMTE5OTYzMDAxNg--">Calendar</a>  
+    </div>  
+    <!-- |**|end egp html banner|**| -->
+
+                        <div id="ygrp-grft">
+          
+<!-- |**|begin egp html banner|**| -->
+
+          To unsubscribe, send a blank email to tagsoup-friends-unsubscribe@yahoogroups.com          
+<!-- |**|end egp html banner|**| -->
+
+        </div>
+      
+                  <div id="ygrp-mkp">
+      <div id="hd">MARKETPLACE</div>
+      <div id="ads">
+                  <div class="ad">
+            <hr size=1 noshade><a href="http://us.ard.yahoo.com/SIG=12mul19q5/M=571476.12066680.12490312.11509771/D=groups/S=1706030390:MKP1/Y=YAHOO/EXP=1199637216/A=5086951/R=0/SIG=12k8pu1n3/*http://college-finder.net/index.cfm?key=yahoo_colfngrouptxt_12066680&c=CA152932587">Earn your degree in as few as 2 years - Advance your career with an AS, BS, MS degree</a> - College-Finder.net.          </div>
+                              </div>
+    </div>
+      
+    <!-- yahoo logo -->
+    <!-- |**|begin egp html banner|**| -->
+    <div id="ygrp-ft">
+      <a href="http://groups.yahoo.com/;_ylc=X3oDMTJlYXNtMjFlBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNnZnAEc3RpbWUDMTE5OTYzMDAxNg--">
+      <img src="http://us.i1.yimg.com/us.yimg.com/i/yg/img/logo/ma_grp_160.gif" height="15" width="106" border="0" alt="Yahoo! Groups"></a> <br>
+      <a href="http://groups.yahoo.com/group/tagsoup-friends/join;_ylc=X3oDMTJncWVyMGdzBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNzdG5ncwRzdGltZQMxMTk5NjMwMDE2">Change settings via the Web</a> (Yahoo! ID required) <br>
+      Change settings via email: <a href="mailto:tagsoup-friends-digest@yahoogroups.com?subject=Email Delivery: Digest">Switch delivery to Daily Digest</a> | <a href = "mailto:tagsoup-friends-traditional@yahoogroups.com?subject=Change Delivery Format: Traditional">Switch format to Traditional</a> <br>
+
+      <a href="http://groups.yahoo.com/group/tagsoup-friends;_ylc=X3oDMTJlZWJmZ2ZtBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDZnRyBHNsawNocGYEc3RpbWUDMTE5OTYzMDAxNg--">
+        Visit Your Group 
+      </a> |
+      <a href="http://docs.yahoo.com/info/terms/">
+        Yahoo! Groups Terms of Use      </a> |
+      <a href="mailto:tagsoup-friends-unsubscribe@yahoogroups.com?subject=">
+        Unsubscribe      </a> 
+    </div>     <!-- |**|end egp html banner|**| -->
+  </div> <!-- ygrp-msg -->
+
+  
+  <!-- Sponsor -->
+  <!-- |**|begin egp html banner|**| -->
+  <div id="ygrp-sponsor" style="width:140px;float: left; clear: none; margin-left: 5px; background:white; margin-bottom:25px ;position:absolute; top:0; right: 0;">
+    <!-- Network content -->
+    
+    <!-- Start vitality -->
+    <div id="ygrp-vital">
+            <a href="http://groups.yahoo.com/group/tagsoup-friends;_ylc=X3oDMTJmbjZ1cG9sBF9TAzk3MzU5NzE0BGdycElkAzExODc4MDY5BGdycHNwSWQDMTcwNjAzMDM5MARzZWMDdnRsBHNsawN2Z2hwBHN0aW1lAzExOTk2MzAwMTY-">
+        Visit Your Group      </a>
+    </div> 
+              
+    <!-- Network content -->
+              <div id="nc">
+              <div class="ad">
+                      <div id="hd1">Yahoo! Finance</div> 
+<p><a href="http://us.ard.yahoo.com/SIG=12jaqsoi1/M=493064.12016257.12445664.8674578/D=groups/S=1706030390:NC/Y=YAHOO/EXP=1199637216/A=4507179/R=0/SIG=12de4rskk/*http://us.rd.yahoo.com/evt=50284/*http://finance.yahoo.com/personal-finance">It's Now Personal</a></p> 
+<p>Guides, news,</p> 
+<p>advice & more.</p>                   </div>
+                    <div class="ad">
+                      <div id="hd1">Search Ads</div> 
+<p><a href="http://us.ard.yahoo.com/SIG=12jumcark/M=493064.12016308.12445700.8674578/D=groups/S=1706030390:NC/Y=YAHOO/EXP=1199637216/A=3848641/R=0/SIG=1312g85fq/*http://searchmarketing.yahoo.com/arp/srchv2.php?o=US2003&cmp=Yahoo&ctv=Groups2&s=Y&s2=&s3=&b=50">Get new customers.</a></p> 
+<p>List your web site</p> 
+<p>in Yahoo! Search.</p>                  </div>
+                    <div class="ad">
+                      <div id="hd1">Yahoo! Groups</div> 
+<p><a href="http://us.ard.yahoo.com/SIG=12kn5irgp/M=493064.12016299.12445691.11322765/D=groups/S=1706030390:NC/Y=YAHOO/EXP=1199637216/A=4990215/R=0/SIG=11d53kq3t/*http://advision.webevents.yahoo.com/curves/">Wellness Spot</a></p> 
+<p>A resource for Curves</p> 
+<p>and weight loss.</p>                  </div>
+          </div>
+    
+  </div>   <!-- |**|end egp html banner|**| -->
+  <div style="clear:both; color: #FFF; font-size:1px;">.</div>
+</div>   <img src="http://geo.yahoo.com/serv?s=97359714/grpId=11878069/grpspId=1706030390/msgId=979/stime=1199630016/nc1=4507179/nc2=3848641/nc3=4990215" width="1" height="1"> <br>
+
+<span  style="color: white;">__,_._,___</span>
+<!--~-|**|PrettyHtmlEnd|**|-~-->
+</body>
+<!--~-|**|PrettyHtmlStart|**|-~-->
+<head>
+<style type="text/css">
+<!--
+#ygrp-mkp{
+  border: 1px solid #d8d8d8;
+  font-family: Arial;
+  margin: 14px 0px;
+  padding: 0px 14px;
+}
+#ygrp-mkp hr{
+  border: 1px solid #d8d8d8;
+}
+#ygrp-mkp #hd{
+  color: #628c2a;
+  font-size: 85%;
+  font-weight: bold;
+  line-height: 122%;
+  margin: 10px 0px;
+}
+#ygrp-mkp #ads{
+  margin-bottom: 10px;
+}
+#ygrp-mkp .ad{
+  padding: 0 0;
+}
+#ygrp-mkp .ad a{
+  color: #0000ff;
+  text-decoration: none;
+}
+-->
+</style>
+</head>
+<head>
+<style type="text/css">
+<!--
+#ygrp-sponsor #ygrp-lc{
+  font-family: Arial;
+}
+#ygrp-sponsor #ygrp-lc #hd{
+  margin: 10px 0px;
+  font-weight: bold;
+  font-size: 78%;
+  line-height: 122%;
+}
+#ygrp-sponsor #ygrp-lc .ad{
+  margin-bottom: 10px;
+  padding: 0 0;
+}
+-->
+</style>
+</head>
+<head>
+<style type="text/css">
+<!--
+#ygrp-mlmsg {font-size:13px; font-family: arial,helvetica,clean,sans-serif;*font-size:small;*font:x-small;}
+#ygrp-mlmsg table {font-size:inherit;font:100%;}
+#ygrp-mlmsg select, input, textarea {font:99% arial,helvetica,clean,sans-serif;}
+#ygrp-mlmsg pre, code {font:115% monospace;*font-size:100%;}
+#ygrp-mlmsg * {line-height:1.22em;}
+#ygrp-text{
+    font-family: Georgia;	
+}
+#ygrp-text p{
+    margin: 0 0 1em 0;
+}
+#ygrp-tpmsgs{
+    font-family: Arial;	
+    clear: both;
+}
+#ygrp-vitnav{
+	padding-top: 10px;
+	font-family: Verdana;
+	font-size: 77%;
+	margin: 0;
+}
+#ygrp-vitnav a{
+	padding: 0 1px;
+}
+#ygrp-actbar{
+	clear: both;
+	margin: 25px 0;
+	white-space:nowrap;
+	color: #666;
+	text-align: right;
+}
+#ygrp-actbar .left{
+	float: left;
+	white-space:nowrap;
+}
+.bld{font-weight:bold;}
+#ygrp-grft{
+	font-family: Verdana;
+	font-size: 77%;
+	padding: 15px 0;
+}
+#ygrp-ft{
+  font-family: verdana;
+  font-size: 77%;
+  border-top: 1px solid #666; 
+  padding: 5px 0; 
+}
+#ygrp-mlmsg #logo{
+  padding-bottom: 10px;
+}
+
+#ygrp-vital{
+	background-color: #e0ecee;
+	margin-bottom: 20px;
+	padding: 2px 0 8px 8px;
+}
+#ygrp-vital #vithd{
+	font-size: 77%;
+	font-family: Verdana;
+	font-weight: bold;
+	color: #333;
+	text-transform: uppercase;
+}
+#ygrp-vital ul{
+	padding: 0;
+	margin: 2px 0;
+}
+#ygrp-vital ul li{
+  list-style-type: none;
+  clear: both;
+  border: 1px solid #e0ecee;  
+}
+#ygrp-vital ul li .ct{
+  font-weight: bold;
+  color: #ff7900;
+  float: right;
+  width: 2em;
+  text-align:right;
+  padding-right: .5em;
+}
+#ygrp-vital ul li .cat{
+  font-weight: bold;
+}
+#ygrp-vital a{
+	text-decoration: none;
+}
+
+#ygrp-vital a:hover{
+  text-decoration: underline;
+}
+
+#ygrp-sponsor #hd{
+	color: #999;
+	font-size: 77%;
+}
+#ygrp-sponsor #ov{
+	padding: 6px 13px;
+	background-color: #e0ecee;
+	margin-bottom: 20px;
+}
+#ygrp-sponsor #ov ul{
+	padding: 0 0 0 8px;
+	margin: 0;
+}
+#ygrp-sponsor #ov li{
+	list-style-type: square;
+	padding: 6px 0;
+	font-size: 77%;
+}
+#ygrp-sponsor #ov li a{
+	text-decoration: none;
+	font-size: 130%;
+}
+#ygrp-sponsor #nc{
+  background-color: #eee;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+#ygrp-sponsor .ad{
+	padding: 8px 0;
+}
+#ygrp-sponsor .ad #hd1{
+	font-family: Arial;
+	font-weight: bold;
+	color: #628c2a;
+	font-size: 100%;
+	line-height: 122%;
+}
+#ygrp-sponsor .ad a{
+	text-decoration: none;
+}
+#ygrp-sponsor .ad a:hover{
+	text-decoration: underline;
+}
+#ygrp-sponsor .ad p{
+	margin: 0;
+}
+o{font-size: 0; }
+.MsoNormal{
+   margin: 0 0 0 0;
+}
+#ygrp-text tt{
+  font-size: 120%;
+}
+blockquote{margin: 0 0 0 4px;}
+.replbq{margin:4}
+-->
+</style>
+</head>
+<!--~-|**|PrettyHtmlEnd|**|-~-->
+</html><!--End group email -->
+
+
+--b9wlnGMyn8u5AUYt8klvdVhHFCN4uNo-ucRxqQx--
+

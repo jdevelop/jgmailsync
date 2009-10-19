@@ -1,0 +1,142 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.67 (FreeBSD))
+	(envelope-from <jibx-users-bounces@lists.sourceforge.net>)
+	id 1HzEDP-000E9e-GC
+	for bofh@localhost; Fri, 15 Jun 2007 18:59:59 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.8)
+	for <bofh@localhost> (single-drop); Fri, 15 Jun 2007 18:59:59 +0300 (EEST)
+Received: from lists-outbound.sourceforge.net (lists-outbound.sourceforge.net [66.35.250.225])
+	by redwerk.com (Postfix) with ESMTP id 03EC21180A6
+	for <bofh@redwerk.com>; Fri, 15 Jun 2007 17:59:43 +0200 (CEST)
+Received: from sc8-sf-list1-new.sourceforge.net (sc8-sf-list1-new-b.sourceforge.net [10.3.1.93])
+	by sc8-sf-spam2.sourceforge.net (Postfix) with ESMTP
+	id F3F791344C; Fri, 15 Jun 2007 08:59:39 -0700 (PDT)
+Received: from sc8-sf-mx1-b.sourceforge.net ([10.3.1.91]
+	helo=mail.sourceforge.net)
+	by sc8-sf-list1-new.sourceforge.net with esmtp (Exim 4.43)
+	id 1HzED2-00024c-6T
+	for jibx-users@lists.sourceforge.net; Fri, 15 Jun 2007 08:59:36 -0700
+Received: from rgmail.regenstrief.org ([134.68.31.125])
+	by mail.sourceforge.net with esmtps (TLSv1:AES256-SHA:256)
+	(Exim 4.44) id 1HzED1-0007xH-G6
+	for jibx-users@lists.sourceforge.net; Fri, 15 Jun 2007 08:59:36 -0700
+Received: from [127.0.0.1] ([172.31.1.7])
+	by rgmail.regenstrief.org (8.13.1/8.13.1) with ESMTP id l5FFxRr9023924
+	for <jibx-users@lists.sourceforge.net>; Fri, 15 Jun 2007 11:59:28 -0400
+Message-ID: <4672B75F.8050204@regenstrief.org>
+Date: Fri, 15 Jun 2007 11:59:27 -0400
+From: Tammy Dugan <tdugan@regenstrief.org>
+User-Agent: Thunderbird 1.5.0.12 (Windows/20070509)
+MIME-Version: 1.0
+To: JiBX users <jibx-users@lists.sourceforge.net>
+References: <4672A857.4060306@regenstrief.org>
+	<E5B3767EEB07A049AC18634AAE606EA803EF9829@ALPMLVEM06.e2k.ad.ge.com>
+In-Reply-To: <E5B3767EEB07A049AC18634AAE606EA803EF9829@ALPMLVEM06.e2k.ad.ge.com>
+X-Spam-Score: 0.0 (/)
+X-Spam-Report: Spam Filtering performed by sourceforge.net.
+	See http://spamassassin.org/tag/ for more details.
+	Report problems to
+	http://sf.net/tracker/?func=add&group_id=1&atid=200001
+Subject: Re: [jibx-users] variable element names
+X-BeenThere: jibx-users@lists.sourceforge.net
+X-Mailman-Version: 2.1.8
+Precedence: list
+Reply-To: JiBX users <jibx-users@lists.sourceforge.net>
+List-Id: JiBX users <jibx-users.lists.sourceforge.net>
+List-Unsubscribe: <https://lists.sourceforge.net/lists/listinfo/jibx-users>,
+	<mailto:jibx-users-request@lists.sourceforge.net?subject=unsubscribe>
+List-Archive: <http://sourceforge.net/mailarchive/forum.php?forum_name=jibx-users>
+List-Post: <mailto:jibx-users@lists.sourceforge.net>
+List-Help: <mailto:jibx-users-request@lists.sourceforge.net?subject=help>
+List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/jibx-users>,
+	<mailto:jibx-users-request@lists.sourceforge.net?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Errors-To: jibx-users-bounces@lists.sourceforge.net
+X-Bogosity: Ham, tests=bogofilter, spamicity=0.000000, version=1.1.1
+
+Thanks for the quick response. Just to clarify, the reason I should use 
+a custom marshaller instead of a custom serializer in this situation is 
+that I need to create extra xml tags. The custom serializer is just 
+meant for the content of a tag and doesn't support making additional 
+tags. Is this correct?
+
+Thanks,
+
+Tammy
+
+Dees, Ian (GE Healthcare) wrote:
+> Tammy,
+>
+> I ran into the exact same issue. The way I worked around it is to use a
+> custom marshaller for the object.
+>
+> JiBX is meant to be used for one Object to one Element mappings, and
+> technically if you are trying to deviate from that then you should be
+> using another marshalling framework. That being said, if almost all of
+> your objects have a one-to-one mapping with an element name (except for
+> a few), then a custom marshaller would make sense.
+>
+> For more info, read
+> http://jibx.sourceforge.net/tutorial/binding-custom.html
+>
+> -Ian
+>
+> -----Original Message-----
+> From: jibx-users-bounces@lists.sourceforge.net
+> [mailto:jibx-users-bounces@lists.sourceforge.net] On Behalf Of Tammy
+> Dugan
+> Sent: Friday, June 15, 2007 9:55 AM
+> To: jibx-users@lists.sourceforge.net
+> Subject: [jibx-users] variable element names
+>
+> I have objects that represent logical relationships that can produce 
+> variable element names in a jibx binding. For example, I have an object 
+> called QueryComparisonSet that can produce elements with values like 
+> "and","or", or "not". The element name is actually stored in a field in 
+> the object. It doesn't look like there is a way to assign an element 
+> name from a field. I am assuming I need to write a custom serializer for
+>
+> this. I am very new to jibx so can you give me some idea of what the 
+> custom serializer might look like in this case.
+>
+> Thanks,
+>
+> Tammy
+>
+>   
+
+-- 
+Tammy Dugan
+Computer Programmer
+
+Regenstrief Institute, Inc.
+Medical Informatics
+Health Information and Translational Sciences (HITS) Building
+410 West 10th Street, Suite 2000
+Indianapolis, IN 46202
+Main: 317.423.5500
+Fax: 317.423.5695
+IU campus mail address: HS, 2000
+
+(317) 423 - 5541
+
+Confidentiality Notice: The contents of this message and any files transmitted with it may contain confidential and/or privileged information and are intended solely for the use of the named addressee(s). Additionally, the information contained herein may have been disclosed to you from medical records with confidentiality protected by federal and state laws. Federal regulations and State laws prohibit you from making further disclosure of such information without the specific written consent of the person to whom the information pertains or as otherwise permitted by such regulations. A general authorization for the release of medical or other information is not sufficient for this purpose.
+ 
+If you have received this message in error, please notify the sender by return e-mail and delete the original message. Any retention, disclosure, copying, distribution or use of this information by anyone other than the intended recipient is strictly prohibited.
+
+
+
+-------------------------------------------------------------------------
+This SF.net email is sponsored by DB2 Express
+Download DB2 Express C - the FREE version of DB2 express and take
+control of your XML. No limits. Just data. Click to get it now.
+http://sourceforge.net/powerbar/db2/
+_______________________________________________
+jibx-users mailing list
+jibx-users@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/jibx-users
+

@@ -1,0 +1,136 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCWWP-0000Fh-BI
+	for bofh@localhost; Mon, 14 Aug 2006 10:06:01 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Mon, 14 Aug 2006 10:06:01 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 4CAB0A9EEE
+	for <bofh@redwerk.com>; Sun, 13 Aug 2006 17:49:24 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id EA8579EB1E;
+	Sun, 13 Aug 2006 08:49:17 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+X-Greylist: delayed 13714 seconds by postgrey-1.21 at gabe;
+	Sun, 13 Aug 2006 08:49:15 PDT
+Received: from post-25.mail.nl.demon.net (post-25.mail.nl.demon.net
+	[194.159.73.195])
+	by gabe.freedesktop.org (Postfix) with ESMTP id ACAFF9E74E
+	for <xorg@lists.freedesktop.org>; Sun, 13 Aug 2006 08:49:15 -0700 (PDT)
+Received: from wingding.demon.nl ([82.161.27.36]:34987)
+	by post-25.mail.nl.demon.net with esmtp (Exim 4.51)
+	id 1GCEe0-0004mi-1p; Sun, 13 Aug 2006 12:00:40 +0000
+Received: from rutger by wingding.demon.nl with local (Exim 4.62)
+	(envelope-from <rutger@wingding.demon.nl>)
+	id 1GCEdy-0000pw-Je; Sun, 13 Aug 2006 14:00:38 +0200
+Date: Sun, 13 Aug 2006 14:00:38 +0200
+From: Rutger Nijlunsing <rutger@nospam.com>
+To: Sebastian Kemper <sebastian_ml@gmx.net>
+Message-ID: <20060813120038.GB23115@nospam.com>
+References: <20060812204649.GA11635@section_eight.mops.rwth-aachen.de>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20060812204649.GA11635@section_eight.mops.rwth-aachen.de>
+Organization: M38c
+User-Agent: Mutt/1.5.12-2006-07-14
+Cc: "X.org Mailing List" <xorg@lists.freedesktop.org>
+Subject: Re: X.org 7.{0,1}: Can't start mplayer on X :1 from X :0
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+Reply-To: xorg@tux.tmfweb.nl
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+Content-Length: 2313
+Lines: 73
+X-UID: 13755
+X-Keywords:                                                                                                    
+
+On Sat, Aug 12, 2006 at 10:46:49PM +0200, Sebastian Kemper wrote:
+> Hi all,
+> 
+> I'm trying to start mplayer on a new X server (:1) from within a running
+> X (:0). It usually works the first time, but further attempts fail.
+> 
+> - It worked fine with X.org 6.8.2, even repeated attemts were successful.
+> 
+> - Starting mplayer on X :1 from console works every time.
+> 
+> I use the following script:
+> 
+> #!/bin/bash
+> X -layout TV :1 -ac 1> /tmp/X.1.log 2> /tmp/X.1.err & DISPLAY=:1 mplayer
+> -fs -really-quiet -monitoraspect "662:373" -fs "$@" 1> /tmp/mplayer.log
+> 2> /tmp/mplayer.err ; kill `ps aux | awk '/X\ -layout/ {print $2}'`
+> 
+> (sorry for the line breaks, it really is a one liner)
+
+I encountered something alike. I always start two X servers (one per
+user; it gives me easy quick user switching).
+
+The first X display is a standard Debian Unstable KDE session
+(targetted at the other user :). The second one is a script:
+
+  export DISPLAY=:1; X $DISPLAY & sleep 10; source ~/.xsession
+
+...and in ~/.xsession something along the lines of:
+
+xrdb -merge ~/.Xdefaults
+xmodmap ~/.Xmodmap
+xhost local:
+source ~/.xset.sh
+xsetroot -solid '#403030'
+xterm
+xterm
+exec icewm-session
+
+This worked before Xorg modularisation and stopped working
+afterwards. Don't know which versions exactly.
+
+'stopped working' means:
+  - X server aborts early (during .xsession)
+  - X server reset itself multiple times (screen, no screen, screen, ..)
+  - At the console from where I start an X server, it seems something
+    is pressing the ENTER keys indefinately until I press ENTER myself.
+
+I don't know where to file this: at Debian bug tracker or at X.org? I
+cannot arbitrary change versions, so I left it at this.
+
+WORKAROUND
+
+The workaround for me was to start the window manager _before_ other
+programs, so:
+
+/usr/bin/icewm-session &
+sleep 5
+xrdb -merge ~/.Xdefaults
+...
+
+Ugly, but required.
+
+So for the mplayer case I would suggest adding a window manager.
+
+
+-- 
+Rutger Nijlunsing ---------------------------------- eludias ed dse.nl
+never attribute to a conspiracy which can be explained by incompetence
+----------------------------------------------------------------------
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+

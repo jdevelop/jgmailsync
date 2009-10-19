@@ -1,0 +1,1423 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCWVg-0000Fh-Dh
+	for bofh@localhost; Mon, 14 Aug 2006 10:05:17 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Mon, 14 Aug 2006 10:05:16 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 0AAD0A9EEE
+	for <bofh@redwerk.com>; Sat, 12 Aug 2006 19:43:45 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 68A329EDB1;
+	Sat, 12 Aug 2006 10:43:41 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from nf-out-0910.google.com (nf-out-0910.google.com [64.233.182.186])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 6F3C09EA8B
+	for <xorg@lists.freedesktop.org>; Sat, 12 Aug 2006 10:43:37 -0700 (PDT)
+Received: by nf-out-0910.google.com with SMTP id c29so1297150nfb
+	for <xorg@lists.freedesktop.org>; Sat, 12 Aug 2006 10:43:27 -0700 (PDT)
+DomainKey-Signature: a=rsa-sha1; q=dns; c=nofws; s=beta; d=gmail.com;
+	h=received:from:to:subject:date:user-agent:references:in-reply-to:disposition-notification-to:mime-version:content-type:message-id;
+	b=QPOR+VJTVvxX3jGjbT7PirWuS+WekjmVxXFDqHaxZwXSIwSR8I673Uwy+ZB0bhx3Ikp6IRAGB4rQjJ1Y2NZAdz8rAXrfhZE5h2EIeOZoqVHzMuzTxAadO8T9cmLODKivbS7yi7ZRm7oSSrmlBysRPcdsD6l/77KI00I6DSdD1Mc=
+Received: by 10.48.230.18 with SMTP id c18mr5083908nfh;
+	Sat, 12 Aug 2006 10:43:26 -0700 (PDT)
+Received: from ?192.168.2.80? ( [85.220.132.38])
+	by mx.gmail.com with ESMTP id n23sm8908557nfc.2006.08.12.10.43.23;
+	Sat, 12 Aug 2006 10:43:25 -0700 (PDT)
+From: Hannes Hauswedell <hannes.hauswedell@gmail.com>
+To: xorg@lists.freedesktop.org
+Date: Sat, 12 Aug 2006 18:06:35 +0000
+User-Agent: KMail/1.9.1
+References: <200608091710.51650.hannes.hauswedell@gmail.com>
+	<20060809170742.GA5419@fooishbar.org>
+	<200608092214.17502.hannes.hauswedell@gmail.com>
+In-Reply-To: <200608092214.17502.hannes.hauswedell@gmail.com>
+MIME-Version: 1.0
+Content-Type: Multipart/Mixed;
+  boundary="Boundary-00=_sih3E565pST4ap6"
+Message-Id: <200608121806.36358.hannes.hauswedell@gmail.com>
+Subject: Re: help building xorg-modular
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+Content-Length: 106499
+Lines: 1360
+X-UID: 13726
+X-Keywords:                                                                                                    
+
+--Boundary-00=_sih3E565pST4ap6
+Content-Type: text/plain;
+  charset="iso-8859-15"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+to exlcude the possibility of platform problems, tried again from within the 
+target distribution.
+i installed all requirements, added /usr/x11r7/bin to the path and 
+added /usr/x11r7/lib to /etc/ld.so.conf
+
+i then started the build with
+
+,/build-from-tarballs.sh -m /home/hannes/Mesa-1.5/ -e /usr/x11r7/ >logfile 
+2>&1
+
+i did not add -n to produce a smaller logfile that i attached.
+
+please help me with this, i really want to get the new x11 running....
+
+thank you very much
+greetings
+hannes
+
+--Boundary-00=_sih3E565pST4ap6
+Content-Type: text/plain;
+  charset="iso-8859-15";
+  name="logfile"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename="logfile"
+
+Sat Aug 12 16:12:59 CEST 2006
+Building util module component util-macros-X11R7.1-1.0.2...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+configure: creating ./config.status
+config.status: creating Makefile
+make: Nothing to be done for `all'.
+make[1]: Entering directory `/home/hannes/x11-src/util-macros-X11R7.1-1.0.2'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/aclocal" || mkdir -p -- "/usr/x11r7//share/aclocal"
+ /usr/bin/ginstall -c -m 644 'xorgversion.m4' '/usr/x11r7//share/aclocal/xorgversion.m4'
+ /usr/bin/ginstall -c -m 644 'xorg-macros.m4' '/usr/x11r7//share/aclocal/xorg-macros.m4'
+make[1]: Leaving directory `/home/hannes/x11-src/util-macros-X11R7.1-1.0.2'
+Building doc module component xorg-sgml-doctools-X11R7.1-1.1...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+configure: creating ./config.status
+config.status: creating Makefile
+make: Nothing to be done for `all'.
+make[1]: Entering directory `/home/hannes/x11-src/xorg-sgml-doctools-X11R7.1-1.1'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/sgml" || mkdir -p -- "/usr/x11r7//share/X11/sgml"
+ /usr/bin/ginstall -c -m 644 'defs.ent' '/usr/x11r7//share/X11/sgml/defs.ent'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-sgml-doctools-X11R7.1-1.1'
+Building doc module component xorg-docs-X11R7.1-1.2...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for /usr/x11r7//share/X11/sgml/defs.ent... yes
+checking for linuxdoc... no
+checking for ps2pdf... /usr/bin/ps2pdf
+checking Whether to build documentation... no
+checking Whether to build pdf documentation... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating hardcopy/Makefile
+config.status: creating hardcopy/BDF/Makefile
+config.status: creating hardcopy/CTEXT/Makefile
+config.status: creating hardcopy/FSProtocol/Makefile
+config.status: creating hardcopy/i18n/Makefile
+config.status: creating hardcopy/ICCCM/Makefile
+config.status: creating hardcopy/ICE/Makefile
+config.status: creating hardcopy/man/Makefile
+config.status: creating hardcopy/rstart/Makefile
+config.status: creating hardcopy/RX/Makefile
+config.status: creating hardcopy/saver/Makefile
+config.status: creating hardcopy/SM/Makefile
+config.status: creating hardcopy/X11/Makefile
+config.status: creating hardcopy/Xaw/Makefile
+config.status: creating hardcopy/XDMCP/Makefile
+config.status: creating hardcopy/Xext/Makefile
+config.status: creating hardcopy/xfs/Makefile
+config.status: creating hardcopy/Xi/Makefile
+config.status: creating hardcopy/XIM/Makefile
+config.status: creating hardcopy/XKB/Makefile
+config.status: creating hardcopy/XLFD/Makefile
+config.status: creating hardcopy/Xmu/Makefile
+config.status: creating hardcopy/XPRINT/Makefile
+config.status: creating hardcopy/XProtocol/Makefile
+config.status: creating hardcopy/Xserver/Makefile
+config.status: creating hardcopy/Xt/Makefile
+config.status: creating hardcopy/xtrans/Makefile
+config.status: creating hardcopy/Xv/Makefile
+config.status: creating man/Makefile
+config.status: creating man/general/Makefile
+config.status: creating sgml/Makefile
+Making all in hardcopy
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+Making all in BDF
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/BDF'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/BDF'
+Making all in CTEXT
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/CTEXT'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/CTEXT'
+Making all in FSProtocol
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/FSProtocol'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/FSProtocol'
+Making all in i18n
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/i18n'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/i18n'
+Making all in ICCCM
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICCCM'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICCCM'
+Making all in ICE
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICE'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICE'
+Making all in man
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/man'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/man'
+Making all in rstart
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/rstart'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/rstart'
+Making all in RX
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/RX'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/RX'
+Making all in saver
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/saver'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/saver'
+Making all in SM
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/SM'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/SM'
+Making all in X11
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/X11'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/X11'
+Making all in Xaw
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xaw'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xaw'
+Making all in XDMCP
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XDMCP'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XDMCP'
+Making all in Xext
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xext'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xext'
+Making all in xfs
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xfs'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xfs'
+Making all in Xi
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xi'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xi'
+Making all in XIM
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XIM'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XIM'
+Making all in XKB
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XKB'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XKB'
+Making all in XLFD
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XLFD'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XLFD'
+Making all in Xmu
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xmu'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xmu'
+Making all in XPRINT
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XPRINT'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XPRINT'
+Making all in XProtocol
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XProtocol'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XProtocol'
+Making all in Xserver
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xserver'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xserver'
+Making all in Xt
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xt'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xt'
+Making all in xtrans
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xtrans'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xtrans'
+Making all in Xv
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xv'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xv'
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+Making all in man
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+Making all in general
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man/general'
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < Consortium.man > Consortium.7
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < security.man > security.7
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < Standards.man > Standards.7
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < X.man > X.7
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < XOrgFoundation.man > XOrgFoundation.7
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < Xprint.man > Xprint.7
+sed -e 's|__vendorversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__xorgversion__|"xorg-docs 1.2" "X Version 11"|' -e 's|__projectroot__|/usr/x11r7/|g' -e 's|__appmansuffix__|1x|g' -e 's|__libmansuffix__||g' -e 's|__miscmansuffix__|7|g' < XProjectTeam.man > XProjectTeam.7
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man/general'
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+Making all in sgml
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/sgml'
+make[1]: Nothing to be done for `all'.
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/sgml'
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2'
+make[1]: Nothing to be done for `all-am'.
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2'
+Making install in hardcopy
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+Making install in BDF
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/BDF'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/BDF'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/BDF" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/BDF"
+ /usr/bin/ginstall -c -m 644 'bdf.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/BDF/bdf.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/BDF'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/BDF'
+Making install in CTEXT
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/CTEXT'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/CTEXT'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/CTEXT" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/CTEXT"
+ /usr/bin/ginstall -c -m 644 'ctext.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/CTEXT/ctext.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/CTEXT'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/CTEXT'
+Making install in FSProtocol
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/FSProtocol'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/FSProtocol'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/FSProtocol" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/FSProtocol"
+ /usr/bin/ginstall -c -m 644 'fsproto.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/FSProtocol/fsproto.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/FSProtocol'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/FSProtocol'
+Making install in i18n
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/i18n'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/i18n'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/i18n" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/i18n"
+ /usr/bin/ginstall -c -m 644 'Framework.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/i18n/Framework.PS.gz'
+ /usr/bin/ginstall -c -m 644 'LocaleDB.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/i18n/LocaleDB.PS.gz'
+ /usr/bin/ginstall -c -m 644 'Trans.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/i18n/Trans.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/i18n'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/i18n'
+Making install in ICCCM
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICCCM'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICCCM'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/ICCCM" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/ICCCM"
+ /usr/bin/ginstall -c -m 644 'icccm.idx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/ICCCM/icccm.idx.PS.gz'
+ /usr/bin/ginstall -c -m 644 'icccm.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/ICCCM/icccm.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICCCM'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICCCM'
+Making install in ICE
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICE'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICE'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/ICE" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/ICE"
+ /usr/bin/ginstall -c -m 644 'ICElib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/ICE/ICElib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'ice.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/ICE/ice.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICE'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/ICE'
+Making install in man
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/man'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/man'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/man" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/man"
+ /usr/bin/ginstall -c -m 644 'man.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/man/man.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/man'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/man'
+Making install in rstart
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/rstart'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/rstart'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/rstart" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/rstart"
+ /usr/bin/ginstall -c -m 644 'rstart.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/rstart/rstart.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/rstart'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/rstart'
+Making install in RX
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/RX'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/RX'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/RX" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/RX"
+ /usr/bin/ginstall -c -m 644 'RX.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/RX/RX.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/RX'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/RX'
+Making install in saver
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/saver'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/saver'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/saver" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/saver"
+ /usr/bin/ginstall -c -m 644 'saver.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/saver/saver.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/saver'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/saver'
+Making install in SM
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/SM'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/SM'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/SM" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/SM"
+ /usr/bin/ginstall -c -m 644 'SMlib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/SM/SMlib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xsmp.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/SM/xsmp.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/SM'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/SM'
+Making install in X11
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/X11'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/X11'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/X11" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/X11"
+ /usr/bin/ginstall -c -m 644 'xlib.idx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/X11/xlib.idx.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xlib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/X11/xlib.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/X11'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/X11'
+Making install in Xaw
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xaw'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xaw'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xaw" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xaw"
+ /usr/bin/ginstall -c -m 644 'widgets.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xaw/widgets.PS.gz'
+ /usr/bin/ginstall -c -m 644 'widg.idx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xaw/widg.idx.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xaw'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xaw'
+Making install in XDMCP
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XDMCP'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XDMCP'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/XDMCP" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/XDMCP"
+ /usr/bin/ginstall -c -m 644 'xdmcp.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XDMCP/xdmcp.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XDMCP'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XDMCP'
+Making install in Xext
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xext'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xext'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xext" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xext"
+ /usr/bin/ginstall -c -m 644 'AppGroup.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/AppGroup.PS.gz'
+ /usr/bin/ginstall -c -m 644 'bigreq.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/bigreq.PS.gz'
+ /usr/bin/ginstall -c -m 644 'buffer.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/buffer.PS.gz'
+ /usr/bin/ginstall -c -m 644 'dbelib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/dbelib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'dbe.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/dbe.PS.gz'
+ /usr/bin/ginstall -c -m 644 'DPMSLib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/DPMSLib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'DPMS.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/DPMS.PS.gz'
+ /usr/bin/ginstall -c -m 644 'evi.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/evi.PS.gz'
+ /usr/bin/ginstall -c -m 644 'lbxalg.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/lbxalg.PS.gz'
+ /usr/bin/ginstall -c -m 644 'lbx.html' '/usr/x11r7//share/X11/doc/hardcopy/Xext/lbx.html'
+ /usr/bin/ginstall -c -m 644 'lbx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/lbx.PS.gz'
+ /usr/bin/ginstall -c -m 644 'lbxTOC.html' '/usr/x11r7//share/X11/doc/hardcopy/Xext/lbxTOC.html'
+ /usr/bin/ginstall -c -m 644 'mit-shm.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/mit-shm.PS.gz'
+ /usr/bin/ginstall -c -m 644 'recordlib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/recordlib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'record.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/record.PS.gz'
+ /usr/bin/ginstall -c -m 644 'security.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/security.PS.gz'
+ /usr/bin/ginstall -c -m 644 'shapelib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/shapelib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'shape.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/shape.PS.gz'
+ /usr/bin/ginstall -c -m 644 'synclib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/synclib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'sync.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/sync.PS.gz'
+ /usr/bin/ginstall -c -m 644 'tog-cup.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/tog-cup.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xc-misc.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/xc-misc.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xtestlib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/xtestlib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xtest.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xext/xtest.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xext'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xext'
+Making install in xfs
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xfs'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xfs'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/xfs" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/xfs"
+ /usr/bin/ginstall -c -m 644 'design.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/xfs/design.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xfs'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xfs'
+Making install in Xi
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xi'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xi'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xi" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xi"
+ /usr/bin/ginstall -c -m 644 'lib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xi/lib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'port.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xi/port.PS.gz'
+ /usr/bin/ginstall -c -m 644 'proto.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xi/proto.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xi'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xi'
+Making install in XIM
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XIM'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XIM'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/XIM" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/XIM"
+ /usr/bin/ginstall -c -m 644 'xim.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XIM/xim.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XIM'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XIM'
+Making install in XKB
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XKB'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XKB'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/XKB" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/XKB"
+ /usr/bin/ginstall -c -m 644 'XKBlib.ps.gz' '/usr/x11r7//share/X11/doc/hardcopy/XKB/XKBlib.ps.gz'
+ /usr/bin/ginstall -c -m 644 'XKBproto.ps.gz' '/usr/x11r7//share/X11/doc/hardcopy/XKB/XKBproto.ps.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XKB'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XKB'
+Making install in XLFD
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XLFD'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XLFD'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/XLFD" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/XLFD"
+ /usr/bin/ginstall -c -m 644 'xlfd.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XLFD/xlfd.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XLFD'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XLFD'
+Making install in Xmu
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xmu'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xmu'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xmu" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xmu"
+ /usr/bin/ginstall -c -m 644 'xmu.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xmu/xmu.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xmu'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xmu'
+Making install in XPRINT
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XPRINT'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XPRINT'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/XPRINT" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/XPRINT"
+ /usr/bin/ginstall -c -m 644 'dtprint_fspec.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/dtprint_fspec.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xp_library.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/xp_library.PS.gz'
+ /usr/bin/ginstall -c -m 644 'xp_proto.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/xp_proto.PS.gz'
+ /usr/bin/ginstall -c -m 644 'Xprint_FAQ.html' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/Xprint_FAQ.html'
+ /usr/bin/ginstall -c -m 644 'Xprint_FAQ.txt' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/Xprint_FAQ.txt'
+ /usr/bin/ginstall -c -m 644 'Xprint_FAQ.xml' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/Xprint_FAQ.xml'
+ /usr/bin/ginstall -c -m 644 'Xprint_old_FAQ.txt' '/usr/x11r7//share/X11/doc/hardcopy/XPRINT/Xprint_old_FAQ.txt'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XPRINT'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XPRINT'
+Making install in XProtocol
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XProtocol'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XProtocol'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/XProtocol" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/XProtocol"
+ /usr/bin/ginstall -c -m 644 'proto.idx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XProtocol/proto.idx.PS.gz'
+ /usr/bin/ginstall -c -m 644 'proto.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/XProtocol/proto.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XProtocol'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/XProtocol'
+Making install in Xserver
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xserver'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xserver'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xserver" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xserver"
+ /usr/bin/ginstall -c -m 644 'analysis.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xserver/analysis.PS.gz'
+ /usr/bin/ginstall -c -m 644 'appgroup.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xserver/appgroup.PS.gz'
+ /usr/bin/ginstall -c -m 644 'ddx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xserver/ddx.PS.gz'
+ /usr/bin/ginstall -c -m 644 'fontlib.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xserver/fontlib.PS.gz'
+ /usr/bin/ginstall -c -m 644 'secint.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xserver/secint.PS.gz'
+ /usr/bin/ginstall -c -m 644 'Xprt.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xserver/Xprt.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xserver'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xserver'
+Making install in Xt
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xt'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xt'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xt" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xt"
+ /usr/bin/ginstall -c -m 644 'intr.idx.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xt/intr.idx.PS.gz'
+ /usr/bin/ginstall -c -m 644 'intrinsics.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/Xt/intrinsics.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xt'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xt'
+Making install in xtrans
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xtrans'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xtrans'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/xtrans" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/xtrans"
+ /usr/bin/ginstall -c -m 644 'Xtrans.PS.gz' '/usr/x11r7//share/X11/doc/hardcopy/xtrans/Xtrans.PS.gz'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xtrans'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/xtrans'
+Making install in Xv
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xv'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xv'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc/hardcopy/Xv" || mkdir -p -- "/usr/x11r7//share/X11/doc/hardcopy/Xv"
+ /usr/bin/ginstall -c -m 644 'video' '/usr/x11r7//share/X11/doc/hardcopy/Xv/video'
+ /usr/bin/ginstall -c -m 644 'xv-protocol-v2.PS' '/usr/x11r7//share/X11/doc/hardcopy/Xv/xv-protocol-v2.PS'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xv'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy/Xv'
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/hardcopy'
+Making install in man
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+Making install in general
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man/general'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man/general'
+make[3]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//man/man7" || mkdir -p -- "/usr/x11r7//man/man7"
+ /usr/bin/ginstall -c -m 644 'Consortium.7' '/usr/x11r7//man/man7/Consortium.7'
+ /usr/bin/ginstall -c -m 644 'security.7' '/usr/x11r7//man/man7/security.7'
+ /usr/bin/ginstall -c -m 644 'Standards.7' '/usr/x11r7//man/man7/Standards.7'
+ /usr/bin/ginstall -c -m 644 'X.7' '/usr/x11r7//man/man7/X.7'
+ /usr/bin/ginstall -c -m 644 'XOrgFoundation.7' '/usr/x11r7//man/man7/XOrgFoundation.7'
+ /usr/bin/ginstall -c -m 644 'Xprint.7' '/usr/x11r7//man/man7/Xprint.7'
+ /usr/bin/ginstall -c -m 644 'XProjectTeam.7' '/usr/x11r7//man/man7/XProjectTeam.7'
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man/general'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man/general'
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+make[3]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+make[3]: Nothing to be done for `install-exec-am'.
+make[3]: Nothing to be done for `install-data-am'.
+make[3]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/man'
+Making install in sgml
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/sgml'
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/sgml'
+make[2]: Nothing to be done for `install-exec-am'.
+make[2]: Nothing to be done for `install-data-am'.
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/sgml'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2/sgml'
+make[1]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2'
+make[2]: Entering directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2'
+make[2]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//share/X11/doc" || mkdir -p -- "/usr/x11r7//share/X11/doc"
+ /usr/bin/ginstall -c -m 644 'MAINTAINERS' '/usr/x11r7//share/X11/doc/MAINTAINERS'
+make[2]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2'
+make[1]: Leaving directory `/home/hannes/x11-src/xorg-docs-X11R7.1-1.2'
+WARNING: applewmproto does not exist -- skipping
+WARNING: bigreqsproto does not exist -- skipping
+Building proto module component compositeproto-X11R7.1-0.3.1...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating compositeproto.pc
+make: Nothing to be done for `all'.
+make[1]: Entering directory `/home/hannes/x11-src/compositeproto-X11R7.1-0.3.1'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//include/X11/extensions" || mkdir -p -- "/usr/x11r7//include/X11/extensions"
+ /usr/bin/ginstall -c -m 644 'composite.h' '/usr/x11r7//include/X11/extensions/composite.h'
+ /usr/bin/ginstall -c -m 644 'compositeproto.h' '/usr/x11r7//include/X11/extensions/compositeproto.h'
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'compositeproto.pc' '/usr/x11r7//lib/pkgconfig/compositeproto.pc'
+make[1]: Leaving directory `/home/hannes/x11-src/compositeproto-X11R7.1-0.3.1'
+WARNING: damageproto does not exist -- skipping
+WARNING: dmxproto does not exist -- skipping
+WARNING: evieext does not exist -- skipping
+Building proto module component fixesproto-X11R7.1-4.0...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating fixesproto.pc
+make: Nothing to be done for `all'.
+make[1]: Entering directory `/home/hannes/x11-src/fixesproto-X11R7.1-4.0'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//include/X11/extensions" || mkdir -p -- "/usr/x11r7//include/X11/extensions"
+ /usr/bin/ginstall -c -m 644 'xfixesproto.h' '/usr/x11r7//include/X11/extensions/xfixesproto.h'
+ /usr/bin/ginstall -c -m 644 'xfixeswire.h' '/usr/x11r7//include/X11/extensions/xfixeswire.h'
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'fixesproto.pc' '/usr/x11r7//lib/pkgconfig/fixesproto.pc'
+make[1]: Leaving directory `/home/hannes/x11-src/fixesproto-X11R7.1-4.0'
+WARNING: fontcacheproto does not exist -- skipping
+WARNING: fontsproto does not exist -- skipping
+Building proto module component glproto-X11R7.1-1.4.7...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating glproto.pc
+make: Nothing to be done for `all'.
+make[1]: Entering directory `/home/hannes/x11-src/glproto-X11R7.1-1.4.7'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//include/GL" || mkdir -p -- "/usr/x11r7//include/GL"
+ /usr/bin/ginstall -c -m 644 'glxint.h' '/usr/x11r7//include/GL/glxint.h'
+ /usr/bin/ginstall -c -m 644 'glxmd.h' '/usr/x11r7//include/GL/glxmd.h'
+ /usr/bin/ginstall -c -m 644 'glxproto.h' '/usr/x11r7//include/GL/glxproto.h'
+ /usr/bin/ginstall -c -m 644 'glxtokens.h' '/usr/x11r7//include/GL/glxtokens.h'
+test -z "/usr/x11r7//include/GL/internal" || mkdir -p -- "/usr/x11r7//include/GL/internal"
+ /usr/bin/ginstall -c -m 644 'glcore.h' '/usr/x11r7//include/GL/internal/glcore.h'
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'glproto.pc' '/usr/x11r7//lib/pkgconfig/glproto.pc'
+make[1]: Leaving directory `/home/hannes/x11-src/glproto-X11R7.1-1.4.7'
+WARNING: inputproto does not exist -- skipping
+WARNING: kbproto does not exist -- skipping
+WARNING: printproto does not exist -- skipping
+WARNING: randrproto does not exist -- skipping
+WARNING: recordproto does not exist -- skipping
+WARNING: renderproto does not exist -- skipping
+WARNING: resourceproto does not exist -- skipping
+Building proto module component scrnsaverproto-X11R7.1-1.1.0...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating scrnsaverproto.pc
+make: Nothing to be done for `all'.
+make[1]: Entering directory `/home/hannes/x11-src/scrnsaverproto-X11R7.1-1.1.0'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'scrnsaverproto.pc' '/usr/x11r7//lib/pkgconfig/scrnsaverproto.pc'
+test -z "/usr/x11r7//include/X11/extensions" || mkdir -p -- "/usr/x11r7//include/X11/extensions"
+ /usr/bin/ginstall -c -m 644 'saver.h' '/usr/x11r7//include/X11/extensions/saver.h'
+ /usr/bin/ginstall -c -m 644 'saverproto.h' '/usr/x11r7//include/X11/extensions/saverproto.h'
+ /usr/bin/ginstall -c -m 644 'scrnsaver.h' '/usr/x11r7//include/X11/extensions/scrnsaver.h'
+make[1]: Leaving directory `/home/hannes/x11-src/scrnsaverproto-X11R7.1-1.1.0'
+WARNING: trapproto does not exist -- skipping
+WARNING: videoproto does not exist -- skipping
+WARNING: windowswmproto does not exist -- skipping
+WARNING: xcmiscproto does not exist -- skipping
+WARNING: xextproto does not exist -- skipping
+WARNING: xf86bigfontproto does not exist -- skipping
+WARNING: xf86dgaproto does not exist -- skipping
+WARNING: xf86driproto does not exist -- skipping
+WARNING: xf86miscproto does not exist -- skipping
+WARNING: xf86rushproto does not exist -- skipping
+WARNING: xf86vidmodeproto does not exist -- skipping
+WARNING: xineramaproto does not exist -- skipping
+Building proto module component xproto-X11R7.1-7.0.5...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking dependency style of gcc... none
+checking for fd_set.fds_bits... no
+checking for fd_set.__fds_bits... yes
+checking whether const prototypes are supported... yes
+checking whether varargs prototypes are supported... yes
+checking whether nested prototypes are supported... yes
+checking whether to force function prototypes... yes
+checking whether to widen function prototypes... no
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating Xpoll.h
+config.status: creating xproto.pc
+config.status: creating do-not-use-config.h
+config.status: creating Xfuncproto.h
+config.status: Xfuncproto.h is unchanged
+config.status: executing depfiles commands
+make  all-am
+make[1]: Entering directory `/home/hannes/x11-src/xproto-X11R7.1-7.0.5'
+make[1]: Leaving directory `/home/hannes/x11-src/xproto-X11R7.1-7.0.5'
+make[1]: Entering directory `/home/hannes/x11-src/xproto-X11R7.1-7.0.5'
+make[1]: Nothing to be done for `install-exec-am'.
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'xproto.pc' '/usr/x11r7//lib/pkgconfig/xproto.pc'
+test -z "/usr/x11r7//include/X11" || mkdir -p -- "/usr/x11r7//include/X11"
+ /usr/bin/ginstall -c -m 644 'ap_keysym.h' '/usr/x11r7//include/X11/ap_keysym.h'
+ /usr/bin/ginstall -c -m 644 'DECkeysym.h' '/usr/x11r7//include/X11/DECkeysym.h'
+ /usr/bin/ginstall -c -m 644 'HPkeysym.h' '/usr/x11r7//include/X11/HPkeysym.h'
+ /usr/bin/ginstall -c -m 644 'keysymdef.h' '/usr/x11r7//include/X11/keysymdef.h'
+ /usr/bin/ginstall -c -m 644 'keysym.h' '/usr/x11r7//include/X11/keysym.h'
+ /usr/bin/ginstall -c -m 644 'Sunkeysym.h' '/usr/x11r7//include/X11/Sunkeysym.h'
+ /usr/bin/ginstall -c -m 644 'Xalloca.h' '/usr/x11r7//include/X11/Xalloca.h'
+ /usr/bin/ginstall -c -m 644 'Xarch.h' '/usr/x11r7//include/X11/Xarch.h'
+ /usr/bin/ginstall -c -m 644 'Xatom.h' '/usr/x11r7//include/X11/Xatom.h'
+ /usr/bin/ginstall -c -m 644 'Xdefs.h' '/usr/x11r7//include/X11/Xdefs.h'
+ /usr/bin/ginstall -c -m 644 'XF86keysym.h' '/usr/x11r7//include/X11/XF86keysym.h'
+ /usr/bin/ginstall -c -m 644 'Xfuncproto.h' '/usr/x11r7//include/X11/Xfuncproto.h'
+ /usr/bin/ginstall -c -m 644 'Xfuncs.h' '/usr/x11r7//include/X11/Xfuncs.h'
+ /usr/bin/ginstall -c -m 644 'X.h' '/usr/x11r7//include/X11/X.h'
+ /usr/bin/ginstall -c -m 644 'Xmd.h' '/usr/x11r7//include/X11/Xmd.h'
+ /usr/bin/ginstall -c -m 644 'Xosdefs.h' '/usr/x11r7//include/X11/Xosdefs.h'
+ /usr/bin/ginstall -c -m 644 'Xos.h' '/usr/x11r7//include/X11/Xos.h'
+ /usr/bin/ginstall -c -m 644 'Xos_r.h' '/usr/x11r7//include/X11/Xos_r.h'
+ /usr/bin/ginstall -c -m 644 'Xpoll.h' '/usr/x11r7//include/X11/Xpoll.h'
+ /usr/bin/ginstall -c -m 644 'Xproto.h' '/usr/x11r7//include/X11/Xproto.h'
+ /usr/bin/ginstall -c -m 644 'Xprotostr.h' '/usr/x11r7//include/X11/Xprotostr.h'
+ /usr/bin/ginstall -c -m 644 'Xthreads.h' '/usr/x11r7//include/X11/Xthreads.h'
+ /usr/bin/ginstall -c -m 644 'Xw32defs.h' '/usr/x11r7//include/X11/Xw32defs.h'
+ /usr/bin/ginstall -c -m 644 'XWDFile.h' '/usr/x11r7//include/X11/XWDFile.h'
+ /usr/bin/ginstall -c -m 644 'Xwindows.h' '/usr/x11r7//include/X11/Xwindows.h'
+ /usr/bin/ginstall -c -m 644 'Xwinsock.h' '/usr/x11r7//include/X11/Xwinsock.h'
+make[1]: Leaving directory `/home/hannes/x11-src/xproto-X11R7.1-7.0.5'
+WARNING: xproxymanagementprotocol does not exist -- skipping
+WARNING: xtrans does not exist -- skipping
+Building lib module component libXau-X11R7.1-1.0.1...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether ln -s works... yes
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for a sed that does not truncate output... /bin/sed
+checking for egrep... grep -E
+checking for ld used by gcc... /usr/i486-slackware-linux/bin/ld
+checking if the linker (/usr/i486-slackware-linux/bin/ld) is GNU ld... yes
+checking for /usr/i486-slackware-linux/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking for g77... g77
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether g77 accepts -g... yes
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC
+checking if gcc PIC flag -fPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking whether the gcc linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by g++... /usr/i486-slackware-linux/bin/ld
+checking if the linker (/usr/i486-slackware-linux/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC
+checking if g++ PIC flag -fPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking whether the g++ linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for g77 option to produce PIC... -fPIC
+checking if g77 PIC flag -fPIC works... yes
+checking if g77 static flag -static works... yes
+checking if g77 supports -c -o file.o... yes
+checking whether the g77 linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether make sets $(MAKE)... (cached) yes
+checking for pkg-config... /usr/pkg/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for XAU... yes
+checking for gethostbyname_r in -lc... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating xau.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+rm -f XauFileName.3x XauReadAuth.3x XauLockAuth.3x XauUnlockAuth.3x XauWriteAuth.3x XauDisposeAuth.3x XauGetAuthByAddr.3x XauGetBestAuthByAddr.3x
+(for i in XauFileName.3x XauReadAuth.3x XauLockAuth.3x XauUnlockAuth.3x XauWriteAuth.3x XauDisposeAuth.3x XauGetAuthByAddr.3x XauGetBestAuthByAddr.3x ; do \
+ echo .so man3/Xau.3x > $i; \
+ done)
+make  all-am
+make[1]: Entering directory `/home/hannes/x11-src/libXau-X11R7.1-1.0.1'
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuDispose.lo -MD -MP -MF ".deps/AuDispose.Tpo" -c -o AuDispose.lo AuDispose.c; \
+then mv -f ".deps/AuDispose.Tpo" ".deps/AuDispose.Plo"; else rm -f ".deps/AuDispose.Tpo"; exit 1; fi
+mkdir .libs
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuDispose.lo -MD -MP -MF .deps/AuDispose.Tpo -c AuDispose.c  -fPIC -DPIC -o .libs/AuDispose.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuDispose.lo -MD -MP -MF .deps/AuDispose.Tpo -c AuDispose.c -o AuDispose.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuFileName.lo -MD -MP -MF ".deps/AuFileName.Tpo" -c -o AuFileName.lo AuFileName.c; \
+then mv -f ".deps/AuFileName.Tpo" ".deps/AuFileName.Plo"; else rm -f ".deps/AuFileName.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuFileName.lo -MD -MP -MF .deps/AuFileName.Tpo -c AuFileName.c  -fPIC -DPIC -o .libs/AuFileName.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuFileName.lo -MD -MP -MF .deps/AuFileName.Tpo -c AuFileName.c -o AuFileName.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuGetAddr.lo -MD -MP -MF ".deps/AuGetAddr.Tpo" -c -o AuGetAddr.lo AuGetAddr.c; \
+then mv -f ".deps/AuGetAddr.Tpo" ".deps/AuGetAddr.Plo"; else rm -f ".deps/AuGetAddr.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuGetAddr.lo -MD -MP -MF .deps/AuGetAddr.Tpo -c AuGetAddr.c  -fPIC -DPIC -o .libs/AuGetAddr.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuGetAddr.lo -MD -MP -MF .deps/AuGetAddr.Tpo -c AuGetAddr.c -o AuGetAddr.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuGetBest.lo -MD -MP -MF ".deps/AuGetBest.Tpo" -c -o AuGetBest.lo AuGetBest.c; \
+then mv -f ".deps/AuGetBest.Tpo" ".deps/AuGetBest.Plo"; else rm -f ".deps/AuGetBest.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuGetBest.lo -MD -MP -MF .deps/AuGetBest.Tpo -c AuGetBest.c  -fPIC -DPIC -o .libs/AuGetBest.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuGetBest.lo -MD -MP -MF .deps/AuGetBest.Tpo -c AuGetBest.c -o AuGetBest.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuLock.lo -MD -MP -MF ".deps/AuLock.Tpo" -c -o AuLock.lo AuLock.c; \
+then mv -f ".deps/AuLock.Tpo" ".deps/AuLock.Plo"; else rm -f ".deps/AuLock.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuLock.lo -MD -MP -MF .deps/AuLock.Tpo -c AuLock.c  -fPIC -DPIC -o .libs/AuLock.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuLock.lo -MD -MP -MF .deps/AuLock.Tpo -c AuLock.c -o AuLock.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuRead.lo -MD -MP -MF ".deps/AuRead.Tpo" -c -o AuRead.lo AuRead.c; \
+then mv -f ".deps/AuRead.Tpo" ".deps/AuRead.Plo"; else rm -f ".deps/AuRead.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuRead.lo -MD -MP -MF .deps/AuRead.Tpo -c AuRead.c  -fPIC -DPIC -o .libs/AuRead.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuRead.lo -MD -MP -MF .deps/AuRead.Tpo -c AuRead.c -o AuRead.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuUnlock.lo -MD -MP -MF ".deps/AuUnlock.Tpo" -c -o AuUnlock.lo AuUnlock.c; \
+then mv -f ".deps/AuUnlock.Tpo" ".deps/AuUnlock.Plo"; else rm -f ".deps/AuUnlock.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuUnlock.lo -MD -MP -MF .deps/AuUnlock.Tpo -c AuUnlock.c  -fPIC -DPIC -o .libs/AuUnlock.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuUnlock.lo -MD -MP -MF .deps/AuUnlock.Tpo -c AuUnlock.c -o AuUnlock.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2 -MT AuWrite.lo -MD -MP -MF ".deps/AuWrite.Tpo" -c -o AuWrite.lo AuWrite.c; \
+then mv -f ".deps/AuWrite.Tpo" ".deps/AuWrite.Plo"; else rm -f ".deps/AuWrite.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuWrite.lo -MD -MP -MF .deps/AuWrite.Tpo -c AuWrite.c  -fPIC -DPIC -o .libs/AuWrite.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -Wall -Wpointer-arith -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include -g -O2 -MT AuWrite.lo -MD -MP -MF .deps/AuWrite.Tpo -c AuWrite.c -o AuWrite.o >/dev/null 2>&1
+/bin/sh ./libtool --tag=CC --mode=link gcc -Wall -Wpointer-arith -Wstrict-prototypes 	-Wmissing-prototypes -Wmissing-declarations 	-Wnested-externs -fno-strict-aliasing -I/usr/x11r7//include    -g -O2   -o libXau.la -rpath /usr/x11r7//lib -version-number 6:0:0 -no-undefined AuDispose.lo AuFileName.lo AuGetAddr.lo AuGetBest.lo AuLock.lo AuRead.lo AuUnlock.lo AuWrite.lo   
+gcc -shared  .libs/AuDispose.o .libs/AuFileName.o .libs/AuGetAddr.o .libs/AuGetBest.o .libs/AuLock.o .libs/AuRead.o .libs/AuUnlock.o .libs/AuWrite.o   -Wl,-soname -Wl,libXau.so.6 -o .libs/libXau.so.6.0.0
+(cd .libs && rm -f libXau.so.6 && ln -s libXau.so.6.0.0 libXau.so.6)
+(cd .libs && rm -f libXau.so && ln -s libXau.so.6.0.0 libXau.so)
+ar cru .libs/libXau.a  AuDispose.o AuFileName.o AuGetAddr.o AuGetBest.o AuLock.o AuRead.o AuUnlock.o AuWrite.o
+ranlib .libs/libXau.a
+creating libXau.la
+(cd .libs && rm -f libXau.la && ln -s ../libXau.la libXau.la)
+sed 's/__xorgversion__/"libXau 1.0.1" "X Version 11"/' \
+< ./Xau.man > Xau.3x
+make[1]: Leaving directory `/home/hannes/x11-src/libXau-X11R7.1-1.0.1'
+rm -f XauFileName.3x XauReadAuth.3x XauLockAuth.3x XauUnlockAuth.3x XauWriteAuth.3x XauDisposeAuth.3x XauGetAuthByAddr.3x XauGetBestAuthByAddr.3x
+(for i in XauFileName.3x XauReadAuth.3x XauLockAuth.3x XauUnlockAuth.3x XauWriteAuth.3x XauDisposeAuth.3x XauGetAuthByAddr.3x XauGetBestAuthByAddr.3x ; do \
+ echo .so man3/Xau.3x > $i; \
+ done)
+make  install-am
+make[1]: Entering directory `/home/hannes/x11-src/libXau-X11R7.1-1.0.1'
+make[2]: Entering directory `/home/hannes/x11-src/libXau-X11R7.1-1.0.1'
+test -z "/usr/x11r7//lib" || mkdir -p -- "/usr/x11r7//lib"
+ /bin/sh ./libtool --mode=install /usr/bin/ginstall -c  'libXau.la' '/usr/x11r7//lib/libXau.la'
+/usr/bin/ginstall -c .libs/libXau.so.6.0.0 /usr/x11r7//lib/libXau.so.6.0.0
+(cd /usr/x11r7//lib && { ln -s -f libXau.so.6.0.0 libXau.so.6 || { rm -f libXau.so.6 && ln -s libXau.so.6.0.0 libXau.so.6; }; })
+(cd /usr/x11r7//lib && { ln -s -f libXau.so.6.0.0 libXau.so || { rm -f libXau.so && ln -s libXau.so.6.0.0 libXau.so; }; })
+/usr/bin/ginstall -c .libs/libXau.lai /usr/x11r7//lib/libXau.la
+/usr/bin/ginstall -c .libs/libXau.a /usr/x11r7//lib/libXau.a
+chmod 644 /usr/x11r7//lib/libXau.a
+ranlib /usr/x11r7//lib/libXau.a
+PATH="$PATH:/sbin" ldconfig -n /usr/x11r7//lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/x11r7//lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+test -z "/usr/x11r7//man/man3" || mkdir -p -- "/usr/x11r7//man/man3"
+ /usr/bin/ginstall -c -m 644 'Xau.3x' '/usr/x11r7//man/man3/Xau.3x'
+ /usr/bin/ginstall -c -m 644 'XauFileName.3x' '/usr/x11r7//man/man3/XauFileName.3x'
+ /usr/bin/ginstall -c -m 644 'XauReadAuth.3x' '/usr/x11r7//man/man3/XauReadAuth.3x'
+ /usr/bin/ginstall -c -m 644 'XauLockAuth.3x' '/usr/x11r7//man/man3/XauLockAuth.3x'
+ /usr/bin/ginstall -c -m 644 'XauUnlockAuth.3x' '/usr/x11r7//man/man3/XauUnlockAuth.3x'
+ /usr/bin/ginstall -c -m 644 'XauWriteAuth.3x' '/usr/x11r7//man/man3/XauWriteAuth.3x'
+ /usr/bin/ginstall -c -m 644 'XauDisposeAuth.3x' '/usr/x11r7//man/man3/XauDisposeAuth.3x'
+ /usr/bin/ginstall -c -m 644 'XauGetAuthByAddr.3x' '/usr/x11r7//man/man3/XauGetAuthByAddr.3x'
+ /usr/bin/ginstall -c -m 644 'XauGetBestAuthByAddr.3x' '/usr/x11r7//man/man3/XauGetBestAuthByAddr.3x'
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'xau.pc' '/usr/x11r7//lib/pkgconfig/xau.pc'
+test -z "/usr/x11r7//include/X11" || mkdir -p -- "/usr/x11r7//include/X11"
+ /usr/bin/ginstall -c -m 644 'include/X11/Xauth.h' '/usr/x11r7//include/X11/Xauth.h'
+make[2]: Leaving directory `/home/hannes/x11-src/libXau-X11R7.1-1.0.1'
+make[1]: Leaving directory `/home/hannes/x11-src/libXau-X11R7.1-1.0.1'
+Building lib module component libXdmcp-X11R7.1-1.0.1...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether ln -s works... yes
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for a sed that does not truncate output... /bin/sed
+checking for egrep... grep -E
+checking for ld used by gcc... /usr/i486-slackware-linux/bin/ld
+checking if the linker (/usr/i486-slackware-linux/bin/ld) is GNU ld... yes
+checking for /usr/i486-slackware-linux/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking for g77... g77
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether g77 accepts -g... yes
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC
+checking if gcc PIC flag -fPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking whether the gcc linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by g++... /usr/i486-slackware-linux/bin/ld
+checking if the linker (/usr/i486-slackware-linux/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC
+checking if g++ PIC flag -fPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking whether the g++ linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for g77 option to produce PIC... -fPIC
+checking if g77 PIC flag -fPIC works... yes
+checking if g77 static flag -static works... yes
+checking if g77 supports -c -o file.o... yes
+checking whether the g77 linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether make sets $(MAKE)... (cached) yes
+checking for library containing recvfrom... none required
+checking for pkg-config... /usr/pkg/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for XDMCP... yes
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating xdmcp.pc
+config.status: creating config.h
+config.status: executing depfiles commands
+make  all-am
+make[1]: Entering directory `/home/hannes/x11-src/libXdmcp-X11R7.1-1.0.1'
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT A8Eq.lo -MD -MP -MF ".deps/A8Eq.Tpo" -c -o A8Eq.lo A8Eq.c; \
+then mv -f ".deps/A8Eq.Tpo" ".deps/A8Eq.Plo"; else rm -f ".deps/A8Eq.Tpo"; exit 1; fi
+mkdir .libs
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT A8Eq.lo -MD -MP -MF .deps/A8Eq.Tpo -c A8Eq.c  -fPIC -DPIC -o .libs/A8Eq.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT A8Eq.lo -MD -MP -MF .deps/A8Eq.Tpo -c A8Eq.c -o A8Eq.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT AA16.lo -MD -MP -MF ".deps/AA16.Tpo" -c -o AA16.lo AA16.c; \
+then mv -f ".deps/AA16.Tpo" ".deps/AA16.Plo"; else rm -f ".deps/AA16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AA16.lo -MD -MP -MF .deps/AA16.Tpo -c AA16.c  -fPIC -DPIC -o .libs/AA16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AA16.lo -MD -MP -MF .deps/AA16.Tpo -c AA16.c -o AA16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT AA32.lo -MD -MP -MF ".deps/AA32.Tpo" -c -o AA32.lo AA32.c; \
+then mv -f ".deps/AA32.Tpo" ".deps/AA32.Plo"; else rm -f ".deps/AA32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AA32.lo -MD -MP -MF .deps/AA32.Tpo -c AA32.c  -fPIC -DPIC -o .libs/AA32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AA32.lo -MD -MP -MF .deps/AA32.Tpo -c AA32.c -o AA32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT AA8.lo -MD -MP -MF ".deps/AA8.Tpo" -c -o AA8.lo AA8.c; \
+then mv -f ".deps/AA8.Tpo" ".deps/AA8.Plo"; else rm -f ".deps/AA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AA8.lo -MD -MP -MF .deps/AA8.Tpo -c AA8.c  -fPIC -DPIC -o .libs/AA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AA8.lo -MD -MP -MF .deps/AA8.Tpo -c AA8.c -o AA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Alloc.lo -MD -MP -MF ".deps/Alloc.Tpo" -c -o Alloc.lo Alloc.c; \
+then mv -f ".deps/Alloc.Tpo" ".deps/Alloc.Plo"; else rm -f ".deps/Alloc.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Alloc.lo -MD -MP -MF .deps/Alloc.Tpo -c Alloc.c  -fPIC -DPIC -o .libs/Alloc.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Alloc.lo -MD -MP -MF .deps/Alloc.Tpo -c Alloc.c -o Alloc.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT AofA8.lo -MD -MP -MF ".deps/AofA8.Tpo" -c -o AofA8.lo AofA8.c; \
+then mv -f ".deps/AofA8.Tpo" ".deps/AofA8.Plo"; else rm -f ".deps/AofA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AofA8.lo -MD -MP -MF .deps/AofA8.Tpo -c AofA8.c  -fPIC -DPIC -o .libs/AofA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT AofA8.lo -MD -MP -MF .deps/AofA8.Tpo -c AofA8.c -o AofA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT CA8.lo -MD -MP -MF ".deps/CA8.Tpo" -c -o CA8.lo CA8.c; \
+then mv -f ".deps/CA8.Tpo" ".deps/CA8.Plo"; else rm -f ".deps/CA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT CA8.lo -MD -MP -MF .deps/CA8.Tpo -c CA8.c  -fPIC -DPIC -o .libs/CA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT CA8.lo -MD -MP -MF .deps/CA8.Tpo -c CA8.c -o CA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT CmpKey.lo -MD -MP -MF ".deps/CmpKey.Tpo" -c -o CmpKey.lo CmpKey.c; \
+then mv -f ".deps/CmpKey.Tpo" ".deps/CmpKey.Plo"; else rm -f ".deps/CmpKey.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT CmpKey.lo -MD -MP -MF .deps/CmpKey.Tpo -c CmpKey.c  -fPIC -DPIC -o .libs/CmpKey.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT CmpKey.lo -MD -MP -MF .deps/CmpKey.Tpo -c CmpKey.c -o CmpKey.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT DA16.lo -MD -MP -MF ".deps/DA16.Tpo" -c -o DA16.lo DA16.c; \
+then mv -f ".deps/DA16.Tpo" ".deps/DA16.Plo"; else rm -f ".deps/DA16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DA16.lo -MD -MP -MF .deps/DA16.Tpo -c DA16.c  -fPIC -DPIC -o .libs/DA16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DA16.lo -MD -MP -MF .deps/DA16.Tpo -c DA16.c -o DA16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT DA32.lo -MD -MP -MF ".deps/DA32.Tpo" -c -o DA32.lo DA32.c; \
+then mv -f ".deps/DA32.Tpo" ".deps/DA32.Plo"; else rm -f ".deps/DA32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DA32.lo -MD -MP -MF .deps/DA32.Tpo -c DA32.c  -fPIC -DPIC -o .libs/DA32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DA32.lo -MD -MP -MF .deps/DA32.Tpo -c DA32.c -o DA32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT DA8.lo -MD -MP -MF ".deps/DA8.Tpo" -c -o DA8.lo DA8.c; \
+then mv -f ".deps/DA8.Tpo" ".deps/DA8.Plo"; else rm -f ".deps/DA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DA8.lo -MD -MP -MF .deps/DA8.Tpo -c DA8.c  -fPIC -DPIC -o .libs/DA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DA8.lo -MD -MP -MF .deps/DA8.Tpo -c DA8.c -o DA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT DAofA8.lo -MD -MP -MF ".deps/DAofA8.Tpo" -c -o DAofA8.lo DAofA8.c; \
+then mv -f ".deps/DAofA8.Tpo" ".deps/DAofA8.Plo"; else rm -f ".deps/DAofA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DAofA8.lo -MD -MP -MF .deps/DAofA8.Tpo -c DAofA8.c  -fPIC -DPIC -o .libs/DAofA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DAofA8.lo -MD -MP -MF .deps/DAofA8.Tpo -c DAofA8.c -o DAofA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT DecKey.lo -MD -MP -MF ".deps/DecKey.Tpo" -c -o DecKey.lo DecKey.c; \
+then mv -f ".deps/DecKey.Tpo" ".deps/DecKey.Plo"; else rm -f ".deps/DecKey.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DecKey.lo -MD -MP -MF .deps/DecKey.Tpo -c DecKey.c  -fPIC -DPIC -o .libs/DecKey.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT DecKey.lo -MD -MP -MF .deps/DecKey.Tpo -c DecKey.c -o DecKey.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Fill.lo -MD -MP -MF ".deps/Fill.Tpo" -c -o Fill.lo Fill.c; \
+then mv -f ".deps/Fill.Tpo" ".deps/Fill.Plo"; else rm -f ".deps/Fill.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Fill.lo -MD -MP -MF .deps/Fill.Tpo -c Fill.c  -fPIC -DPIC -o .libs/Fill.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Fill.lo -MD -MP -MF .deps/Fill.Tpo -c Fill.c -o Fill.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Flush.lo -MD -MP -MF ".deps/Flush.Tpo" -c -o Flush.lo Flush.c; \
+then mv -f ".deps/Flush.Tpo" ".deps/Flush.Plo"; else rm -f ".deps/Flush.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Flush.lo -MD -MP -MF .deps/Flush.Tpo -c Flush.c  -fPIC -DPIC -o .libs/Flush.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Flush.lo -MD -MP -MF .deps/Flush.Tpo -c Flush.c -o Flush.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT GenKey.lo -MD -MP -MF ".deps/GenKey.Tpo" -c -o GenKey.lo GenKey.c; \
+then mv -f ".deps/GenKey.Tpo" ".deps/GenKey.Plo"; else rm -f ".deps/GenKey.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT GenKey.lo -MD -MP -MF .deps/GenKey.Tpo -c GenKey.c  -fPIC -DPIC -o .libs/GenKey.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT GenKey.lo -MD -MP -MF .deps/GenKey.Tpo -c GenKey.c -o GenKey.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT IncKey.lo -MD -MP -MF ".deps/IncKey.Tpo" -c -o IncKey.lo IncKey.c; \
+then mv -f ".deps/IncKey.Tpo" ".deps/IncKey.Plo"; else rm -f ".deps/IncKey.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT IncKey.lo -MD -MP -MF .deps/IncKey.Tpo -c IncKey.c  -fPIC -DPIC -o .libs/IncKey.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT IncKey.lo -MD -MP -MF .deps/IncKey.Tpo -c IncKey.c -o IncKey.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RA16.lo -MD -MP -MF ".deps/RA16.Tpo" -c -o RA16.lo RA16.c; \
+then mv -f ".deps/RA16.Tpo" ".deps/RA16.Plo"; else rm -f ".deps/RA16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RA16.lo -MD -MP -MF .deps/RA16.Tpo -c RA16.c  -fPIC -DPIC -o .libs/RA16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RA16.lo -MD -MP -MF .deps/RA16.Tpo -c RA16.c -o RA16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RA32.lo -MD -MP -MF ".deps/RA32.Tpo" -c -o RA32.lo RA32.c; \
+then mv -f ".deps/RA32.Tpo" ".deps/RA32.Plo"; else rm -f ".deps/RA32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RA32.lo -MD -MP -MF .deps/RA32.Tpo -c RA32.c  -fPIC -DPIC -o .libs/RA32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RA32.lo -MD -MP -MF .deps/RA32.Tpo -c RA32.c -o RA32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RA8.lo -MD -MP -MF ".deps/RA8.Tpo" -c -o RA8.lo RA8.c; \
+then mv -f ".deps/RA8.Tpo" ".deps/RA8.Plo"; else rm -f ".deps/RA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RA8.lo -MD -MP -MF .deps/RA8.Tpo -c RA8.c  -fPIC -DPIC -o .libs/RA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RA8.lo -MD -MP -MF .deps/RA8.Tpo -c RA8.c -o RA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RAofA8.lo -MD -MP -MF ".deps/RAofA8.Tpo" -c -o RAofA8.lo RAofA8.c; \
+then mv -f ".deps/RAofA8.Tpo" ".deps/RAofA8.Plo"; else rm -f ".deps/RAofA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RAofA8.lo -MD -MP -MF .deps/RAofA8.Tpo -c RAofA8.c  -fPIC -DPIC -o .libs/RAofA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RAofA8.lo -MD -MP -MF .deps/RAofA8.Tpo -c RAofA8.c -o RAofA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RC16.lo -MD -MP -MF ".deps/RC16.Tpo" -c -o RC16.lo RC16.c; \
+then mv -f ".deps/RC16.Tpo" ".deps/RC16.Plo"; else rm -f ".deps/RC16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RC16.lo -MD -MP -MF .deps/RC16.Tpo -c RC16.c  -fPIC -DPIC -o .libs/RC16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RC16.lo -MD -MP -MF .deps/RC16.Tpo -c RC16.c -o RC16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RC32.lo -MD -MP -MF ".deps/RC32.Tpo" -c -o RC32.lo RC32.c; \
+then mv -f ".deps/RC32.Tpo" ".deps/RC32.Plo"; else rm -f ".deps/RC32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RC32.lo -MD -MP -MF .deps/RC32.Tpo -c RC32.c  -fPIC -DPIC -o .libs/RC32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RC32.lo -MD -MP -MF .deps/RC32.Tpo -c RC32.c -o RC32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RC8.lo -MD -MP -MF ".deps/RC8.Tpo" -c -o RC8.lo RC8.c; \
+then mv -f ".deps/RC8.Tpo" ".deps/RC8.Plo"; else rm -f ".deps/RC8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RC8.lo -MD -MP -MF .deps/RC8.Tpo -c RC8.c  -fPIC -DPIC -o .libs/RC8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RC8.lo -MD -MP -MF .deps/RC8.Tpo -c RC8.c -o RC8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RHead.lo -MD -MP -MF ".deps/RHead.Tpo" -c -o RHead.lo RHead.c; \
+then mv -f ".deps/RHead.Tpo" ".deps/RHead.Plo"; else rm -f ".deps/RHead.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RHead.lo -MD -MP -MF .deps/RHead.Tpo -c RHead.c  -fPIC -DPIC -o .libs/RHead.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RHead.lo -MD -MP -MF .deps/RHead.Tpo -c RHead.c -o RHead.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RR.lo -MD -MP -MF ".deps/RR.Tpo" -c -o RR.lo RR.c; \
+then mv -f ".deps/RR.Tpo" ".deps/RR.Plo"; else rm -f ".deps/RR.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RR.lo -MD -MP -MF .deps/RR.Tpo -c RR.c  -fPIC -DPIC -o .libs/RR.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RR.lo -MD -MP -MF .deps/RR.Tpo -c RR.c -o RR.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RaA16.lo -MD -MP -MF ".deps/RaA16.Tpo" -c -o RaA16.lo RaA16.c; \
+then mv -f ".deps/RaA16.Tpo" ".deps/RaA16.Plo"; else rm -f ".deps/RaA16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaA16.lo -MD -MP -MF .deps/RaA16.Tpo -c RaA16.c  -fPIC -DPIC -o .libs/RaA16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaA16.lo -MD -MP -MF .deps/RaA16.Tpo -c RaA16.c -o RaA16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RaA32.lo -MD -MP -MF ".deps/RaA32.Tpo" -c -o RaA32.lo RaA32.c; \
+then mv -f ".deps/RaA32.Tpo" ".deps/RaA32.Plo"; else rm -f ".deps/RaA32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaA32.lo -MD -MP -MF .deps/RaA32.Tpo -c RaA32.c  -fPIC -DPIC -o .libs/RaA32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaA32.lo -MD -MP -MF .deps/RaA32.Tpo -c RaA32.c -o RaA32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RaA8.lo -MD -MP -MF ".deps/RaA8.Tpo" -c -o RaA8.lo RaA8.c; \
+then mv -f ".deps/RaA8.Tpo" ".deps/RaA8.Plo"; else rm -f ".deps/RaA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaA8.lo -MD -MP -MF .deps/RaA8.Tpo -c RaA8.c  -fPIC -DPIC -o .libs/RaA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaA8.lo -MD -MP -MF .deps/RaA8.Tpo -c RaA8.c -o RaA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT RaAoA8.lo -MD -MP -MF ".deps/RaAoA8.Tpo" -c -o RaAoA8.lo RaAoA8.c; \
+then mv -f ".deps/RaAoA8.Tpo" ".deps/RaAoA8.Plo"; else rm -f ".deps/RaAoA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaAoA8.lo -MD -MP -MF .deps/RaAoA8.Tpo -c RaAoA8.c  -fPIC -DPIC -o .libs/RaAoA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT RaAoA8.lo -MD -MP -MF .deps/RaAoA8.Tpo -c RaAoA8.c -o RaAoA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Unwrap.lo -MD -MP -MF ".deps/Unwrap.Tpo" -c -o Unwrap.lo Unwrap.c; \
+then mv -f ".deps/Unwrap.Tpo" ".deps/Unwrap.Plo"; else rm -f ".deps/Unwrap.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Unwrap.lo -MD -MP -MF .deps/Unwrap.Tpo -c Unwrap.c  -fPIC -DPIC -o .libs/Unwrap.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Unwrap.lo -MD -MP -MF .deps/Unwrap.Tpo -c Unwrap.c -o Unwrap.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WA16.lo -MD -MP -MF ".deps/WA16.Tpo" -c -o WA16.lo WA16.c; \
+then mv -f ".deps/WA16.Tpo" ".deps/WA16.Plo"; else rm -f ".deps/WA16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WA16.lo -MD -MP -MF .deps/WA16.Tpo -c WA16.c  -fPIC -DPIC -o .libs/WA16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WA16.lo -MD -MP -MF .deps/WA16.Tpo -c WA16.c -o WA16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WA32.lo -MD -MP -MF ".deps/WA32.Tpo" -c -o WA32.lo WA32.c; \
+then mv -f ".deps/WA32.Tpo" ".deps/WA32.Plo"; else rm -f ".deps/WA32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WA32.lo -MD -MP -MF .deps/WA32.Tpo -c WA32.c  -fPIC -DPIC -o .libs/WA32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WA32.lo -MD -MP -MF .deps/WA32.Tpo -c WA32.c -o WA32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WA8.lo -MD -MP -MF ".deps/WA8.Tpo" -c -o WA8.lo WA8.c; \
+then mv -f ".deps/WA8.Tpo" ".deps/WA8.Plo"; else rm -f ".deps/WA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WA8.lo -MD -MP -MF .deps/WA8.Tpo -c WA8.c  -fPIC -DPIC -o .libs/WA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WA8.lo -MD -MP -MF .deps/WA8.Tpo -c WA8.c -o WA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WAofA8.lo -MD -MP -MF ".deps/WAofA8.Tpo" -c -o WAofA8.lo WAofA8.c; \
+then mv -f ".deps/WAofA8.Tpo" ".deps/WAofA8.Plo"; else rm -f ".deps/WAofA8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WAofA8.lo -MD -MP -MF .deps/WAofA8.Tpo -c WAofA8.c  -fPIC -DPIC -o .libs/WAofA8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WAofA8.lo -MD -MP -MF .deps/WAofA8.Tpo -c WAofA8.c -o WAofA8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WC16.lo -MD -MP -MF ".deps/WC16.Tpo" -c -o WC16.lo WC16.c; \
+then mv -f ".deps/WC16.Tpo" ".deps/WC16.Plo"; else rm -f ".deps/WC16.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WC16.lo -MD -MP -MF .deps/WC16.Tpo -c WC16.c  -fPIC -DPIC -o .libs/WC16.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WC16.lo -MD -MP -MF .deps/WC16.Tpo -c WC16.c -o WC16.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WC32.lo -MD -MP -MF ".deps/WC32.Tpo" -c -o WC32.lo WC32.c; \
+then mv -f ".deps/WC32.Tpo" ".deps/WC32.Plo"; else rm -f ".deps/WC32.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WC32.lo -MD -MP -MF .deps/WC32.Tpo -c WC32.c  -fPIC -DPIC -o .libs/WC32.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WC32.lo -MD -MP -MF .deps/WC32.Tpo -c WC32.c -o WC32.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT WC8.lo -MD -MP -MF ".deps/WC8.Tpo" -c -o WC8.lo WC8.c; \
+then mv -f ".deps/WC8.Tpo" ".deps/WC8.Plo"; else rm -f ".deps/WC8.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WC8.lo -MD -MP -MF .deps/WC8.Tpo -c WC8.c  -fPIC -DPIC -o .libs/WC8.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT WC8.lo -MD -MP -MF .deps/WC8.Tpo -c WC8.c -o WC8.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Whead.lo -MD -MP -MF ".deps/Whead.Tpo" -c -o Whead.lo Whead.c; \
+then mv -f ".deps/Whead.Tpo" ".deps/Whead.Plo"; else rm -f ".deps/Whead.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Whead.lo -MD -MP -MF .deps/Whead.Tpo -c Whead.c  -fPIC -DPIC -o .libs/Whead.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Whead.lo -MD -MP -MF .deps/Whead.Tpo -c Whead.c -o Whead.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Wrap.lo -MD -MP -MF ".deps/Wrap.Tpo" -c -o Wrap.lo Wrap.c; \
+then mv -f ".deps/Wrap.Tpo" ".deps/Wrap.Plo"; else rm -f ".deps/Wrap.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Wrap.lo -MD -MP -MF .deps/Wrap.Tpo -c Wrap.c  -fPIC -DPIC -o .libs/Wrap.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Wrap.lo -MD -MP -MF .deps/Wrap.Tpo -c Wrap.c -o Wrap.o >/dev/null 2>&1
+if /bin/sh ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include   -I./include -I/usr/x11r7//include   -g -O2 -MT Wraphelp.lo -MD -MP -MF ".deps/Wraphelp.Tpo" -c -o Wraphelp.lo Wraphelp.c; \
+then mv -f ".deps/Wraphelp.Tpo" ".deps/Wraphelp.Plo"; else rm -f ".deps/Wraphelp.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Wraphelp.lo -MD -MP -MF .deps/Wraphelp.Tpo -c Wraphelp.c  -fPIC -DPIC -o .libs/Wraphelp.o
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -I./include -I./include -I/usr/x11r7//include -g -O2 -MT Wraphelp.lo -MD -MP -MF .deps/Wraphelp.Tpo -c Wraphelp.c -o Wraphelp.o >/dev/null 2>&1
+/bin/sh ./libtool --tag=CC --mode=link gcc -I./include -I/usr/x11r7//include   -g -O2   -o libXdmcp.la -rpath /usr/x11r7//lib -version-number 6:0:0 -no-undefined A8Eq.lo AA16.lo AA32.lo AA8.lo Alloc.lo AofA8.lo CA8.lo CmpKey.lo DA16.lo DA32.lo DA8.lo DAofA8.lo DecKey.lo Fill.lo Flush.lo GenKey.lo IncKey.lo RA16.lo RA32.lo RA8.lo RAofA8.lo RC16.lo RC32.lo RC8.lo RHead.lo RR.lo RaA16.lo RaA32.lo RaA8.lo RaAoA8.lo Unwrap.lo WA16.lo WA32.lo WA8.lo WAofA8.lo WC16.lo WC32.lo WC8.lo Whead.lo Wrap.lo Wraphelp.lo  
+gcc -shared  .libs/A8Eq.o .libs/AA16.o .libs/AA32.o .libs/AA8.o .libs/Alloc.o .libs/AofA8.o .libs/CA8.o .libs/CmpKey.o .libs/DA16.o .libs/DA32.o .libs/DA8.o .libs/DAofA8.o .libs/DecKey.o .libs/Fill.o .libs/Flush.o .libs/GenKey.o .libs/IncKey.o .libs/RA16.o .libs/RA32.o .libs/RA8.o .libs/RAofA8.o .libs/RC16.o .libs/RC32.o .libs/RC8.o .libs/RHead.o .libs/RR.o .libs/RaA16.o .libs/RaA32.o .libs/RaA8.o .libs/RaAoA8.o .libs/Unwrap.o .libs/WA16.o .libs/WA32.o .libs/WA8.o .libs/WAofA8.o .libs/WC16.o .libs/WC32.o .libs/WC8.o .libs/Whead.o .libs/Wrap.o .libs/Wraphelp.o   -Wl,-soname -Wl,libXdmcp.so.6 -o .libs/libXdmcp.so.6.0.0
+(cd .libs && rm -f libXdmcp.so.6 && ln -s libXdmcp.so.6.0.0 libXdmcp.so.6)
+(cd .libs && rm -f libXdmcp.so && ln -s libXdmcp.so.6.0.0 libXdmcp.so)
+ar cru .libs/libXdmcp.a  A8Eq.o AA16.o AA32.o AA8.o Alloc.o AofA8.o CA8.o CmpKey.o DA16.o DA32.o DA8.o DAofA8.o DecKey.o Fill.o Flush.o GenKey.o IncKey.o RA16.o RA32.o RA8.o RAofA8.o RC16.o RC32.o RC8.o RHead.o RR.o RaA16.o RaA32.o RaA8.o RaAoA8.o Unwrap.o WA16.o WA32.o WA8.o WAofA8.o WC16.o WC32.o WC8.o Whead.o Wrap.o Wraphelp.o
+ranlib .libs/libXdmcp.a
+creating libXdmcp.la
+(cd .libs && rm -f libXdmcp.la && ln -s ../libXdmcp.la libXdmcp.la)
+make[1]: Leaving directory `/home/hannes/x11-src/libXdmcp-X11R7.1-1.0.1'
+make[1]: Entering directory `/home/hannes/x11-src/libXdmcp-X11R7.1-1.0.1'
+test -z "/usr/x11r7//lib" || mkdir -p -- "/usr/x11r7//lib"
+ /bin/sh ./libtool --mode=install /usr/bin/ginstall -c  'libXdmcp.la' '/usr/x11r7//lib/libXdmcp.la'
+/usr/bin/ginstall -c .libs/libXdmcp.so.6.0.0 /usr/x11r7//lib/libXdmcp.so.6.0.0
+(cd /usr/x11r7//lib && { ln -s -f libXdmcp.so.6.0.0 libXdmcp.so.6 || { rm -f libXdmcp.so.6 && ln -s libXdmcp.so.6.0.0 libXdmcp.so.6; }; })
+(cd /usr/x11r7//lib && { ln -s -f libXdmcp.so.6.0.0 libXdmcp.so || { rm -f libXdmcp.so && ln -s libXdmcp.so.6.0.0 libXdmcp.so; }; })
+/usr/bin/ginstall -c .libs/libXdmcp.lai /usr/x11r7//lib/libXdmcp.la
+/usr/bin/ginstall -c .libs/libXdmcp.a /usr/x11r7//lib/libXdmcp.a
+chmod 644 /usr/x11r7//lib/libXdmcp.a
+ranlib /usr/x11r7//lib/libXdmcp.a
+PATH="$PATH:/sbin" ldconfig -n /usr/x11r7//lib
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/x11r7//lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the `-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the `LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the `LD_RUN_PATH' environment variable
+     during linking
+   - use the `-Wl,--rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to `/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+test -z "/usr/x11r7//lib/pkgconfig" || mkdir -p -- "/usr/x11r7//lib/pkgconfig"
+ /usr/bin/ginstall -c -m 644 'xdmcp.pc' '/usr/x11r7//lib/pkgconfig/xdmcp.pc'
+test -z "/usr/x11r7//include/X11" || mkdir -p -- "/usr/x11r7//include/X11"
+ /usr/bin/ginstall -c -m 644 'include/X11/Xdmcp.h' '/usr/x11r7//include/X11/Xdmcp.h'
+make[1]: Leaving directory `/home/hannes/x11-src/libXdmcp-X11R7.1-1.0.1'
+WARNING: libX11 does not exist -- skipping
+Building lib module component libXext-X11R7.1-1.0.1...
+checking for a BSD-compatible install... /usr/bin/ginstall -c
+checking whether build environment is sane... yes
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking build system type... i686-pc-linux-gnu
+checking host system type... i686-pc-linux-gnu
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking for C compiler default output file name... a.out
+checking whether the C compiler works... yes
+checking whether we are cross compiling... no
+checking for suffix of executables... 
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ANSI C... none needed
+checking dependency style of gcc... gcc3
+checking for a sed that does not truncate output... /bin/sed
+checking for egrep... grep -E
+checking for ld used by gcc... /usr/i486-slackware-linux/bin/ld
+checking if the linker (/usr/i486-slackware-linux/bin/ld) is GNU ld... yes
+checking for /usr/i486-slackware-linux/bin/ld option to reload object files... -r
+checking for BSD-compatible nm... /usr/bin/nm -B
+checking whether ln -s works... yes
+checking how to recognise dependent libraries... pass_all
+checking how to run the C preprocessor... gcc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking dlfcn.h usability... yes
+checking dlfcn.h presence... yes
+checking for dlfcn.h... yes
+checking for g++... g++
+checking whether we are using the GNU C++ compiler... yes
+checking whether g++ accepts -g... yes
+checking dependency style of g++... gcc3
+checking how to run the C++ preprocessor... g++ -E
+checking for g77... g77
+checking whether we are using the GNU Fortran 77 compiler... yes
+checking whether g77 accepts -g... yes
+checking the maximum length of command line arguments... 32768
+checking command to parse /usr/bin/nm -B output from gcc object... ok
+checking for objdir... .libs
+checking for ar... ar
+checking for ranlib... ranlib
+checking for strip... strip
+checking if gcc supports -fno-rtti -fno-exceptions... no
+checking for gcc option to produce PIC... -fPIC
+checking if gcc PIC flag -fPIC works... yes
+checking if gcc static flag -static works... yes
+checking if gcc supports -c -o file.o... yes
+checking whether the gcc linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+configure: creating libtool
+appending configuration tag "CXX" to libtool
+checking for ld used by g++... /usr/i486-slackware-linux/bin/ld
+checking if the linker (/usr/i486-slackware-linux/bin/ld) is GNU ld... yes
+checking whether the g++ linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC
+checking if g++ PIC flag -fPIC works... yes
+checking if g++ static flag -static works... yes
+checking if g++ supports -c -o file.o... yes
+checking whether the g++ linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+appending configuration tag "F77" to libtool
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for g77 option to produce PIC... -fPIC
+checking if g77 PIC flag -fPIC works... yes
+checking if g77 static flag -static works... yes
+checking if g77 supports -c -o file.o... yes
+checking whether the g77 linker (/usr/i486-slackware-linux/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ANSI C... (cached) none needed
+checking dependency style of gcc... (cached) gcc3
+checking for pkg-config... /usr/pkg/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for XEXT... configure: error: Package requirements (xproto x11 xextproto xau) were not met:
+
+No package 'x11' found
+No package 'xextproto' found
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables XEXT_CFLAGS
+and XEXT_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+
+--Boundary-00=_sih3E565pST4ap6
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+--Boundary-00=_sih3E565pST4ap6--
+

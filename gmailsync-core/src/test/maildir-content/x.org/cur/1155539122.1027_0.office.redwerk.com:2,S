@@ -1,0 +1,1253 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GCWVl-0000Fh-73
+	for bofh@localhost; Mon, 14 Aug 2006 10:05:22 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Mon, 14 Aug 2006 10:05:21 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 670DDA9EEE
+	for <bofh@redwerk.com>; Sat, 12 Aug 2006 22:47:33 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id 0C7499EAA6;
+	Sat, 12 Aug 2006 13:47:31 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from mail.gmx.net (mail.gmx.de [213.165.64.20])
+	by gabe.freedesktop.org (Postfix) with SMTP id 7FD899E9EC
+	for <xorg@lists.freedesktop.org>; Sat, 12 Aug 2006 13:47:27 -0700 (PDT)
+Received: (qmail invoked by alias); 12 Aug 2006 20:47:25 -0000
+Received: from 6-100.vpn.RWTH-Aachen.DE (EHLO localhost) [134.130.246.100]
+	by mail.gmx.net (mp029) with SMTP; 12 Aug 2006 22:47:25 +0200
+X-Authenticated: #24128601
+Date: Sat, 12 Aug 2006 22:46:49 +0200
+From: Sebastian Kemper <sebastian_ml@gmx.net>
+To: "X.org Mailing List" <xorg@lists.freedesktop.org>
+Message-ID: <20060812204649.GA11635@section_eight.mops.rwth-aachen.de>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+X-PGP-Key: http://www-users.rwth-aachen.de/sebastian.kemper/sebastian_ml_pubkey.asc
+X-message-flag: Please send plain text messages only. Thank you.
+User-Agent: Mutt/1.5.11
+X-Y-GMX-Trusted: 0
+Subject: X.org 7.{0,1}: Can't start mplayer on X :1 from X :0
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+Content-Length: 54342
+Lines: 1196
+X-UID: 13729
+X-Keywords:                                                                                                    
+
+Hi all,
+
+I'm trying to start mplayer on a new X server (:1) from within a running
+X (:0). It usually works the first time, but further attempts fail.
+
+- It worked fine with X.org 6.8.2, even repeated attemts were successful.
+
+- Starting mplayer on X :1 from console works every time.
+
+I use the following script:
+
+#!/bin/bash
+X -layout TV :1 -ac 1> /tmp/X.1.log 2> /tmp/X.1.err & DISPLAY=3D:1 mplayer
+-fs -really-quiet -monitoraspect "662:373" -fs "$@" 1> /tmp/mplayer.log
+2> /tmp/mplayer.err ; kill `ps aux | awk '/X\ -layout/ {print $2}'`
+
+(sorry for the line breaks, it really is a one liner)
+
+In case it fails X will still pop up for a short time. It seems
+that mplayer just exits and so does X. In fact I can substitute mplayer
+with xterm and then the script works all the time, meaning that I can
+use the xterm. Also, I can use 'xterm -e "mplayer ..." instead of just
+calling mplayer and it works, but then Konsole gets hit with uncountable
+new lines so I doubt this is healthy to do.
+
+Weird is when I get dropped back to Konsole the output is different
+depending on whether the script succeeded or not. In the latter case I
+get a number of new lines. In console I don't ever get any new line, but
+the script works there every single attempt as mentioned above, so I
+think the new lines and the failing of the script could be related.
+
+Anyone knows where the problem lies? It "just worked" with X.org 6.8.2
+and I basically use the same xorg.conf (removing the rgb path was all I
+did when I moved to 7.0 iirc).
+
+Thanks
+Sebastian
+
+P.S.: Is it better to attach log files to a mail instead of pasting them
+inline when posting to mailing lists?
+
+S.
+
+########################################################################
+
+Konsole after a successful attempt:
+
+sk@section_eight /tmp $ tv-out test.avi
+sk@section_eight /tmp $
+
+########################################################################
+
+Konsole after a failed attempt:
+
+sk@section_eight /tmp $ tv-out test.avi
+
+
+
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+sk@section_eight /tmp $
+
+########################################################################
+
+There are no differences in the log and err files
+(/tmp/{mplayer.err,mplayer.log,X.1.err,X.1.log} and /var/log/Xorg.1.log)
+between a seccessful and a failed attempt.
+
+########################################################################
+
+log and err files:
+
+sk@section_eight /tmp $ cat mplayer.err
+sk@section_eight /tmp $ cat mplayer.log
+MPlayer 1.0pre8-3.4.6 (C) 2000-2006 MPlayer Team
+CPU: AMD Sempron(tm)   2400+ (Family: 6, Model: 8, Stepping: 1)
+CPUflags:  MMX: 1 MMX2: 1 3DNow: 1 3DNow2: 1 SSE: 1 SSE2: 0
+Kompiliert f=FCr x86 CPU mit folgenden Erweiterungen: MMX MMX2 3DNow
+3DNowEx SSE
+
+
+sk@section_eight /tmp $ cat X.1.err
+
+X Window System Version 7.1.1
+Release Date: 12 May 2006
+X Protocol Version 11, Revision 0, Release 7.1.1
+Build Operating System: Linux 2.6.17.8 i686
+Current Operating System: Linux section_eight 2.6.17.8 #1 Mon Aug 7
+10:45:48 CEST 2006 i686
+Build Date: 12 August 2006
+        Before reporting problems, check http://wiki.x.org
+        to make sure that you have the latest version.
+Module Loader present
+Markers: (--) probed, (**) from config file, (=3D=3D) default setting,
+        (++) from command line, (!!) notice, (II) informational,
+        (WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+(=3D=3D) Log file: "/var/log/Xorg.1.log", Time: Sat Aug 12 22:30:19 2006
+(=3D=3D) Using config file: "/etc/X11/xorg.conf"
+(**) RADEON(0): RADEONPreInit
+(**) RADEON(0): RADEONScreenInit d0000000 0
+(**) RADEON(0): Map: 0xd0000000, 0x08000000
+(**) RADEON(0): RADEONSave
+(**) RADEON(0): RADEONSaveMode(0x81ff8cc)
+(**) RADEON(0): Read: 0x0000000c 0x00010060 0x00000000
+(**) RADEON(0): Read: rd=3D12, fd=3D96, pd=3D1
+(**) RADEON(0): RADEONSaveMode returns 0x81ff8cc
+(**) RADEON(0): RADEONInitMemoryMap() :
+(**) RADEON(0):   mem_size         : 0x08000000
+(**) RADEON(0):   MC_FB_LOCATION   : 0xd7ffd000
+(**) RADEON(0):   MC_AGP_LOCATION  : 0xffffffc0
+(**) RADEON(0): RADEONModeInit()
+720x576        14.06   720  754  794  900   576  576  591  625 (24,32) C
+I +H +V
+720x576        14.06   720  754  794  900   576  576  591  625 (24,32) C
+I +H +V
+(**) RADEON(0): Pitch =3D 6291552 bytes (virtualX =3D 720, displayWidth =3D
+768)
+(**) RADEON(0): dc=3D1406, of=3D22496, fd=3D100, pd=3D16
+(**) RADEON(0): RADEONInit returns 0x820027c
+(**) RADEON(0): RADEONRestoreMode()
+(**) RADEON(0): RADEONRestoreMode(0x820027c)
+(**) RADEON(0): RADEONRestoreMemMapRegisters() :
+(**) RADEON(0):   MC_FB_LOCATION   : 0xd7ffd000
+(**) RADEON(0):   MC_AGP_LOCATION  : 0xffffffc0
+(**) RADEON(0):   Map Changed ! Applying ...
+(**) RADEON(0):   Map applied, resetting engine ...
+(**) RADEON(0): Updating display base addresses...
+(**) RADEON(0): Memory map updated.
+(**) RADEON(0): Programming CRTC1, offset: 0x00000000
+(**) RADEON(0): Wrote: 0x0000000c 0x00050064 0x00000000 (0x0000a700)
+(**) RADEON(0): Wrote: rd=3D12, fd=3D100, pd=3D5
+(**) RADEON(0): GRPH_BUFFER_CNTL from 20205c5c to 20025c5c
+(**) RADEON(0): RADEONSaveScreen(0)
+(**) RADEON(0): Setting up initial surfaces
+(**) RADEON(0): Initializing fb layer
+(**) RADEON(0): Setting up accel memmap
+(**) RADEON(0): Initializing backing store
+(**) RADEON(0): Setting up final surfaces
+(**) RADEON(0): Initializing Acceleration
+(**) RADEON(0): EngineInit (32/32)
+(**) RADEON(0): Pitch for acceleration =3D 96
+(**) RADEON(0): EngineRestore (32/32)
+(**) RADEON(0): Initializing DPMS
+(**) RADEON(0): Initializing Cursor
+(**) RADEON(0): Initializing color map
+(**) RADEON(0): Initializing DGA
+(**) RADEON(0): Initializing Xv
+(**) RADEON(0): RADEONScreenInit finished
+    xkb_keycodes             { include "xfree86+aliases(qwertz)" };
+    xkb_types                { include "complete" };
+    xkb_compatibility        { include "complete" };
+    xkb_symbols              { include "pc(pc105)+de" };
+    xkb_geometry             { include "pc(pc105)" };
+The XKEYBOARD keymap compiler (xkbcomp) reports:
+> Warning:          Type "ONE_LEVEL" has 1 levels, but <RALT> has 2
+> symbols
+>                   Ignoring extra symbols
+Errors from xkbcomp are not fatal to the X server
+(**) RADEON(0): RADEONSaveScreen(2)
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)
+(**) RADEON(0): RADEONCloseScreen
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)
+(**) RADEON(0): RADEONRestore
+(**) RADEON(0): RADEONRestoreMode()
+(**) RADEON(0): RADEONRestoreMode(0x81ff8cc)
+(**) RADEON(0): RADEONRestoreMemMapRegisters() :
+(**) RADEON(0):   MC_FB_LOCATION   : 0x1fff0000
+(**) RADEON(0):   MC_AGP_LOCATION  : 0x27ff2000
+(**) RADEON(0):   Map Changed ! Applying ...
+(**) RADEON(0):   Map applied, resetting engine ...
+(**) RADEON(0): Updating display base addresses...
+(**) RADEON(0): Memory map updated.
+(**) RADEON(0): Programming CRTC1, offset: 0x00000000
+(**) RADEON(0): Wrote: 0x0000000c 0x00010060 0x00000000 (0x0000a700)
+(**) RADEON(0): Wrote: rd=3D12, fd=3D96, pd=3D1
+(**) RADEON(0): Disposing accel...
+(**) RADEON(0): Disposing cusor info
+(**) RADEON(0): Disposing DGA
+(**) RADEON(0): Unmapping memory
+FreeFontPath: FPE "/usr/share/fonts/misc/" refcount is 2, should be 1;
+fixing.
+sk@section_eight /tmp $ cat X.1.log
+sk@section_eight /tmp $
+
+########################################################################
+
+xorg.conf:
+
+Section "Module"
+        Load            "dbe"
+        SubSection      "extmod"
+                Option  "omit xfree86-dga"
+        EndSubSection
+        Load            "freetype"
+        Load            "extmod"
+EndSection
+Section "Files"
+        FontPath        "/usr/share/fonts/win_fonts/"
+        FontPath        "/usr/share/fonts/corefonts/"
+        FontPath        "/usr/share/fonts/misc/"
+        FontPath        "/usr/share/fonts/75dpi/:unscaled"
+        FontPath        "/usr/share/fonts/100dpi/:unscaled"
+        FontPath        "/usr/share/fonts/Type1/"
+        FontPath        "/usr/share/fonts/75dpi/"
+        FontPath        "/usr/share/fonts/100dpi/"
+EndSection
+Section "ServerFlags"
+        Option          "AllowMouseOpenFail" "true"
+        Option          "OffTime" "5"
+        Option          "DefaultServerLayout" "TFT"
+EndSection
+Section "InputDevice"
+        Identifier      "Keyboard1"
+        Driver          "kbd"
+        Option          "XkbModel" "pc105"
+        Option          "XkbLayout" "de"
+EndSection
+Section "InputDevice"
+        Identifier      "Mouse1"
+        Driver          "mouse"
+        Option          "Protocol" "IMPS/2"
+        Option          "Device" "/dev/input/mice"
+        Option          "ZAxisMapping" "4 5"
+EndSection
+Section "Monitor"
+        Identifier      "Belinea TFT"
+        HorizSync       30 - 81
+        VertRefresh     50 - 76
+        DisplaySize     338 270
+        Option          "DPMS"
+EndSection
+Section "Monitor"
+        Identifier      "Panasonic TV"
+        HorizSync       15 - 16
+        VertRefresh     49.9 - 50.1
+#       DisplaySize     662 373
+        DisplaySize     497 397
+        Option          "DPMS"
+        ModeLine        "720x576" 14.0625 720 754 794 900 576 576 591
+625 +hsync +vsync interlace composite
+EndSection
+Section "Device"
+        Identifier      "Radeon on TFT"
+        Driver          "radeon"
+        Option          "MonitorLayout" "TMDS, NONE"
+        Option          "DDCMode" "true"
+        Option          "DynamicClocks" "true"
+EndSection
+Section "Device"
+        Identifier      "Radeon on TV"
+        Driver          "radeon"
+        Option          "ForceMinDotClock" "14MHz"
+        Option          "MonitorLayout" "NONE, CRT"
+        Option          "DynamicClocks" "true"
+EndSection
+Section "Screen"
+        Identifier      "TFT screen"
+        Device          "Radeon on TFT"
+        Monitor         "Belinea TFT"
+        DefaultDepth    24
+EndSection
+Section "Screen"
+        Identifier      "TV screen"
+        Device          "Radeon on TV"
+        Monitor         "Panasonic TV"
+        DefaultDepth    24
+        SubSection      "Display"
+                Depth   24
+                Modes   "720x576"
+        EndSubSection
+EndSection
+Section "ServerLayout"
+        Identifier      "TFT"
+        InputDevice     "Mouse1" "CorePointer"
+        InputDevice     "Keyboard1" "CoreKeyboard"
+        Screen          "TFT screen"
+EndSection
+Section "ServerLayout"
+        Identifier      "TV"
+        InputDevice     "Mouse1" "CorePointer"
+        InputDevice     "Keyboard1" "CoreKeyboard"
+        Screen          "TV screen"
+EndSection
+
+########################################################################
+
+Xorg.1.log:
+
+X Window System Version 7.1.1
+Release Date: 12 May 2006
+X Protocol Version 11, Revision 0, Release 7.1.1
+Build Operating System: Linux 2.6.17.8 i686
+Current Operating System: Linux section_eight 2.6.17.8 #1 Mon Aug 7
+10:45:48 CEST 2006 i686
+Build Date: 12 August 2006
+        Before reporting problems, check http://wiki.x.org
+        to make sure that you have the latest version.
+Module Loader present
+Markers: (--) probed, (**) from config file, (=3D=3D) default setting,
+        (++) from command line, (!!) notice, (II) informational,
+        (WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+(=3D=3D) Log file: "/var/log/Xorg.1.log", Time: Sat Aug 12 22:30:19 2006
+(=3D=3D) Using config file: "/etc/X11/xorg.conf"
+(**) Option "defaultserverlayout" "TFT"
+(++) ServerLayout "TV"
+(**) |-->Screen "TV screen" (0)
+(**) |   |-->Monitor "Panasonic TV"
+(**) |   |-->Device "Radeon on TV"
+(**) |-->Input Device "Mouse1"
+(**) |-->Input Device "Keyboard1"
+(**) FontPath set to:
+        /usr/share/fonts/win_fonts/,
+        /usr/share/fonts/corefonts/,
+        /usr/share/fonts/misc/,
+        /usr/share/fonts/75dpi/:unscaled,
+        /usr/share/fonts/100dpi/:unscaled,
+        /usr/share/fonts/Type1/,
+        /usr/share/fonts/75dpi/,
+        /usr/share/fonts/100dpi/
+(=3D=3D) RgbPath set to "/usr/share/X11/rgb"
+(=3D=3D) ModulePath set to "/usr/lib/xorg/modules"
+(**) Option "OffTime" "5"
+(II) Open ACPI successful (/var/run/acpid.socket)
+(II) Module ABI versions:
+        X.Org ANSI C Emulation: 0.3
+        X.Org Video Driver: 1.0
+        X.Org XInput driver : 0.6
+        X.Org Server Extension : 0.3
+        X.Org Font Renderer : 0.5
+(II) Loader running on linux
+(II) LoadModule: "bitmap"
+(II) Loading /usr/lib/xorg/modules/fonts/libbitmap.so
+(II) Module bitmap: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        Module class: X.Org Font Renderer
+        ABI class: X.Org Font Renderer, version 0.5
+(II) Loading font Bitmap
+(II) LoadModule: "pcidata"
+(II) Loading /usr/lib/xorg/modules/libpcidata.so
+(II) Module pcidata: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        ABI class: X.Org Video Driver, version 1.0
+(--) using VT number 8
+
+(II) PCI: PCI scan (all values are in hex)
+(II) PCI: 00:00:0: chip 10de,01e0 card 0000,0000 rev c1 class 06,00,00
+hdr 80
+(II) PCI: 00:00:1: chip 10de,01eb card 1297,0531 rev c1 class 05,00,00
+hdr 80
+(II) PCI: 00:00:2: chip 10de,01ee card 1297,0531 rev c1 class 05,00,00
+hdr 80
+(II) PCI: 00:00:3: chip 10de,01ed card 1297,0531 rev c1 class 05,00,00
+hdr 80
+(II) PCI: 00:00:4: chip 10de,01ec card 1297,0531 rev c1 class 05,00,00
+hdr 80
+(II) PCI: 00:00:5: chip 10de,01ef card 1297,0531 rev c1 class 05,00,00
+hdr 80
+(II) PCI: 00:01:0: chip 10de,0060 card 1297,0531 rev a4 class 06,01,00
+hdr 80
+(II) PCI: 00:01:1: chip 10de,0064 card 1297,0531 rev a2 class 0c,05,00
+hdr 80
+(II) PCI: 00:02:0: chip 10de,0067 card 1297,0531 rev a4 class 0c,03,10
+hdr 80
+(II) PCI: 00:02:1: chip 10de,0067 card 1297,0531 rev a4 class 0c,03,10
+hdr 80
+(II) PCI: 00:02:2: chip 10de,0068 card 1297,0531 rev a4 class 0c,03,20
+hdr 80
+(II) PCI: 00:08:0: chip 10de,006c card 0000,0000 rev a3 class 06,04,00
+hdr 01
+(II) PCI: 00:09:0: chip 10de,0065 card 1297,0531 rev a2 class 01,01,8a
+hdr 00
+(II) PCI: 00:1e:0: chip 10de,01e8 card 0000,0000 rev c1 class 06,04,00
+hdr 01
+(II) PCI: 01:06:0: chip 1131,7146 card 13c2,0000 rev 01 class 04,80,00
+hdr 00
+(II) PCI: 01:08:0: chip 1814,0301 card 1737,0055 rev 00 class 02,80,00
+hdr 00
+(II) PCI: 01:09:0: chip 1412,1712 card 1412,d634 rev 02 class 04,01,00
+hdr 00
+(II) PCI: 02:00:0: chip 1002,5960 card 17ee,2801 rev 01 class 03,00,00
+hdr 00
+(II) PCI: End of PCI scan
+(II) Host-to-PCI bridge:
+(II) Bus 0: bridge is at (0:0:0), (0,0,2), BCTRL: 0x0008 (VGA_EN is set)
+(II) Bus 0 I/O range:
+        [0] -1  0       0x00000000 - 0x0000ffff (0x10000) IX[B]
+(II) Bus 0 non-prefetchable memory range:
+        [0] -1  0       0x00000000 - 0xffffffff (0x0) MX[B]
+(II) Bus 0 prefetchable memory range:
+        [0] -1  0       0x00000000 - 0xffffffff (0x0) MX[B]
+(II) PCI-to-ISA bridge:
+(II) Bus -1: bridge is at (0:1:0), (0,-1,-1), BCTRL: 0x0008 (VGA_EN is
+set)
+(II) PCI-to-PCI bridge:
+(II) Bus 1: bridge is at (0:8:0), (0,1,1), BCTRL: 0x0202 (VGA_EN is
+cleared)
+(II) Bus 1 I/O range:
+        [0] -1  0       0x0000c000 - 0x0000cfff (0x1000) IX[B]
+(II) Bus 1 non-prefetchable memory range:
+        [0] -1  0       0xe4000000 - 0xe4ffffff (0x1000000) MX[B]
+(II) PCI-to-PCI bridge:
+(II) Bus 2: bridge is at (0:30:0), (0,2,2), BCTRL: 0x000a (VGA_EN is
+set)
+(II) Bus 2 I/O range:
+        [0] -1  0       0x0000d000 - 0x0000dfff (0x1000) IX[B]
+(II) Bus 2 non-prefetchable memory range:
+        [0] -1  0       0xe2000000 - 0xe3ffffff (0x2000000) MX[B]
+(II) Bus 2 prefetchable memory range:
+        [0] -1  0       0xd0000000 - 0xdfffffff (0x10000000) MX[B]
+(--) PCI:*(2:0:0) ATI Technologies Inc RV280 [Radeon 9200 PRO] rev 1,
+Mem @ 0xd0000000/28, 0xe3000000/16, I/O @ 0xd000/8
+(II) Addressable bus resource ranges are
+        [0] -1  0       0x00000000 - 0xffffffff (0x0) MX[B]
+        [1] -1  0       0x00000000 - 0x0000ffff (0x10000) IX[B]
+(II) OS-reported resource ranges:
+        [0] -1  0       0x00100000 - 0x3fffffff (0x3ff00000) MX[B]E(B)
+        [1] -1  0       0x000f0000 - 0x000fffff (0x10000) MX[B]
+        [2] -1  0       0x000c0000 - 0x000effff (0x30000) MX[B]
+        [3] -1  0       0x00000000 - 0x0009ffff (0xa0000) MX[B]
+        [4] -1  0       0x0000ffff - 0x0000ffff (0x1) IX[B]
+        [5] -1  0       0x00000000 - 0x000000ff (0x100) IX[B]
+(II) PCI Memory resource overlap reduced 0xe0000000 from 0xe1ffffff to
+0xdfffffff
+(II) Active PCI resource ranges:
+        [0] -1  0       0xe4000000 - 0xe4007fff (0x8000) MX[B]
+        [1] -1  0       0xe4008000 - 0xe40081ff (0x200) MX[B]
+        [2] -1  0       0xe5003000 - 0xe50030ff (0x100) MX[B]
+        [3] -1  0       0xe5002000 - 0xe5002fff (0x1000) MX[B]
+        [4] -1  0       0xe5001000 - 0xe5001fff (0x1000) MX[B]
+        [5] -1  0       0xe0000000 - 0xdfffffff (0x0) MX[B]O
+        [6] -1  0       0xe3000000 - 0xe300ffff (0x10000) MX[B](B)
+        [7] -1  0       0xd0000000 - 0xdfffffff (0x10000000) MX[B](B)
+        [8] -1  0       0x0000cc00 - 0x0000cc3f (0x40) IX[B]
+        [9] -1  0       0x0000c800 - 0x0000c80f (0x10) IX[B]
+        [10] -1 0       0x0000c400 - 0x0000c40f (0x10) IX[B]
+        [11] -1 0       0x0000c000 - 0x0000c01f (0x20) IX[B]
+        [12] -1 0       0x0000f000 - 0x0000f00f (0x10) IX[B]
+        [13] -1 0       0x0000e400 - 0x0000e41f (0x20) IX[B]
+        [14] -1 0       0x0000d000 - 0x0000d0ff (0x100) IX[B](B)
+(II) Active PCI resource ranges after removing overlaps:
+        [0] -1  0       0xe4000000 - 0xe4007fff (0x8000) MX[B]
+        [1] -1  0       0xe4008000 - 0xe40081ff (0x200) MX[B]
+        [2] -1  0       0xe5003000 - 0xe50030ff (0x100) MX[B]
+        [3] -1  0       0xe5002000 - 0xe5002fff (0x1000) MX[B]
+        [4] -1  0       0xe5001000 - 0xe5001fff (0x1000) MX[B]
+        [5] -1  0       0xe0000000 - 0xdfffffff (0x0) MX[B]O
+        [6] -1  0       0xe3000000 - 0xe300ffff (0x10000) MX[B](B)
+        [7] -1  0       0xd0000000 - 0xdfffffff (0x10000000) MX[B](B)
+        [8] -1  0       0x0000cc00 - 0x0000cc3f (0x40) IX[B]
+        [9] -1  0       0x0000c800 - 0x0000c80f (0x10) IX[B]
+        [10] -1 0       0x0000c400 - 0x0000c40f (0x10) IX[B]
+        [11] -1 0       0x0000c000 - 0x0000c01f (0x20) IX[B]
+        [12] -1 0       0x0000f000 - 0x0000f00f (0x10) IX[B]
+        [13] -1 0       0x0000e400 - 0x0000e41f (0x20) IX[B]
+        [14] -1 0       0x0000d000 - 0x0000d0ff (0x100) IX[B](B)
+(II) OS-reported resource ranges after removing overlaps with PCI:
+        [0] -1  0       0x00100000 - 0x3fffffff (0x3ff00000) MX[B]E(B)
+        [1] -1  0       0x000f0000 - 0x000fffff (0x10000) MX[B]
+        [2] -1  0       0x000c0000 - 0x000effff (0x30000) MX[B]
+        [3] -1  0       0x00000000 - 0x0009ffff (0xa0000) MX[B]
+        [4] -1  0       0x0000ffff - 0x0000ffff (0x1) IX[B]
+        [5] -1  0       0x00000000 - 0x000000ff (0x100) IX[B]
+(II) All system resource ranges:
+        [0] -1  0       0x00100000 - 0x3fffffff (0x3ff00000) MX[B]E(B)
+        [1] -1  0       0x000f0000 - 0x000fffff (0x10000) MX[B]
+        [2] -1  0       0x000c0000 - 0x000effff (0x30000) MX[B]
+        [3] -1  0       0x00000000 - 0x0009ffff (0xa0000) MX[B]
+        [4] -1  0       0xe4000000 - 0xe4007fff (0x8000) MX[B]
+        [5] -1  0       0xe4008000 - 0xe40081ff (0x200) MX[B]
+        [6] -1  0       0xe5003000 - 0xe50030ff (0x100) MX[B]
+        [7] -1  0       0xe5002000 - 0xe5002fff (0x1000) MX[B]
+        [8] -1  0       0xe5001000 - 0xe5001fff (0x1000) MX[B]
+        [9] -1  0       0xe0000000 - 0xdfffffff (0x0) MX[B]O
+        [10] -1 0       0xe3000000 - 0xe300ffff (0x10000) MX[B](B)
+        [11] -1 0       0xd0000000 - 0xdfffffff (0x10000000) MX[B](B)
+        [12] -1 0       0x0000ffff - 0x0000ffff (0x1) IX[B]
+        [13] -1 0       0x00000000 - 0x000000ff (0x100) IX[B]
+        [14] -1 0       0x0000cc00 - 0x0000cc3f (0x40) IX[B]
+        [15] -1 0       0x0000c800 - 0x0000c80f (0x10) IX[B]
+        [16] -1 0       0x0000c400 - 0x0000c40f (0x10) IX[B]
+        [17] -1 0       0x0000c000 - 0x0000c01f (0x20) IX[B]
+        [18] -1 0       0x0000f000 - 0x0000f00f (0x10) IX[B]
+        [19] -1 0       0x0000e400 - 0x0000e41f (0x20) IX[B]
+        [20] -1 0       0x0000d000 - 0x0000d0ff (0x100) IX[B](B)
+(II) LoadModule: "dbe"
+(II) Loading /usr/lib/xorg/modules/extensions/libdbe.so
+(II) Module dbe: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        Module class: X.Org Server Extension
+        ABI class: X.Org Server Extension, version 0.3
+(II) Loading extension DOUBLE-BUFFER
+(II) LoadModule: "extmod"
+(II) Loading /usr/lib/xorg/modules/extensions/libextmod.so
+(II) Module extmod: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        Module class: X.Org Server Extension
+        ABI class: X.Org Server Extension, version 0.3
+(II) Loading extension SHAPE
+(II) Loading extension MIT-SUNDRY-NONSTANDARD
+(II) Loading extension BIG-REQUESTS
+(II) Loading extension SYNC
+(II) Loading extension MIT-SCREEN-SAVER
+(II) Loading extension XC-MISC
+(II) Loading extension XFree86-VidModeExtension
+(II) Loading extension XFree86-Misc
+(II) Loading extension DPMS
+(II) Loading extension TOG-CUP
+(II) Loading extension Extended-Visual-Information
+(II) Loading extension XVideo
+(II) Loading extension XVideo-MotionCompensation
+(II) Loading extension X-Resource
+(II) LoadModule: "freetype"
+(II) Loading /usr/lib/xorg/modules/fonts/libfreetype.so
+(II) Module freetype: vendor=3D"X.Org Foundation & the After X-TT Project"
+        compiled for 7.1.1, module version =3D 2.1.0
+        Module class: X.Org Font Renderer
+        ABI class: X.Org Font Renderer, version 0.5
+(II) Loading font FreeType
+(II) LoadModule: "extmod"
+(II) Reloading /usr/lib/xorg/modules/extensions/libextmod.so
+(II) Loading extension SHAPE
+(II) Loading extension MIT-SUNDRY-NONSTANDARD
+(II) Loading extension BIG-REQUESTS
+(II) Loading extension SYNC
+(II) Loading extension MIT-SCREEN-SAVER
+(II) Loading extension XC-MISC
+(II) Loading extension XFree86-VidModeExtension
+(II) Loading extension XFree86-Misc
+(II) Loading extension XFree86-DGA
+(II) Loading extension DPMS
+(II) Loading extension TOG-CUP
+(II) Loading extension Extended-Visual-Information
+(II) Loading extension XVideo
+(II) Loading extension XVideo-MotionCompensation
+(II) Loading extension X-Resource
+(II) LoadModule: "radeon"
+(II) Loading /usr/lib/xorg/modules/drivers/radeon_drv.so
+(II) Module radeon: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 4.1.0
+        Module class: X.Org Video Driver
+        ABI class: X.Org Video Driver, version 1.0
+(II) LoadModule: "ati"
+(II) Loading /usr/lib/xorg/modules/drivers/ati_drv.so
+(II) Module ati: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 6.6.1
+        Module class: X.Org Video Driver
+        ABI class: X.Org Video Driver, version 1.0
+(II) LoadModule: "mouse"
+(II) Loading /usr/lib/xorg/modules/input/mouse_drv.so
+(II) Module mouse: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.1.1
+        Module class: X.Org XInput Driver
+        ABI class: X.Org XInput driver, version 0.6
+(II) LoadModule: "kbd"
+(II) Loading /usr/lib/xorg/modules/input/kbd_drv.so
+(II) Module kbd: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.1.0
+        Module class: X.Org XInput Driver
+        ABI class: X.Org XInput driver, version 0.6
+(II) ATI: ATI driver (version 6.6.1) for chipsets: ati, ativga
+(II) R128: Driver for ATI Rage 128 chipsets:
+        ATI Rage 128 Mobility M3 LE (PCI), ATI Rage 128 Mobility M3 LF
+(AGP),
+        ATI Rage 128 Mobility M4 MF (AGP), ATI Rage 128 Mobility M4 ML
+(AGP),
+        ATI Rage 128 Pro GL PA (PCI/AGP), ATI Rage 128 Pro GL PB
+(PCI/AGP),
+        ATI Rage 128 Pro GL PC (PCI/AGP), ATI Rage 128 Pro GL PD (PCI),
+        ATI Rage 128 Pro GL PE (PCI/AGP), ATI Rage 128 Pro GL PF (AGP),
+        ATI Rage 128 Pro VR PG (PCI/AGP), ATI Rage 128 Pro VR PH
+(PCI/AGP),
+        ATI Rage 128 Pro VR PI (PCI/AGP), ATI Rage 128 Pro VR PJ
+(PCI/AGP),
+        ATI Rage 128 Pro VR PK (PCI/AGP), ATI Rage 128 Pro VR PL
+(PCI/AGP),
+        ATI Rage 128 Pro VR PM (PCI/AGP), ATI Rage 128 Pro VR PN
+(PCI/AGP),
+        ATI Rage 128 Pro VR PO (PCI/AGP), ATI Rage 128 Pro VR PP (PCI),
+        ATI Rage 128 Pro VR PQ (PCI/AGP), ATI Rage 128 Pro VR PR (PCI),
+        ATI Rage 128 Pro VR PS (PCI/AGP), ATI Rage 128 Pro VR PT
+(PCI/AGP),
+        ATI Rage 128 Pro VR PU (PCI/AGP), ATI Rage 128 Pro VR PV
+(PCI/AGP),
+        ATI Rage 128 Pro VR PW (PCI/AGP), ATI Rage 128 Pro VR PX
+(PCI/AGP),
+        ATI Rage 128 GL RE (PCI), ATI Rage 128 GL RF (AGP),
+        ATI Rage 128 RG (AGP), ATI Rage 128 VR RK (PCI),
+        ATI Rage 128 VR RL (AGP), ATI Rage 128 4X SE (PCI/AGP),
+        ATI Rage 128 4X SF (PCI/AGP), ATI Rage 128 4X SG (PCI/AGP),
+        ATI Rage 128 4X SH (PCI/AGP), ATI Rage 128 4X SK (PCI/AGP),
+        ATI Rage 128 4X SL (PCI/AGP), ATI Rage 128 4X SM (AGP),
+        ATI Rage 128 4X SN (PCI/AGP), ATI Rage 128 Pro ULTRA TF (AGP),
+        ATI Rage 128 Pro ULTRA TL (AGP), ATI Rage 128 Pro ULTRA TR
+(AGP),
+        ATI Rage 128 Pro ULTRA TS (AGP?), ATI Rage 128 Pro ULTRA TT
+(AGP?),
+        ATI Rage 128 Pro ULTRA TU (AGP?)
+(II) RADEON: Driver for ATI Radeon chipsets: ATI Radeon QD (AGP),
+        ATI Radeon QE (AGP), ATI Radeon QF (AGP), ATI Radeon QG (AGP),
+        ATI Radeon VE/7000 QY (AGP/PCI), ATI Radeon VE/7000 QZ
+(AGP/PCI),
+        ATI ES1000 515E (PCI), ATI ES1000 5969 (PCI),
+        ATI Radeon Mobility M7 LW (AGP),
+        ATI Mobility FireGL 7800 M7 LX (AGP),
+        ATI Radeon Mobility M6 LY (AGP), ATI Radeon Mobility M6 LZ
+(AGP),
+        ATI Radeon IGP320 (A3) 4136, ATI Radeon IGP320M (U1) 4336,
+        ATI Radeon IGP330/340/350 (A4) 4137,
+        ATI Radeon IGP330M/340M/350M (U2) 4337,
+        ATI Radeon 7000 IGP (A4+) 4237, ATI Radeon Mobility 7000 IGP
+4437,
+        ATI FireGL 8700/8800 QH (AGP), ATI Radeon 8500 QL (AGP),
+        ATI Radeon 9100 QM (AGP), ATI Radeon 8500 AIW BB (AGP),
+        ATI Radeon 8500 AIW BC (AGP), ATI Radeon 7500 QW (AGP/PCI),
+        ATI Radeon 7500 QX (AGP/PCI), ATI Radeon 9000/PRO If (AGP/PCI),
+        ATI Radeon 9000 Ig (AGP/PCI), ATI FireGL Mobility 9000 (M9) Ld
+(AGP),
+        ATI Radeon Mobility 9000 (M9) Lf (AGP),
+        ATI Radeon Mobility 9000 (M9) Lg (AGP),
+        ATI Radeon 9100 IGP (A5) 5834,
+        ATI Radeon Mobility 9100 IGP (U3) 5835, ATI Radeon 9100 PRO IGP
+7834,
+        ATI Radeon Mobility 9200 IGP 7835, ATI Radeon 9250 5960 (AGP),
+        ATI Radeon 9200 5961 (AGP), ATI Radeon 9200 5962 (AGP),
+        ATI Radeon 9200SE 5964 (AGP), ATI FireMV 2200 (PCI),
+        ATI Radeon Mobility 9200 (M9+) 5C61 (AGP),
+        ATI Radeon Mobility 9200 (M9+) 5C63 (AGP), ATI Radeon 9500 AD
+(AGP),
+        ATI Radeon 9500 AE (AGP), ATI Radeon 9600TX AF (AGP),
+        ATI FireGL Z1 AG (AGP), ATI Radeon 9700 Pro ND (AGP),
+        ATI Radeon 9700/9500Pro NE (AGP), ATI Radeon 9600TX NF (AGP),
+        ATI FireGL X1 NG (AGP), ATI Radeon 9600 AP (AGP),
+        ATI Radeon 9600SE AQ (AGP), ATI Radeon 9600XT AR (AGP),
+        ATI Radeon 9600 AS (AGP), ATI FireGL T2 AT (AGP),
+        ATI FireGL RV360 AV (AGP),
+        ATI Radeon Mobility 9600/9700 (M10/M11) NP (AGP),
+        ATI Radeon Mobility 9600 (M10) NQ (AGP),
+        ATI Radeon Mobility 9600 (M11) NR (AGP),
+        ATI Radeon Mobility 9600 (M10) NS (AGP),
+        ATI FireGL Mobility T2 (M10) NT (AGP),
+        ATI FireGL Mobility T2e (M11) NV (AGP), ATI Radeon 9650,
+        ATI Radeon 9800SE AH (AGP), ATI Radeon 9800 AI (AGP),
+        ATI Radeon 9800 AJ (AGP), ATI FireGL X2 AK (AGP),
+        ATI Radeon 9800PRO NH (AGP), ATI Radeon 9800 NI (AGP),
+        ATI FireGL X2 NK (AGP), ATI Radeon 9800XT NJ (AGP),
+        ATI Radeon X600 (RV380) 3E50 (PCIE),
+        ATI FireGL V3200 (RV380) 3E54 (PCIE),
+        ATI Radeon Mobility X600 (M24) 3150 (PCIE),
+        ATI Radeon Mobility X300 (M24) 3152 (PCIE),
+        ATI FireGL M24 GL 3154 (PCIE), ATI Radeon X300 (RV370) 5B60
+(PCIE),
+        ATI Radeon X600 (RV370) 5B62 (PCIE),
+        ATI Radeon X550 (RV370) 5B63 (PCIE),
+        ATI FireGL V3100 (RV370) 5B64 (PCIE),
+        ATI FireMV 2200 PCIE (RV370) 5B65 (PCIE),
+        ATI Radeon Mobility X300 (M22) 5460 (PCIE),
+        ATI Radeon Mobility X600 SE (M24C) 5462 (PCIE),
+        ATI FireGL M22 GL 5464 (PCIE), ATI Radeon XPRESS 200 5A41
+(PCIE),
+        ATI Radeon XPRESS 200M 5A42 (PCIE),
+        ATI Radeon XPRESS 200 5A61 (PCIE),
+        ATI Radeon XPRESS 200M 5A62 (PCIE),
+        ATI Radeon XPRESS 200 5954 (PCIE),
+        ATI Radeon XPRESS 200M 5955 (PCIE),
+        ATI Radeon XPRESS 200 5974 (PCIE),
+        ATI Radeon XPRESS 200M 5975 (PCIE), ATI FireGL V5000 (RV410)
+(PCIE),
+        ATI Mobility FireGL V5000 (M26) (PCIE),
+        ATI Mobility FireGL V5000 (M26) (PCIE),
+        ATI Mobility Radeon X700 XL (M26) (PCIE),
+        ATI Mobility Radeon X700 (M26) (PCIE),
+        ATI Mobility Radeon X700 (M26) (PCIE),
+        ATI Radeon X700 PRO (RV410) (PCIE),
+        ATI Radeon X700 XT (RV410) (PCIE), ATI Radeon X700 (RV410)
+(PCIE),
+        ATI Radeon X700 SE (RV410) (PCIE), ATI Radeon X700 SE (RV410)
+(PCIE),
+        ATI Radeon X800 (R420) JH (AGP), ATI Radeon X800PRO (R420) JI
+(AGP),
+        ATI Radeon X800SE (R420) JJ (AGP), ATI Radeon X800 (R420) JK
+(AGP),
+        ATI Radeon X800 (R420) JL (AGP), ATI FireGL X3 (R420) JM (AGP),
+        ATI Radeon Mobility 9800 (M18) JN (AGP),
+        ATI Radeon X800XT (R420) JP (AGP), ATI Radeon X800 SE (R420)
+(AGP),
+        ATI Radeon AIW X800 VE (R420) JT (AGP),
+        ATI Radeon X800 (R423) UH (PCIE),
+        ATI Radeon X800PRO (R423) UI (PCIE),
+        ATI Radeon X800LE (R423) UJ (PCIE),
+        ATI Radeon X800SE (R423) UK (PCIE),
+        ATI FireGL V5100 (R423) UQ (PCIE),
+        ATI FireGL unknown (R423) UR (PCIE),
+        ATI FireGL unknown (R423) UT (PCIE),
+        ATI Radeon X800XT (R423) 5D57 (PCIE), ATI FireGL V7100 (R423)
+(PCIE),
+        ATI Mobility FireGL V5100 (M28) (PCIE),
+        ATI Mobility Radeon X800 (M28) (PCIE),
+        ATI Mobility Radeon X800 XT (M28) (PCIE),
+        ATI Radeon X800 (R430) (PCIE), ATI Radeon X800 XL (R430) (PCIE),
+        ATI Radeon X800 SE (R430) (PCIE), ATI Radeon X800 XTP (R430)
+(PCIE),
+        ATI Radeon X850 5D4C (PCIE),
+        ATI unknown Radeon / FireGL (R480) 5D50 (PCIE),
+        ATI Radeon X850 SE (R480) (PCIE), ATI Radeon X850 PRO (R480)
+(PCIE),
+        ATI Radeon X850 XT (R480) (PCIE),
+        ATI Radeon X850 XT PE (R480) (PCIE),
+        ATI Radeon X850 PRO (R480) (AGP), ATI Radeon X850 SE (R480)
+(AGP),
+        ATI Radeon X850 XT (R480) (AGP), ATI Radeon X850 XT PE (R480)
+(AGP)
+(II) Primary Device is: PCI 02:00:0
+(--) Assigning device section with no busID to primary device
+(--) Chipset ATI Radeon 9250 5960 (AGP) found
+(II) resource ranges after xf86ClaimFixedResources() call:
+        [0] -1  0       0x00100000 - 0x3fffffff (0x3ff00000) MX[B]E(B)
+        [1] -1  0       0x000f0000 - 0x000fffff (0x10000) MX[B]
+        [2] -1  0       0x000c0000 - 0x000effff (0x30000) MX[B]
+        [3] -1  0       0x00000000 - 0x0009ffff (0xa0000) MX[B]
+        [4] -1  0       0xe4000000 - 0xe4007fff (0x8000) MX[B]
+        [5] -1  0       0xe4008000 - 0xe40081ff (0x200) MX[B]
+        [6] -1  0       0xe5003000 - 0xe50030ff (0x100) MX[B]
+        [7] -1  0       0xe5002000 - 0xe5002fff (0x1000) MX[B]
+        [8] -1  0       0xe5001000 - 0xe5001fff (0x1000) MX[B]
+        [9] -1  0       0xe0000000 - 0xdfffffff (0x0) MX[B]O
+        [10] -1 0       0xe3000000 - 0xe300ffff (0x10000) MX[B](B)
+        [11] -1 0       0xd0000000 - 0xdfffffff (0x10000000) MX[B](B)
+        [12] -1 0       0x0000ffff - 0x0000ffff (0x1) IX[B]
+        [13] -1 0       0x00000000 - 0x000000ff (0x100) IX[B]
+        [14] -1 0       0x0000cc00 - 0x0000cc3f (0x40) IX[B]
+        [15] -1 0       0x0000c800 - 0x0000c80f (0x10) IX[B]
+        [16] -1 0       0x0000c400 - 0x0000c40f (0x10) IX[B]
+        [17] -1 0       0x0000c000 - 0x0000c01f (0x20) IX[B]
+        [18] -1 0       0x0000f000 - 0x0000f00f (0x10) IX[B]
+        [19] -1 0       0x0000e400 - 0x0000e41f (0x20) IX[B]
+        [20] -1 0       0x0000d000 - 0x0000d0ff (0x100) IX[B](B)
+(II) Loading sub module "radeon"
+(II) LoadModule: "radeon"
+(II) Reloading /usr/lib/xorg/modules/drivers/radeon_drv.so
+(II) resource ranges after probing:
+        [0] -1  0       0x00100000 - 0x3fffffff (0x3ff00000) MX[B]E(B)
+        [1] -1  0       0x000f0000 - 0x000fffff (0x10000) MX[B]
+        [2] -1  0       0x000c0000 - 0x000effff (0x30000) MX[B]
+        [3] -1  0       0x00000000 - 0x0009ffff (0xa0000) MX[B]
+        [4] -1  0       0xe4000000 - 0xe4007fff (0x8000) MX[B]
+        [5] -1  0       0xe4008000 - 0xe40081ff (0x200) MX[B]
+        [6] -1  0       0xe5003000 - 0xe50030ff (0x100) MX[B]
+        [7] -1  0       0xe5002000 - 0xe5002fff (0x1000) MX[B]
+        [8] -1  0       0xe5001000 - 0xe5001fff (0x1000) MX[B]
+        [9] -1  0       0xe0000000 - 0xdfffffff (0x0) MX[B]O
+        [10] -1 0       0xe3000000 - 0xe300ffff (0x10000) MX[B](B)
+        [11] -1 0       0xd0000000 - 0xdfffffff (0x10000000) MX[B](B)
+        [12] 0  0       0x000a0000 - 0x000affff (0x10000) MS[B]
+        [13] 0  0       0x000b0000 - 0x000b7fff (0x8000) MS[B]
+        [14] 0  0       0x000b8000 - 0x000bffff (0x8000) MS[B]
+        [15] -1 0       0x0000ffff - 0x0000ffff (0x1) IX[B]
+        [16] -1 0       0x00000000 - 0x000000ff (0x100) IX[B]
+        [17] -1 0       0x0000cc00 - 0x0000cc3f (0x40) IX[B]
+        [18] -1 0       0x0000c800 - 0x0000c80f (0x10) IX[B]
+        [19] -1 0       0x0000c400 - 0x0000c40f (0x10) IX[B]
+        [20] -1 0       0x0000c000 - 0x0000c01f (0x20) IX[B]
+        [21] -1 0       0x0000f000 - 0x0000f00f (0x10) IX[B]
+        [22] -1 0       0x0000e400 - 0x0000e41f (0x20) IX[B]
+        [23] -1 0       0x0000d000 - 0x0000d0ff (0x100) IX[B](B)
+        [24] 0  0       0x000003b0 - 0x000003bb (0xc) IS[B]
+        [25] 0  0       0x000003c0 - 0x000003df (0x20) IS[B]
+(II) Setting vga for screen 0.
+(**) RADEON(0): RADEONPreInit
+(II) RADEON(0): MMIO registers at 0xe3000000: size 64KB
+(II) RADEON(0): PCI bus 2 card 0 func 0
+(**) RADEON(0): Depth 24, (--) framebuffer bpp 32
+(II) RADEON(0): Pixel depth =3D 24 bits stored in 4 bytes (32 bpp pixmaps)
+(=3D=3D) RADEON(0): Default visual is TrueColor
+(**) RADEON(0): Option "MonitorLayout" "NONE, CRT"
+(**) RADEON(0): Option "ForceMinDotClock" "14MHz"
+(**) RADEON(0): Option "DynamicClocks" "true"
+(II) Loading sub module "vgahw"
+(II) LoadModule: "vgahw"
+(II) Loading /usr/lib/xorg/modules/libvgahw.so
+(II) Module vgahw: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 0.1.0
+        ABI class: X.Org Video Driver, version 1.0
+(II) RADEON(0): vgaHWGetIOBase: hwp->IOBase is 0x03d0, hwp->PIOOffset is
+0x0000
+(=3D=3D) RADEON(0): RGB weight 888
+(II) RADEON(0): Using 8 bits per RGB (8 bit DAC)
+(=3D=3D) RADEON(0): X server will not keep DPI constant for all screen sizes
+(II) Loading sub module "int10"
+(II) LoadModule: "int10"
+(II) Loading /usr/lib/xorg/modules/libint10.so
+(II) Module int10: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        ABI class: X.Org Video Driver, version 1.0
+(II) RADEON(0): initializing int10
+(II) RADEON(0): Primary V_BIOS segment is: 0xc000
+(--) RADEON(0): Chipset: "ATI Radeon 9250 5960 (AGP)" (ChipID =3D 0x5960)
+(--) RADEON(0): Linear framebuffer at 0xd0000000
+(II) RADEON(0): Generation 2 PCI interface, using max accessible memory
+(II) RADEON(0): Detected total video RAM=3D131072K, accessible=3D262144K
+(PCI BAR=3D262144K)
+(--) RADEON(0): Mapped VideoRAM: 131072 kByte (128 bit DDR SDRAM)
+(II) RADEON(0): Color tiling enabled by default
+(II) Loading sub module "ddc"
+(II) LoadModule: "ddc"
+(II) Loading /usr/lib/xorg/modules/libddc.so
+(II) Module ddc: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        ABI class: X.Org Video Driver, version 1.0
+(II) Loading sub module "i2c"
+(II) LoadModule: "i2c"
+(II) Loading /usr/lib/xorg/modules/libi2c.so
+(II) Module i2c: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.2.0
+        ABI class: X.Org Video Driver, version 1.0
+(II) RADEON(0): I2C bus "DDC" initialized.
+(II) RADEON(0): Legacy BIOS detected
+(II) RADEON(0): Connector0: DDCType-2, DACType-1, TMDSType-0,
+ConnectorType-3
+(II) RADEON(0): Connector1: DDCType-3, DACType-0, TMDSType--1,
+ConnectorType-2
+(**) RADEON(0): MonitorLayout Option:
+        Monitor1--Type NONE, Monitor2--Type CRT
+
+(II) RADEON(0): I2C device "DDC:ddc2" registered at address 0xA0.
+(II) RADEON(0): I2C device "DDC:ddc2" removed.
+(II) RADEON(0): I2C device "DDC:ddc2" registered at address 0xA0.
+(II) RADEON(0): I2C device "DDC:ddc2" removed.
+(II) RADEON(0): I2C device "DDC:ddc2" registered at address 0xA0.
+(II) RADEON(0): I2C device "DDC:ddc2" removed.
+(II) RADEON(0): DDC Type: 3, Detected Type: 0
+(II) RADEON(0):
+(II) RADEON(0): Primary:
+ Monitor   -- CRT
+ Connector -- VGA
+ DAC Type  -- Primary
+ TMDS Type -- NONE
+ DDC Type  -- VGA_DDC
+(II) RADEON(0): Secondary:
+ Monitor   -- NONE
+ Connector -- Proprietary
+ DAC Type  -- TVDAC/ExtDAC
+ TMDS Type -- NONE
+ DDC Type  -- NONE
+(II) RADEON(0): PLL parameters: rf=3D2700 rd=3D12 min=3D20000 max=3D40000;
+xclk=3D16600
+(II) RADEON(0): Forced minimum dotclock to 14.00 MHz (instead of
+detected 20.00 MHz)
+(WW) RADEON(0): Failed to detect secondary monitor, MergedFB/Clone mode
+disabled
+(=3D=3D) RADEON(0): Using gamma correction (1.0, 1.0, 1.0)
+(II) RADEON(0): Validating modes on Primary head ---------
+(II) RADEON(0): Panasonic TV: Using hsync range of 15.00-16.00 kHz
+(II) RADEON(0): Panasonic TV: Using vrefresh range of 49.90-50.10 Hz
+(II) RADEON(0): Clock range:  14.00 to 400.00 MHz
+(II) RADEON(0): Not using default mode "640x350" (hsync out of range)
+(II) RADEON(0): Not using default mode "320x175" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x400" (hsync out of range)
+(II) RADEON(0): Not using default mode "320x200" (hsync out of range)
+(II) RADEON(0): Not using default mode "720x400" (hsync out of range)
+(II) RADEON(0): Not using default mode "360x200" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x480" (hsync out of range)
+(II) RADEON(0): Not using default mode "320x240" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "640x480" (hsync out of range)
+(II) RADEON(0): Not using default mode "320x240" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x480" (hsync out of range)
+(II) RADEON(0): Not using default mode "320x240" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x480" (hsync out of range)
+(II) RADEON(0): Not using default mode "320x240" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (hsync out of range)
+(II) RADEON(0): Not using default mode "400x300" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (hsync out of range)
+(II) RADEON(0): Not using default mode "400x300" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (hsync out of range)
+(II) RADEON(0): Not using default mode "400x300" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (hsync out of range)
+(II) RADEON(0): Not using default mode "400x300" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (hsync out of range)
+(II) RADEON(0): Not using default mode "400x300" (hsync out of range)
+(II) RADEON(0): Not using default mode "1024x768" (hsync out of range)
+(II) RADEON(0): Not using default mode "512x384" (hsync out of range)
+(II) RADEON(0): Not using default mode "1024x768" (hsync out of range)
+(II) RADEON(0): Not using default mode "512x384" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1024x768" (hsync out of range)
+(II) RADEON(0): Not using default mode "512x384" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1024x768" (hsync out of range)
+(II) RADEON(0): Not using default mode "512x384" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1024x768" (hsync out of range)
+(II) RADEON(0): Not using default mode "512x384" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1152x864" (hsync out of range)
+(II) RADEON(0): Not using default mode "576x432" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1280x960" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x480" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1280x960" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x480" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1280x1024" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x512" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1280x1024" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x512" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1280x1024" (hsync out of range)
+(II) RADEON(0): Not using default mode "640x512" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1600x1200" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1600x1200" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1600x1200" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1600x1200" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1600x1200" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x600" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1792x1344" (hsync out of range)
+(II) RADEON(0): Not using default mode "896x672" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1792x1344" (hsync out of range)
+(II) RADEON(0): Not using default mode "896x672" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1856x1392" (hsync out of range)
+(II) RADEON(0): Not using default mode "928x696" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1856x1392" (hsync out of range)
+(II) RADEON(0): Not using default mode "928x696" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1920x1440" (hsync out of range)
+(II) RADEON(0): Not using default mode "960x720" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1920x1440" (hsync out of range)
+(II) RADEON(0): Not using default mode "960x720" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "832x624" (hsync out of range)
+(II) RADEON(0): Not using default mode "416x312" (hsync out of range)
+(II) RADEON(0): Not using default mode "1152x768" (hsync out of range)
+(II) RADEON(0): Not using default mode "576x384" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1400x1050" (hsync out of range)
+(II) RADEON(0): Not using default mode "700x525" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1400x1050" (hsync out of range)
+(II) RADEON(0): Not using default mode "700x525" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1600x1024" (hsync out of range)
+(II) RADEON(0): Not using default mode "800x512" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "1920x1440" (hsync out of range)
+(II) RADEON(0): Not using default mode "960x720" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "2048x1536" (hsync out of range)
+(II) RADEON(0): Not using default mode "1024x768" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "2048x1536" (hsync out of range)
+(II) RADEON(0): Not using default mode "1024x768" (bad mode
+clock/interlace/doublescan)
+(II) RADEON(0): Not using default mode "2048x1536" (hsync out of range)
+(II) RADEON(0): Not using default mode "1024x768" (bad mode
+clock/interlace/doublescan)
+(--) RADEON(0): Virtual size is 720x576 (pitch 768)
+(**) RADEON(0): *Mode "720x576": 14.1 MHz, 15.6 kHz, 49.9 Hz (I)
+(II) RADEON(0): Modeline "720x576"   14.06  720 754 794 900  576 576 591
+625 interlace composite +hsync +vsync
+(**) RADEON(0): Display dimensions: (497, 397) mm
+(**) RADEON(0): DPI set to (36, 36)
+(II) Loading sub module "fb"
+(II) LoadModule: "fb"
+(II) Loading /usr/lib/xorg/modules/libfb.so
+(II) Module fb: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        ABI class: X.Org ANSI C Emulation, version 0.3
+(II) Loading sub module "ramdac"
+(II) LoadModule: "ramdac"
+(II) Loading /usr/lib/xorg/modules/libramdac.so
+(II) Module ramdac: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 0.1.0
+        ABI class: X.Org Video Driver, version 1.0
+(=3D=3D) RADEON(0): Using XAA acceleration architecture
+(II) Loading sub module "xaa"
+(II) LoadModule: "xaa"
+(II) Loading /usr/lib/xorg/modules/libxaa.so
+(II) Module xaa: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.2.0
+        ABI class: X.Org Video Driver, version 1.0
+(II) RADEON(0): No MM_TABLE found - assuming CARD is not TV-in capable.
+(!!) RADEON(0): For information on using the multimedia capabilities
+        of this adapter, please see http://gatos.sf.net.
+(--) Depth 24 pixmap format is 32 bpp
+(II) do I need RAC?  No, I don't.
+(II) resource ranges after preInit:
+        [0] 0   0       0xe3000000 - 0xe300ffff (0x10000) MX[B]
+        [1] 0   0       0xd0000000 - 0xdfffffff (0x10000000) MX[B]
+        [2] -1  0       0x00100000 - 0x3fffffff (0x3ff00000) MX[B]E(B)
+        [3] -1  0       0x000f0000 - 0x000fffff (0x10000) MX[B]
+        [4] -1  0       0x000c0000 - 0x000effff (0x30000) MX[B]
+        [5] -1  0       0x00000000 - 0x0009ffff (0xa0000) MX[B]
+        [6] -1  0       0xe4000000 - 0xe4007fff (0x8000) MX[B]
+        [7] -1  0       0xe4008000 - 0xe40081ff (0x200) MX[B]
+        [8] -1  0       0xe5003000 - 0xe50030ff (0x100) MX[B]
+        [9] -1  0       0xe5002000 - 0xe5002fff (0x1000) MX[B]
+        [10] -1 0       0xe5001000 - 0xe5001fff (0x1000) MX[B]
+        [11] -1 0       0xe0000000 - 0xdfffffff (0x0) MX[B]O
+        [12] -1 0       0xe3000000 - 0xe300ffff (0x10000) MX[B](B)
+        [13] -1 0       0xd0000000 - 0xdfffffff (0x10000000) MX[B](B)
+        [14] 0  0       0x000a0000 - 0x000affff (0x10000) MS[B](OprU)
+        [15] 0  0       0x000b0000 - 0x000b7fff (0x8000) MS[B](OprU)
+        [16] 0  0       0x000b8000 - 0x000bffff (0x8000) MS[B](OprU)
+        [17] 0  0       0x0000d000 - 0x0000d0ff (0x100) IX[B]
+        [18] -1 0       0x0000ffff - 0x0000ffff (0x1) IX[B]
+        [19] -1 0       0x00000000 - 0x000000ff (0x100) IX[B]
+        [20] -1 0       0x0000cc00 - 0x0000cc3f (0x40) IX[B]
+        [21] -1 0       0x0000c800 - 0x0000c80f (0x10) IX[B]
+        [22] -1 0       0x0000c400 - 0x0000c40f (0x10) IX[B]
+        [23] -1 0       0x0000c000 - 0x0000c01f (0x20) IX[B]
+        [24] -1 0       0x0000f000 - 0x0000f00f (0x10) IX[B]
+        [25] -1 0       0x0000e400 - 0x0000e41f (0x20) IX[B]
+        [26] -1 0       0x0000d000 - 0x0000d0ff (0x100) IX[B](B)
+        [27] 0  0       0x000003b0 - 0x000003bb (0xc) IS[B](OprU)
+        [28] 0  0       0x000003c0 - 0x000003df (0x20) IS[B](OprU)
+(**) RADEON(0): RADEONScreenInit d0000000 0
+(**) RADEON(0): Map: 0xd0000000, 0x08000000
+(=3D=3D) RADEON(0): Write-combining range (0xd0000000,0x8000000)
+(**) RADEON(0): RADEONSave
+(**) RADEON(0): RADEONSaveMode(0x81ff8cc)
+(**) RADEON(0): Read: 0x0000000c 0x00010060 0x00000000
+(**) RADEON(0): Read: rd=3D12, fd=3D96, pd=3D1
+(**) RADEON(0): RADEONSaveMode returns 0x81ff8cc
+(**) RADEON(0): RADEONInitMemoryMap() :
+(**) RADEON(0):   mem_size         : 0x08000000
+(**) RADEON(0):   MC_FB_LOCATION   : 0xd7ffd000
+(**) RADEON(0):   MC_AGP_LOCATION  : 0xffffffc0
+(**) RADEON(0): RADEONModeInit()
+720x576        14.06   720  754  794  900   576  576  591  625 (24,32) C
+I +H +V
+720x576        14.06   720  754  794  900   576  576  591  625 (24,32) C
+I +H +V
+(**) RADEON(0): Pitch =3D 6291552 bytes (virtualX =3D 720, displayWidth =3D
+768)
+(**) RADEON(0): dc=3D1406, of=3D22496, fd=3D100, pd=3D16
+(**) RADEON(0): RADEONInit returns 0x820027c
+(**) RADEON(0): RADEONRestoreMode()
+(**) RADEON(0): RADEONRestoreMode(0x820027c)
+(**) RADEON(0): RADEONRestoreMemMapRegisters() :
+(**) RADEON(0):   MC_FB_LOCATION   : 0xd7ffd000
+(**) RADEON(0):   MC_AGP_LOCATION  : 0xffffffc0
+(**) RADEON(0):   Map Changed ! Applying ...
+(**) RADEON(0):   Map applied, resetting engine ...
+(**) RADEON(0): Updating display base addresses...
+(**) RADEON(0): Memory map updated.
+(**) RADEON(0): Programming CRTC1, offset: 0x00000000
+(**) RADEON(0): Wrote: 0x0000000c 0x00050064 0x00000000 (0x0000a700)
+(**) RADEON(0): Wrote: rd=3D12, fd=3D100, pd=3D5
+(**) RADEON(0): GRPH_BUFFER_CNTL from 20205c5c to 20025c5c
+(**) RADEON(0): RADEONSaveScreen(0)
+(**) RADEON(0): Setting up initial surfaces
+(**) RADEON(0): Initializing fb layer
+(**) RADEON(0): Setting up accel memmap
+(II) RADEON(0): Memory manager initialized to (0,0) (768,8191)
+(II) RADEON(0): Reserved area from (0,576) to (768,578)
+(II) RADEON(0): Largest offscreen area available: 768 x 7613
+(**) RADEON(0): Initializing backing store
+(=3D=3D) RADEON(0): Backing store disabled
+(**) RADEON(0): Setting up final surfaces
+(**) RADEON(0): Initializing Acceleration
+(II) RADEON(0): Render acceleration enabled
+(**) RADEON(0): EngineInit (32/32)
+(**) RADEON(0): Pitch for acceleration =3D 96
+(**) RADEON(0): EngineRestore (32/32)
+(II) RADEON(0): Using XFree86 Acceleration Architecture (XAA)
+        Screen to screen bit blits
+        Solid filled rectangles
+        8x8 mono pattern filled rectangles
+        Indirect CPU to Screen color expansion
+        Solid Lines
+        Scanline Image Writes
+        Offscreen Pixmaps
+        Setting up tile and stipple cache:
+                32 128x128 slots
+                28 256x256 slots
+                13 512x512 slots
+(II) RADEON(0): Acceleration enabled
+(**) RADEON(0): Initializing DPMS
+(**) Option "dpms"
+(**) RADEON(0): DPMS enabled
+(**) RADEON(0): Initializing Cursor
+(=3D=3D) RADEON(0): Silken mouse enabled
+(II) RADEON(0): Using hardware cursor (scanline 578)
+(II) RADEON(0): Largest offscreen area available: 768 x 7607
+(**) RADEON(0): Initializing color map
+(**) RADEON(0): Initializing DGA
+(**) RADEON(0): Initializing Xv
+(II) RADEON(0): No video input capabilities detected and no information
+is provided - disabling multimedia i2c
+(II) Loading sub module "theatre_detect"
+(II) LoadModule: "theatre_detect"
+(II) Loading /usr/lib/xorg/modules/multimedia/theatre_detect_drv.so
+(II) Module theatre_detect: vendor=3D"X.Org Foundation"
+        compiled for 7.1.1, module version =3D 1.0.0
+        ABI class: X.Org Video Driver, version 1.0
+(II) RADEON(0): no multimedia table present, disabling Rage Theatre.
+(**) RADEON(0): RADEONScreenInit finished
+(=3D=3D) RandR enabled
+(II) Initializing built-in extension MIT-SHM
+(II) Initializing built-in extension XInputExtension
+(II) Initializing built-in extension XTEST
+(II) Initializing built-in extension XKEYBOARD
+(II) Initializing built-in extension XC-APPGROUP
+(II) Initializing built-in extension SECURITY
+(II) Initializing built-in extension XINERAMA
+(II) Initializing built-in extension XFIXES
+(II) Initializing built-in extension XFree86-Bigfont
+(II) Initializing built-in extension RENDER
+(II) Initializing built-in extension RANDR
+(II) Initializing built-in extension COMPOSITE
+(II) Initializing built-in extension DAMAGE
+(II) Initializing built-in extension XEVIE
+(**) Option "Protocol" "IMPS/2"
+(**) Mouse1: Device: "/dev/input/mice"
+(**) Mouse1: Protocol: "IMPS/2"
+(**) Option "CorePointer"
+(**) Mouse1: Core Pointer
+(**) Option "Device" "/dev/input/mice"
+(=3D=3D) Mouse1: Emulate3Buttons, Emulate3Timeout: 50
+(**) Option "ZAxisMapping" "4 5"
+(**) Mouse1: ZAxisMapping: buttons 4 and 5
+(**) Mouse1: Buttons: 9
+(**) Option "CoreKeyboard"
+(**) Keyboard1: Core Keyboard
+(**) Option "Protocol" "standard"
+(**) Keyboard1: Protocol: standard
+(**) Option "AutoRepeat" "500 30"
+(**) Option "XkbRules" "xorg"
+(**) Keyboard1: XkbRules: "xorg"
+(**) Option "XkbModel" "pc105"
+(**) Keyboard1: XkbModel: "pc105"
+(**) Option "XkbLayout" "de"
+(**) Keyboard1: XkbLayout: "de"
+(**) Option "CustomKeycodes" "off"
+(**) Keyboard1: CustomKeycodes disabled
+(II) XINPUT: Adding extended input device "Keyboard1" (type: KEYBOARD)
+(II) XINPUT: Adding extended input device "Mouse1" (type: MOUSE)
+    xkb_keycodes             { include "xfree86+aliases(qwertz)" };
+    xkb_types                { include "complete" };
+    xkb_compatibility        { include "complete" };
+    xkb_symbols              { include "pc(pc105)+de" };
+    xkb_geometry             { include "pc(pc105)" };
+(II) Mouse1: ps2EnableDataReporting: succeeded
+(**) RADEON(0): RADEONSaveScreen(2)
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)
+(**) RADEON(0): RADEONCloseScreen
+(**) RADEON(0): RADEONDisplayPowerManagementSet(0,0x0)
+(**) RADEON(0): RADEONRestore
+(**) RADEON(0): RADEONRestoreMode()
+(**) RADEON(0): RADEONRestoreMode(0x81ff8cc)
+(**) RADEON(0): RADEONRestoreMemMapRegisters() :
+(**) RADEON(0):   MC_FB_LOCATION   : 0x1fff0000
+(**) RADEON(0):   MC_AGP_LOCATION  : 0x27ff2000
+(**) RADEON(0):   Map Changed ! Applying ...
+(**) RADEON(0):   Map applied, resetting engine ...
+(**) RADEON(0): Updating display base addresses...
+(**) RADEON(0): Memory map updated.
+(**) RADEON(0): Programming CRTC1, offset: 0x00000000
+(**) RADEON(0): Wrote: 0x0000000c 0x00010060 0x00000000 (0x0000a700)
+(**) RADEON(0): Wrote: rd=3D12, fd=3D96, pd=3D1
+(**) RADEON(0): Disposing accel...
+(**) RADEON(0): Disposing cusor info
+(**) RADEON(0): Disposing DGA
+(**) RADEON(0): Unmapping memory
+FreeFontPath: FPE "/usr/share/fonts/misc/" refcount is 2, should be 1;
+fixing.
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+

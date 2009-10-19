@@ -1,0 +1,89 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.63 (FreeBSD))
+	(envelope-from <xorg-bounces@lists.freedesktop.org>)
+	id 1GDFIB-0004Wm-B1
+	for bofh@localhost; Wed, 16 Aug 2006 09:54:19 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.4)
+	for <bofh@localhost> (single-drop); Wed, 16 Aug 2006 09:54:19 +0300 (EEST)
+Received: from gabe.freedesktop.org (gabe.freedesktop.org [131.252.208.82])
+	by redwerk.com (Postfix) with ESMTP id 2FB08A9EEE
+	for <bofh@redwerk.com>; Tue, 15 Aug 2006 18:22:32 +0200 (CEST)
+Received: from gabe.freedesktop.org (localhost [127.0.0.1])
+	by gabe.freedesktop.org (Postfix) with ESMTP id C83A99EBC5;
+	Tue, 15 Aug 2006 09:22:24 -0700 (PDT)
+X-Original-To: xorg@lists.freedesktop.org
+Delivered-To: xorg@lists.freedesktop.org
+Received: from ca.pugetsoundtechnology.com (ca.pugetsoundtechnology.com
+	[38.99.2.247])
+	by gabe.freedesktop.org (Postfix) with ESMTP id EFB879EA30
+	for <xorg@lists.freedesktop.org>; Tue, 15 Aug 2006 09:22:21 -0700 (PDT)
+Received: from pool-72-64-101-227.dllstx.fios.verizon.net ([72.64.101.227]
+	helo=reedmedia.net)
+	by ca.pugetsoundtechnology.com with esmtp (Exim 4.54)
+	id 1GD1cC-0004Hm-0S; Tue, 15 Aug 2006 09:18:04 -0700
+Received: by glacier.reedmedia.net (Postfix, from userid 1000)
+	id EB4B54DD86; Tue, 15 Aug 2006 11:21:40 -0500 (CDT)
+Date: Tue, 15 Aug 2006 11:21:40 -0500 (CDT)
+From: "Jeremy C. Reed" <reed@reedmedia.net>
+To: Hannes Hauswedell <hannes.hauswedell@gmail.com>
+In-Reply-To: <200608131434.06813.hannes.hauswedell@gmail.com>
+Message-ID: <Pine.NEB.4.64.0608151116500.1011@glacier.reedmedia.net>
+References: <200608091710.51650.hannes.hauswedell@gmail.com>
+	<200608121806.36358.hannes.hauswedell@gmail.com>
+	<c1fa8edf0608121805g19c29818r715f34db97e1ae6f@mail.gmail.com>
+	<200608131434.06813.hannes.hauswedell@gmail.com>
+MIME-Version: 1.0
+Content-Type: TEXT/PLAIN; charset=US-ASCII
+Cc: xorg@lists.freedesktop.org
+Subject: Re: help building xorg-modular
+X-BeenThere: xorg@lists.freedesktop.org
+X-Mailman-Version: 2.1.5
+Precedence: list
+List-Id: Discuss issues related to the xorg tree <xorg.lists.freedesktop.org>
+List-Unsubscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=unsubscribe>
+List-Archive: <http://lists.freedesktop.org/archives/xorg>
+List-Post: <mailto:xorg@lists.freedesktop.org>
+List-Help: <mailto:xorg-request@lists.freedesktop.org?subject=help>
+List-Subscribe: <http://lists.freedesktop.org/mailman/listinfo/xorg>,
+	<mailto:xorg-request@lists.freedesktop.org?subject=subscribe>
+Errors-To: xorg-bounces@lists.freedesktop.org
+Status: O
+X-UID: 14117
+Content-Length: 1127
+X-Keywords:                                                                                                    
+
+> well i have the requirement that the target platform be nethence 
+> gnu/linux ;)
+> i also dont mind doing stuff from inside nethence ( i got most things 
+> set up to the point where i only need x to get going) and i dont want to 
+> install a complete portgage or another packaging system.
+> i tried around and i am absolutely sure that the hardcoded order in 
+> which dependencies are built is just wrong or that the script has a bug.
+> 
+> what do you recomend doing?
+
+I don't use Nethence myself.
+
+Nethence uses pkgsrc. I maintain pkgsrc packages for modular xorg.
+
+Some are already hosted my NetBSD's pkgsrc.
+
+But most are a work in progress and available via pkgsrc-wip hosted at 
+sourceforge. I have done a lot of testing of them on Linux.
+
+Please use pkgsrc and use cvs to retrieve the pkgsrc-wip. See 
+http://pkgsrc-wip.sourceforge.net/
+
+First try the wip/modular-xorg-libs meta package.
+
+I will be glad to help you via the pkgsrc-wip-discuss list or the 
+pkgsrc-users list.
+_______________________________________________
+xorg mailing list
+xorg@lists.freedesktop.org
+http://lists.freedesktop.org/mailman/listinfo/xorg
+

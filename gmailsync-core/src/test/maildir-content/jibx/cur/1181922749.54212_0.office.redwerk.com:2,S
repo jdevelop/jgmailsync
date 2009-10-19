@@ -1,0 +1,170 @@
+Received: from [::1] (helo=office.redwerk.com)
+	by office.redwerk.com with esmtp (Exim 4.67 (FreeBSD))
+	(envelope-from <jibx-users-bounces@lists.sourceforge.net>)
+	id 1HzE68-000E6K-Pn
+	for bofh@localhost; Fri, 15 Jun 2007 18:52:29 +0300
+X-Original-To: bofh@redwerk.com
+Delivered-To: bofh@redwerk.com
+Received: from redwerk.com [69.61.72.191]
+	by office.redwerk.com with IMAP (fetchmail-6.3.8)
+	for <bofh@localhost> (single-drop); Fri, 15 Jun 2007 18:52:28 +0300 (EEST)
+Received: from lists-outbound.sourceforge.net (lists-outbound.sourceforge.net [66.35.250.225])
+	by redwerk.com (Postfix) with ESMTP id 4CFA5118589
+	for <bofh@redwerk.com>; Fri, 15 Jun 2007 17:51:42 +0200 (CEST)
+Received: from sc8-sf-list1-new.sourceforge.net (sc8-sf-list1-new-b.sourceforge.net [10.3.1.93])
+	by sc8-sf-spam2.sourceforge.net (Postfix) with ESMTP
+	id D726B131D5; Fri, 15 Jun 2007 08:51:41 -0700 (PDT)
+Received: from sc8-sf-mx1-b.sourceforge.net ([10.3.1.91]
+	helo=mail.sourceforge.net)
+	by sc8-sf-list1-new.sourceforge.net with esmtp (Exim 4.43)
+	id 1HzE5K-0000hl-Kg
+	for jibx-users@lists.sourceforge.net; Fri, 15 Jun 2007 08:51:38 -0700
+Received: from ext-nj2ut-12.online-age.net ([64.14.54.245])
+	by mail.sourceforge.net with esmtps (TLSv1:AES256-SHA:256)
+	(Exim 4.44) id 1HzE5J-0004FF-4S
+	for jibx-users@lists.sourceforge.net; Fri, 15 Jun 2007 08:51:38 -0700
+Received: from int-nj2ut-2.online-age.net (int-nj2ut-2.online-age.net
+	[3.159.237.71])
+	by ext-nj2ut-12.online-age.net (8.13.6/8.13.6/20051114-SVVS-TLS-DNSBL)
+	with ESMTP id l5FFpSFh009041
+	for <jibx-users@lists.sourceforge.net>; Fri, 15 Jun 2007 11:51:28 -0400
+Received: from cinmlef10.e2k.ad.ge.com (int-nj2ut-2.online-age.net
+	[3.159.237.71])
+	by int-nj2ut-2.online-age.net (8.13.6/8.13.6/20050510-SVVS) with ESMTP
+	id l5FFpROb001314
+	for <jibx-users@lists.sourceforge.net>; Fri, 15 Jun 2007 11:51:28 -0400
+Received: from ALPMLVEM06.e2k.ad.ge.com ([3.159.17.61]) by
+	cinmlef10.e2k.ad.ge.com with Microsoft SMTPSVC(6.0.3790.2499); 
+	Fri, 15 Jun 2007 11:51:27 -0400
+X-MimeOLE: Produced By Microsoft Exchange V6.5
+Content-class: urn:content-classes:message
+MIME-Version: 1.0
+Date: Fri, 15 Jun 2007 11:51:25 -0400
+Message-ID: <E5B3767EEB07A049AC18634AAE606EA803EF9829@ALPMLVEM06.e2k.ad.ge.com>
+In-Reply-To: <4672A857.4060306@regenstrief.org>
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+Thread-Topic: [jibx-users] variable element names
+Thread-Index: AcevXTpbBc4C1dZ9Tzi8BQSFMrXI6gAB12mw
+References: <4672A857.4060306@regenstrief.org>
+From: "Dees, Ian (GE Healthcare)" <Ian.Dees@ge.com>
+To: "JiBX users" <jibx-users@lists.sourceforge.net>
+X-OriginalArrivalTime: 15 Jun 2007 15:51:27.0139 (UTC)
+	FILETIME=[086EDF30:01C7AF65]
+X-Spam-Score: 1.0 (+)
+X-Spam-Report: Spam Filtering performed by sourceforge.net.
+	See http://spamassassin.org/tag/ for more details.
+	Report problems to
+	http://sf.net/tracker/?func=add&group_id=1&atid=200001
+	1.0 FORGED_RCVD_HELO       Received: contains a forged HELO
+Subject: Re: [jibx-users] variable element names
+X-BeenThere: jibx-users@lists.sourceforge.net
+X-Mailman-Version: 2.1.8
+Precedence: list
+Reply-To: JiBX users <jibx-users@lists.sourceforge.net>
+List-Id: JiBX users <jibx-users.lists.sourceforge.net>
+List-Unsubscribe: <https://lists.sourceforge.net/lists/listinfo/jibx-users>,
+	<mailto:jibx-users-request@lists.sourceforge.net?subject=unsubscribe>
+List-Archive: <http://sourceforge.net/mailarchive/forum.php?forum_name=jibx-users>
+List-Post: <mailto:jibx-users@lists.sourceforge.net>
+List-Help: <mailto:jibx-users-request@lists.sourceforge.net?subject=help>
+List-Subscribe: <https://lists.sourceforge.net/lists/listinfo/jibx-users>,
+	<mailto:jibx-users-request@lists.sourceforge.net?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+Errors-To: jibx-users-bounces@lists.sourceforge.net
+X-Bogosity: Ham, tests=bogofilter, spamicity=0.000000, version=1.1.1
+
+Tammy,
+
+I ran into the exact same issue. The way I worked around it is to use a
+custom marshaller for the object.
+
+JiBX is meant to be used for one Object to one Element mappings, and
+technically if you are trying to deviate from that then you should be
+using another marshalling framework. That being said, if almost all of
+your objects have a one-to-one mapping with an element name (except for
+a few), then a custom marshaller would make sense.
+
+For more info, read
+http://jibx.sourceforge.net/tutorial/binding-custom.html
+
+-Ian
+
+-----Original Message-----
+From: jibx-users-bounces@lists.sourceforge.net
+[mailto:jibx-users-bounces@lists.sourceforge.net] On Behalf Of Tammy
+Dugan
+Sent: Friday, June 15, 2007 9:55 AM
+To: jibx-users@lists.sourceforge.net
+Subject: [jibx-users] variable element names
+
+I have objects that represent logical relationships that can produce 
+variable element names in a jibx binding. For example, I have an object 
+called QueryComparisonSet that can produce elements with values like 
+"and","or", or "not". The element name is actually stored in a field in 
+the object. It doesn't look like there is a way to assign an element 
+name from a field. I am assuming I need to write a custom serializer for
+
+this. I am very new to jibx so can you give me some idea of what the 
+custom serializer might look like in this case.
+
+Thanks,
+
+Tammy
+
+-- 
+Tammy Dugan
+Computer Programmer
+
+Regenstrief Institute, Inc.
+Medical Informatics
+Health Information and Translational Sciences (HITS) Building
+410 West 10th Street, Suite 2000
+Indianapolis, IN 46202
+Main: 317.423.5500
+Fax: 317.423.5695
+IU campus mail address: HS, 2000
+
+(317) 423 - 5541
+
+Confidentiality Notice: The contents of this message and any files
+transmitted with it may contain confidential and/or privileged
+information and are intended solely for the use of the named
+addressee(s). Additionally, the information contained herein may have
+been disclosed to you from medical records with confidentiality
+protected by federal and state laws. Federal regulations and State laws
+prohibit you from making further disclosure of such information without
+the specific written consent of the person to whom the information
+pertains or as otherwise permitted by such regulations. A general
+authorization for the release of medical or other information is not
+sufficient for this purpose.
+ 
+If you have received this message in error, please notify the sender by
+return e-mail and delete the original message. Any retention,
+disclosure, copying, distribution or use of this information by anyone
+other than the intended recipient is strictly prohibited.
+
+
+
+------------------------------------------------------------------------
+-
+This SF.net email is sponsored by DB2 Express
+Download DB2 Express C - the FREE version of DB2 express and take
+control of your XML. No limits. Just data. Click to get it now.
+http://sourceforge.net/powerbar/db2/
+_______________________________________________
+jibx-users mailing list
+jibx-users@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/jibx-users
+
+-------------------------------------------------------------------------
+This SF.net email is sponsored by DB2 Express
+Download DB2 Express C - the FREE version of DB2 express and take
+control of your XML. No limits. Just data. Click to get it now.
+http://sourceforge.net/powerbar/db2/
+_______________________________________________
+jibx-users mailing list
+jibx-users@lists.sourceforge.net
+https://lists.sourceforge.net/lists/listinfo/jibx-users
+
