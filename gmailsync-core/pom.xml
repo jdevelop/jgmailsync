@@ -30,7 +30,7 @@
         <dependency>
             <groupId>net.ukrpost</groupId>
             <artifactId>javamaildir</artifactId>
-            <version>0.4pre9</version>
+            <version>0.7-pre2</version>
         </dependency>
     </dependencies>
 </project>
