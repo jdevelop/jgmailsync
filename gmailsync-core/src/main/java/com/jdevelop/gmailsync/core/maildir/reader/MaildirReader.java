@@ -12,6 +12,7 @@ import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.URLName;
 
+import com.jdevelop.gmailsync.core.maildir.FolderChangeException;
 import com.jdevelop.gmailsync.core.maildir.MailFolderChangedListener;
 import com.jdevelop.gmailsync.core.maildir.exception.MaildirReadException;
 
@@ -59,7 +60,11 @@ public class MaildirReader implements Iterator<Message> {
         currentMessageIdx = FIRST_MESSAGE_IN_FOLDER;
         numberOfMessagesInFolder = currentFolder.getMessageCount();
         if (folderChangedListener != null)
-            folderChangedListener.fireFolderChangeEvent(currentFolder);
+            try {
+                folderChangedListener.fireFolderChangeEvent(currentFolder);
+            } catch (FolderChangeException e) {
+                throw new MessagingException("Can not change folder", e);
+            }
     }
 
     @Override

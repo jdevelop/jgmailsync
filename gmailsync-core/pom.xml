@@ -14,23 +14,18 @@
         <dependency>
             <groupId>com.sleepycat</groupId>
             <artifactId>je</artifactId>
-            <version>3.3.82</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.7</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>sun-javamail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4</version>
         </dependency>
         <dependency>
             <groupId>net.ukrpost</groupId>
             <artifactId>javamaildir</artifactId>
-            <version>0.7-pre2</version>
         </dependency>
     </dependencies>
 </project>

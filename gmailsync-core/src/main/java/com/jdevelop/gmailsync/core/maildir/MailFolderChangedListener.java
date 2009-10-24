@@ -4,6 +4,6 @@ import javax.mail.Folder;
 
 public interface MailFolderChangedListener {
 
-    void fireFolderChangeEvent(Folder folder);
+    void fireFolderChangeEvent(Folder folder) throws FolderChangeException;
 
 }
