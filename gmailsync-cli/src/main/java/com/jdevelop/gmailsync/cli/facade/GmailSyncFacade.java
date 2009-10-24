@@ -1,13 +1,16 @@
 package com.jdevelop.gmailsync.cli.facade;
 
 import java.io.File;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 import javax.mail.Message;
 
 import org.apache.log4j.Logger;
 
 import com.jdevelop.gmailsync.cli.facade.exception.FacadeException;
+import com.jdevelop.gmailsync.cli.facade.observer.MessageAddObserver;
 import com.jdevelop.gmailsync.core.authentication.Credentials;
 import com.jdevelop.gmailsync.core.email.EmailDescriptor;
 import com.jdevelop.gmailsync.core.email.EmailMessage;
@@ -32,13 +35,28 @@ public class GmailSyncFacade implements MailSyncingFacade {
 
     private static final Logger log = Logger.getLogger(GmailSyncFacade.class);
 
+    private Set<MessageAddObserver> messageAddObservers = new HashSet<MessageAddObserver>();
+
+    public void registerMessageAddObserver(MessageAddObserver messageAddObserver) {
+        messageAddObservers.add(messageAddObserver);
+    }
+
+    public void unregisterMessageAddObserver(
+            MessageAddObserver messageAddObserver) {
+        messageAddObservers.remove(messageAddObserver);
+    }
+
     @Override
     public void syncEmails(String descriptorStoragePath, File[] folders,
             Credentials credentials) throws FacadeException {
         MaildirResolver resolver = new SimpleMaildirResolver();
         StorageFactory.initStoragePath(descriptorStoragePath);
-        DescriptorStorageInterface descriptorStorage = StorageFactory
-                .getDescriptorStorage();
+        DescriptorStorageInterface descriptorStorage = null;
+        try {
+            descriptorStorage = StorageFactory.getDescriptorStorage();
+        } catch (StorageException e) {
+            throw new FacadeException("Can not initialize storage", e);
+        }
         EmailDescriptorAdapterInterface<Message> descriptorAdapter = new JavaMailDescriptorAdapter();
         MessageAdapterInterface<Message> messageAdapter = new JavaMailMessageAdapter();
         TransportInterface transport = null;
@@ -55,20 +73,23 @@ public class GmailSyncFacade implements MailSyncingFacade {
                 while (emailIterator.hasNext()) {
                     Message message = emailIterator.next();
                     EmailDescriptor emailDescriptor = null;
+                    EmailMessage emailMessage = null;
                     try {
                         emailDescriptor = descriptorAdapter
                                 .getEmailDescriptor(message);
                         boolean descriptorExists = descriptorStorage
                                 .checkIfDescriptorExists(emailDescriptor);
                         if (!descriptorExists) {
-                            EmailMessage emailMessage = messageAdapter
-                                    .getMessage(message);
+                            emailMessage = messageAdapter.getMessage(message);
+                            notifyObserversOnStart(emailMessage);
                             transport.uploadMessage(emailMessage);
+                            notifyObserversOnSuccess(emailMessage);
                             descriptorStorage.addDescriptor(emailDescriptor);
                         }
                     } catch (MessageAdapterException e) {
                         log.warn("Can not get message descriptor for "
                                 + message + ", skipping", e);
+                        notifyObserversOnFailure(emailMessage);
                     } catch (StorageException e) {
                         //TODO allow ignoring of the exception here
                         throw new FacadeException(e);
@@ -81,6 +102,21 @@ public class GmailSyncFacade implements MailSyncingFacade {
                 log.warn("Error reading maildirs at " + file, e);
             }
         }
+    }
+
+    private void notifyObserversOnFailure(EmailMessage emailMessage) {
+        for (MessageAddObserver observer : messageAddObservers)
+            observer.onMessageUploadFailure(emailMessage);
+    }
+
+    private void notifyObserversOnSuccess(EmailMessage emailMessage) {
+        for (MessageAddObserver observer : messageAddObservers)
+            observer.onMessageUploadSuccess(emailMessage);
+    }
+
+    private void notifyObserversOnStart(EmailMessage msg) {
+        for (MessageAddObserver observer : messageAddObservers)
+            observer.onMessageUploadStart(msg);
     }
 
 }

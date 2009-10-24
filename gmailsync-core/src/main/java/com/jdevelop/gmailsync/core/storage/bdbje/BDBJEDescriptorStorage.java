@@ -12,12 +12,14 @@ import com.sleepycat.collections.StoredMap;
 
 public class BDBJEDescriptorStorage implements DescriptorStorageInterface {
 
-    private final DatabaseInstance instance;
-
     private final Map<String, String> messagesMap;
 
-    public BDBJEDescriptorStorage(DatabaseInstance instance) {
+    private DatabaseInstance instance;
+
+    public BDBJEDescriptorStorage(DatabaseInstance instance)
+            throws StorageException {
         this.instance = instance;
+        instance.open();
         TupleBinding<String> binding = new TupleBinding<String>() {
 
             @Override
@@ -49,6 +51,11 @@ public class BDBJEDescriptorStorage implements DescriptorStorageInterface {
     public void removeDescriptor(EmailDescriptor descriptor)
             throws StorageException {
         messagesMap.remove(descriptor.getMessageId());
+    }
+
+    @Override
+    public void release() throws StorageException {
+        instance.close();
     }
 
 }

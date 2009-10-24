@@ -5,6 +5,7 @@ import java.io.File;
 import com.jdevelop.gmailsync.core.storage.bdbje.BDBJEDescriptorStorage;
 import com.jdevelop.gmailsync.core.storage.bdbje.DatabaseInstance;
 import com.jdevelop.gmailsync.core.storage.bdbje.TxDatabaseImpl;
+import com.jdevelop.gmailsync.core.storage.exception.StorageException;
 
 public class StorageFactory {
 
@@ -17,7 +18,8 @@ public class StorageFactory {
         storagePath = path;
     }
 
-    public static DescriptorStorageInterface getDescriptorStorage() {
+    public static DescriptorStorageInterface getDescriptorStorage()
+            throws StorageException {
         if (storagePath == null)
             throw new IllegalStateException("Storage path is not initialized");
         File dbStoragePath = new File(storagePath);

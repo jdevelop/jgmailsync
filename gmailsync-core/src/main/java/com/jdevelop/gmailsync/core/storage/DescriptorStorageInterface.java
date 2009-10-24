@@ -12,4 +12,6 @@ public interface DescriptorStorageInterface {
 
     void removeDescriptor(EmailDescriptor descriptor) throws StorageException;
 
+    void release() throws StorageException;
+
 }
