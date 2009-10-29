@@ -19,6 +19,7 @@ import com.jdevelop.gmailsync.core.email.adapter.JavaMailDescriptorAdapter;
 import com.jdevelop.gmailsync.core.email.adapter.JavaMailMessageAdapter;
 import com.jdevelop.gmailsync.core.email.adapter.MessageAdapterInterface;
 import com.jdevelop.gmailsync.core.email.adapter.exception.MessageAdapterException;
+import com.jdevelop.gmailsync.core.exception.handler.GenericExceptionHandler;
 import com.jdevelop.gmailsync.core.maildir.exception.MaildirReadException;
 import com.jdevelop.gmailsync.core.maildir.reader.MaildirReader;
 import com.jdevelop.gmailsync.core.maildir.resolver.MaildirResolver;
@@ -61,10 +62,11 @@ public class GmailSyncFacade implements MailSyncingFacade {
         MessageAdapterInterface<Message> messageAdapter = new JavaMailMessageAdapter();
         TransportInterface transport = null;
         try {
-            transport = new GmailMessageUploader("[Gmail]/All messages",
+            transport = new GmailMessageUploader("[Gmail]/All Mail",
                     credentials);
         } catch (RemoteFolderException e) {
-            throw new FacadeException("Could not initialize transport", e);
+            GenericExceptionHandler.handleException(new FacadeException(
+                    "Could not initialize transport", e));
         }
         for (File file : folders) {
             File[] maildirs = resolver.resolveMaildirs(file);
@@ -90,12 +92,16 @@ public class GmailSyncFacade implements MailSyncingFacade {
                         log.warn("Can not get message descriptor for "
                                 + message + ", skipping", e);
                         notifyObserversOnFailure(emailMessage);
+                        GenericExceptionHandler
+                                .handleException(new FacadeException(e));
                     } catch (StorageException e) {
-                        //TODO allow ignoring of the exception here
-                        throw new FacadeException(e);
+                        notifyObserversOnFailure(emailMessage);
+                        GenericExceptionHandler
+                                .handleException(new FacadeException(e));
                     } catch (TransportException e) {
-                        //TODO allow ignoring of the exception here
-                        throw new FacadeException(e);
+                        notifyObserversOnFailure(emailMessage);
+                        GenericExceptionHandler
+                                .handleException(new FacadeException(e));
                     }
                 }
             } catch (MaildirReadException e) {
