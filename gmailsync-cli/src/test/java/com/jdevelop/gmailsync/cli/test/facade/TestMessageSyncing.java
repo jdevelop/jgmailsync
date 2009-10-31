@@ -22,10 +22,7 @@ import com.jdevelop.gmailsync.cli.facade.exception.FacadeException;
 import com.jdevelop.gmailsync.cli.facade.observer.MessageAddObserver;
 import com.jdevelop.gmailsync.core.authentication.Credentials;
 import com.jdevelop.gmailsync.core.email.EmailMessage;
-import com.jdevelop.gmailsync.core.exception.handler.ExceptionHandler;
-import com.jdevelop.gmailsync.core.exception.handler.GenericExceptionHandler;
 
-import static com.jdevelop.gmailsync.cli.test.facade.TestMessageSyncing.DelayAction.delay;
 import static com.jdevelop.gmailsync.cli.test.facade.TestMessageSyncing.DumpMessageAction.print;
 
 public class TestMessageSyncing {
@@ -42,25 +39,17 @@ public class TestMessageSyncing {
         Mockery mockery = new Mockery();
         final MessageAddObserver observer = mockery
                 .mock(MessageAddObserver.class);
-        final ExceptionHandler<Throwable> handler = mockery
-                .mock(ExceptionHandler.class);
         Expectations expectations = new Expectations() {
             {
                 exactly(26).of(observer).onMessageUploadStart(
                         with(any(EmailMessage.class)));
                 exactly(26).of(observer).onMessageUploadSuccess(
                         with(any(EmailMessage.class)));
-                will(delay(2500, System.out));
                 allowing(observer).onMessageUploadFailure(
                         with(any(EmailMessage.class)));
                 will(print(System.err));
-                allowing(handler).canHandle(with(any(Throwable.class)));
-                will(returnValue(true));
-                allowing(handler).processException(with(any(Throwable.class)));
-                will(returnValue(true));
             }
         };
-        GenericExceptionHandler.registerExceptionHandler(handler);
         mockery.checking(expectations);
         facade.registerMessageAddObserver(observer);
         syncIt(facade, dir);
@@ -79,38 +68,13 @@ public class TestMessageSyncing {
 
     private void syncIt(MailSyncingFacade facade, File dir)
             throws FacadeException {
-        facade.syncEmails(dir.getAbsolutePath(), new File[] { new File(
-                "../gmailsync-core/src/test/maildir-content") },
-                new Credentials("jdeveloptest", "gfhjkmyf["));
-    }
-
-    static class DelayAction implements Action {
-
-        private long sleepTimeMs = 0;
-
-        private PrintStream printStream;
-
-        public DelayAction(long sleepTimeMs, PrintStream printStream) {
-            this.sleepTimeMs = sleepTimeMs;
-            this.printStream = printStream;
-        }
-
-        @Override
-        public void describeTo(Description description) {
-        }
-
-        @Override
-        public Object invoke(Invocation invocation) throws Throwable {
-            printStream.println("Sleeping");
-            Thread.sleep(sleepTimeMs);
-            dumpMessage(printStream, invocation);
-            return null;
-        }
-
-        public static Action delay(long delayTimeMs, PrintStream printStream) {
-            return new DelayAction(delayTimeMs, printStream);
-        }
-
+        facade
+                .syncEmails(
+                        dir.getAbsolutePath(),
+                        new File[] {
+                                new File(
+                                        "../gmailsync-core/src/test/maildir-content") },
+                        new Credentials("jdeveloptest", "gfhjkmyf["));
     }
 
     static class DumpMessageAction implements Action {

@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 
 import com.jdevelop.gmailsync.cli.facade.exception.FacadeException;
 import com.jdevelop.gmailsync.cli.facade.observer.MessageAddObserver;
+import com.jdevelop.gmailsync.cli.facade.transport.RetryingTransportImpl;
 import com.jdevelop.gmailsync.core.authentication.Credentials;
 import com.jdevelop.gmailsync.core.email.EmailDescriptor;
 import com.jdevelop.gmailsync.core.email.EmailMessage;
@@ -64,6 +65,7 @@ public class GmailSyncFacade implements MailSyncingFacade {
         try {
             transport = new GmailMessageUploader("[Gmail]/All Mail",
                     credentials);
+            transport = new RetryingTransportImpl(5, 1000, transport);
         } catch (RemoteFolderException e) {
             GenericExceptionHandler.handleException(new FacadeException(
                     "Could not initialize transport", e));
