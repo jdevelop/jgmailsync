@@ -5,7 +5,6 @@ import java.io.FileFilter;
 import java.util.Arrays;
 import java.util.Iterator;
 
-import javax.mail.Folder;
 import javax.mail.Message;
 
 import org.junit.Test;
@@ -47,8 +46,8 @@ public class TestMaildirReader {
         MailFolderChangedListener changedListener = new MailFolderChangedListener() {
 
             @Override
-            public void fireFolderChangeEvent(Folder folder) {
-                System.out.println("Name " + folder.getStore().getURLName());
+            public void fireFolderChangeEvent(String folderName) {
+                System.out.println("Name " + folderName);
             }
 
         };

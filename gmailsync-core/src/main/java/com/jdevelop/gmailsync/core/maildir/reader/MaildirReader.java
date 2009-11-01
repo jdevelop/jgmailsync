@@ -61,7 +61,8 @@ public class MaildirReader implements Iterator<Message> {
         numberOfMessagesInFolder = currentFolder.getMessageCount();
         if (folderChangedListener != null)
             try {
-                folderChangedListener.fireFolderChangeEvent(currentFolder);
+                folderChangedListener.fireFolderChangeEvent(currentDir
+                        .getName());
             } catch (FolderChangeException e) {
                 throw new MessagingException("Can not change folder", e);
             }

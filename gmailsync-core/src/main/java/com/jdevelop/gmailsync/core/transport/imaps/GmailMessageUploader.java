@@ -15,6 +15,7 @@ import com.jdevelop.gmailsync.core.maildir.MailFolderChangedListener;
 import com.jdevelop.gmailsync.core.transport.TransportInterface;
 import com.jdevelop.gmailsync.core.transport.exception.MessageTransferException;
 import com.jdevelop.gmailsync.core.transport.exception.RemoteFolderException;
+import com.jdevelop.gmailsync.core.transport.folder.FolderManagementInterface;
 
 public class GmailMessageUploader implements TransportInterface,
         MailFolderChangedListener {
@@ -23,8 +24,12 @@ public class GmailMessageUploader implements TransportInterface,
 
     private Store store;
 
-    public GmailMessageUploader(String folderName, Credentials credentials)
+    private FolderManagementInterface folderManagement;
+
+    public GmailMessageUploader(FolderManagementInterface folderManagement,
+            String folderName, Credentials credentials)
             throws RemoteFolderException {
+        this.folderManagement = folderManagement;
         Properties sessionProperties = new Properties();
         sessionProperties.setProperty("mail.store.protocol", "imaps");
         Session session = Session.getInstance(sessionProperties);
@@ -34,7 +39,8 @@ public class GmailMessageUploader implements TransportInterface,
                     credentials.getPassword());
             this.folder = store.getFolder(folderName);
             if (!folder.exists())
-                folder.create(Folder.HOLDS_MESSAGES);
+                folder = folderManagement.createFolder(
+                        store.getDefaultFolder(), folderName);
         } catch (Exception e) {
             throw new RemoteFolderException(e);
         }
@@ -51,18 +57,19 @@ public class GmailMessageUploader implements TransportInterface,
     }
 
     @Override
-    public void fireFolderChangeEvent(Folder newFolder)
+    public void fireFolderChangeEvent(String newFolderName)
             throws FolderChangeException {
-        String folderName = newFolder.getName();
         try {
             if (folder.isOpen())
                 folder.close(true);
-            folder = store.getFolder(folderName);
+            folder = store.getFolder(newFolderName);
             if (!folder.exists())
-                folder.create(Folder.HOLDS_MESSAGES);
-            folder.open(Folder.READ_WRITE);
+                folder = folderManagement.createFolder(
+                        store.getDefaultFolder(), newFolderName);
         } catch (MessagingException e) {
             throw new FolderChangeException(e);
+        } catch (RemoteFolderException rfe) {
+            throw new FolderChangeException(rfe);
         }
     }
 

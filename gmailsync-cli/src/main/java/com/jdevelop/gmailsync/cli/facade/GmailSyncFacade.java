@@ -21,6 +21,7 @@ import com.jdevelop.gmailsync.core.email.adapter.JavaMailMessageAdapter;
 import com.jdevelop.gmailsync.core.email.adapter.MessageAdapterInterface;
 import com.jdevelop.gmailsync.core.email.adapter.exception.MessageAdapterException;
 import com.jdevelop.gmailsync.core.exception.handler.GenericExceptionHandler;
+import com.jdevelop.gmailsync.core.maildir.MailFolderChangedListener;
 import com.jdevelop.gmailsync.core.maildir.exception.MaildirReadException;
 import com.jdevelop.gmailsync.core.maildir.reader.MaildirReader;
 import com.jdevelop.gmailsync.core.maildir.resolver.MaildirResolver;
@@ -31,6 +32,7 @@ import com.jdevelop.gmailsync.core.storage.exception.StorageException;
 import com.jdevelop.gmailsync.core.transport.TransportInterface;
 import com.jdevelop.gmailsync.core.transport.exception.RemoteFolderException;
 import com.jdevelop.gmailsync.core.transport.exception.TransportException;
+import com.jdevelop.gmailsync.core.transport.folder.DefaultFolderManagement;
 import com.jdevelop.gmailsync.core.transport.imaps.GmailMessageUploader;
 
 public class GmailSyncFacade implements MailSyncingFacade {
@@ -62,9 +64,11 @@ public class GmailSyncFacade implements MailSyncingFacade {
         EmailDescriptorAdapterInterface<Message> descriptorAdapter = new JavaMailDescriptorAdapter();
         MessageAdapterInterface<Message> messageAdapter = new JavaMailMessageAdapter();
         TransportInterface transport = null;
+        MailFolderChangedListener mailFolderChangedListener = null;
         try {
-            transport = new GmailMessageUploader("[Gmail]/All Mail",
-                    credentials);
+            mailFolderChangedListener = (MailFolderChangedListener) (transport = new GmailMessageUploader(
+                    new DefaultFolderManagement(), "[Gmail]/All Mail",
+                    credentials));
             transport = new RetryingTransportImpl(5, 1000, transport);
         } catch (RemoteFolderException e) {
             GenericExceptionHandler.handleException(new FacadeException(
@@ -73,7 +77,8 @@ public class GmailSyncFacade implements MailSyncingFacade {
         for (File file : folders) {
             File[] maildirs = resolver.resolveMaildirs(file);
             try {
-                Iterator<Message> emailIterator = new MaildirReader(maildirs);
+                Iterator<Message> emailIterator = new MaildirReader(maildirs)
+                        .setFolderChangedListener(mailFolderChangedListener);
                 while (emailIterator.hasNext()) {
                     Message message = emailIterator.next();
                     EmailDescriptor emailDescriptor = null;
